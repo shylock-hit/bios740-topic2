@@ -5756,5 +5756,879 @@
         }
       }
     ]
+  },
+  {
+    "doc_id": "26714935",
+    "sent_id": "26714935_s13",
+    "text": "Thus, the epsilon4 allele of the APOE gene was significantly associated with both EO and LO distributions but with opposite effect, suggesting genetic heterogeneity.",
+    "entities": [
+      {
+        "id": "P1_10_25",
+        "type": "mutation",
+        "start": 10,
+        "end": 25,
+        "text": "epsilon4 allele"
+      },
+      {
+        "id": "P2_33_42",
+        "type": "gene",
+        "start": 33,
+        "end": 42,
+        "text": "APOE gene"
+      },
+      {
+        "id": "P3_82_84",
+        "type": "other",
+        "start": 82,
+        "end": 84,
+        "text": "EO"
+      },
+      {
+        "id": "P4_89_91",
+        "type": "other",
+        "start": 89,
+        "end": 91,
+        "text": "LO"
+      },
+      {
+        "id": "P5_143_164",
+        "type": "other",
+        "start": 143,
+        "end": 164,
+        "text": "genetic heterogeneity"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_10_25",
+          "type": "mutation",
+          "start": 10,
+          "end": 25,
+          "text": "epsilon4 allele"
+        },
+        "tail": {
+          "id": "P3_82_84",
+          "type": "other",
+          "start": 82,
+          "end": 84,
+          "text": "EO"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_10_25",
+          "type": "mutation",
+          "start": 10,
+          "end": 25,
+          "text": "epsilon4 allele"
+        },
+        "tail": {
+          "id": "P4_89_91",
+          "type": "other",
+          "start": 89,
+          "end": 91,
+          "text": "LO"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "30453234",
+    "sent_id": "30453234_s2",
+    "text": "Here, we report a neuroimaging study correlating hippocampal deformity with regional AD and transactive response DNA-binding protein of 43 kDA pathology burden.",
+    "entities": [
+      {
+        "id": "P1_18_36",
+        "type": "method",
+        "start": 18,
+        "end": 36,
+        "text": "neuroimaging study"
+      },
+      {
+        "id": "P2_49_70",
+        "type": "other",
+        "start": 49,
+        "end": 70,
+        "text": "hippocampal deformity"
+      },
+      {
+        "id": "P3_76_87",
+        "type": "disease",
+        "start": 76,
+        "end": 87,
+        "text": "regional AD"
+      },
+      {
+        "id": "P4_92_159",
+        "type": "disease",
+        "start": 92,
+        "end": 159,
+        "text": "transactive response DNA-binding protein of 43 kDA pathology burden"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_49_70",
+          "type": "other",
+          "start": 49,
+          "end": 70,
+          "text": "hippocampal deformity"
+        },
+        "tail": {
+          "id": "P3_76_87",
+          "type": "disease",
+          "start": 76,
+          "end": 87,
+          "text": "regional AD"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_49_70",
+          "type": "other",
+          "start": 49,
+          "end": 70,
+          "text": "hippocampal deformity"
+        },
+        "tail": {
+          "id": "P4_92_159",
+          "type": "disease",
+          "start": 92,
+          "end": 159,
+          "text": "transactive response DNA-binding protein of 43 kDA pathology burden"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "26738343",
+    "sent_id": "26738343_s4",
+    "text": "Adverse effects of anesthetics in the elderly have been reported since the 1950s; however, awareness of this old problem has recently gained inportance again.",
+    "entities": [
+      {
+        "id": "P1_19_30",
+        "type": "drug",
+        "start": 19,
+        "end": 30,
+        "text": "anesthetics"
+      },
+      {
+        "id": "P2_0_15",
+        "type": "other",
+        "start": 0,
+        "end": 15,
+        "text": "Adverse effects"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_0_15",
+          "type": "other",
+          "start": 0,
+          "end": 15,
+          "text": "Adverse effects"
+        },
+        "tail": {
+          "id": "P1_19_30",
+          "type": "drug",
+          "start": 19,
+          "end": 30,
+          "text": "anesthetics"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "28164773",
+    "sent_id": "28164773_s10",
+    "text": "CONCLUSION: Overall, our data demonstrates an apoE isoform-dependent effect on ADAM10 function and AbetaPP processing which may describe the elevated amyloid levels in the brains of AD subjects carrying the APOE4 allele.",
+    "entities": [
+      {
+        "id": "P1_46_50",
+        "type": "gene",
+        "start": 46,
+        "end": 50,
+        "text": "apoE"
+      },
+      {
+        "id": "P2_79_85",
+        "type": "gene",
+        "start": 79,
+        "end": 85,
+        "text": "ADAM10"
+      },
+      {
+        "id": "P3_99_106",
+        "type": "gene",
+        "start": 99,
+        "end": 106,
+        "text": "AbetaPP"
+      },
+      {
+        "id": "P4_150_157",
+        "type": "other",
+        "start": 150,
+        "end": 157,
+        "text": "amyloid"
+      },
+      {
+        "id": "P5_79_81",
+        "type": "disease",
+        "start": 79,
+        "end": 81,
+        "text": "AD"
+      },
+      {
+        "id": "P6_207_212",
+        "type": "mutation",
+        "start": 207,
+        "end": 212,
+        "text": "APOE4"
+      }
+    ],
+    "relations": [
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P6_207_212",
+          "type": "mutation",
+          "start": 207,
+          "end": 212,
+          "text": "APOE4"
+        },
+        "tail": {
+          "id": "P5_79_81",
+          "type": "disease",
+          "start": 79,
+          "end": 81,
+          "text": "AD"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_46_50",
+          "type": "gene",
+          "start": 46,
+          "end": 50,
+          "text": "apoE"
+        },
+        "tail": {
+          "id": "P2_79_85",
+          "type": "gene",
+          "start": 79,
+          "end": 85,
+          "text": "ADAM10"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_46_50",
+          "type": "gene",
+          "start": 46,
+          "end": 50,
+          "text": "apoE"
+        },
+        "tail": {
+          "id": "P3_99_106",
+          "type": "gene",
+          "start": 99,
+          "end": 106,
+          "text": "AbetaPP"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P6_207_212",
+          "type": "mutation",
+          "start": 207,
+          "end": 212,
+          "text": "APOE4"
+        },
+        "tail": {
+          "id": "P4_150_157",
+          "type": "other",
+          "start": 150,
+          "end": 157,
+          "text": "amyloid"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P4_150_157",
+          "type": "other",
+          "start": 150,
+          "end": 157,
+          "text": "amyloid"
+        },
+        "tail": {
+          "id": "P5_79_81",
+          "type": "disease",
+          "start": 79,
+          "end": 81,
+          "text": "AD"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "28164773",
+    "sent_id": "28164773_s1",
+    "text": "BACKGROUND: The APOE4 allele is the strongest genetic risk factor for Alzheimer's disease (AD).",
+    "entities": [
+      {
+        "id": "P1_16_28",
+        "type": "gene",
+        "start": 16,
+        "end": 28,
+        "text": "APOE4 allele"
+      },
+      {
+        "id": "P2_70_89",
+        "type": "disease",
+        "start": 70,
+        "end": 89,
+        "text": "Alzheimer's disease"
+      },
+      {
+        "id": "P3_91_93",
+        "type": "disease",
+        "start": 91,
+        "end": 93,
+        "text": "AD"
+      }
+    ],
+    "relations": [
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P1_16_28",
+          "type": "gene",
+          "start": 16,
+          "end": 28,
+          "text": "APOE4 allele"
+        },
+        "tail": {
+          "id": "P2_70_89",
+          "type": "disease",
+          "start": 70,
+          "end": 89,
+          "text": "Alzheimer's disease"
+        }
+      },
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P3_91_93",
+          "type": "disease",
+          "start": 91,
+          "end": 93,
+          "text": "AD"
+        },
+        "tail": {
+          "id": "P2_70_89",
+          "type": "disease",
+          "start": 70,
+          "end": 89,
+          "text": "Alzheimer's disease"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "27311611",
+    "sent_id": "27311611_s6",
+    "text": "Here, we found that SY treatment can improve spatial learning and memory ability, and reduce tau hyperphosphorylation at Ser199, Thr205, Ser396, Ser404 sites in APP/PS1 mice.",
+    "entities": [
+      {
+        "id": "P1_20_32",
+        "type": "drug",
+        "start": 20,
+        "end": 32,
+        "text": "SY treatment"
+      },
+      {
+        "id": "P2_45_80",
+        "type": "other",
+        "start": 45,
+        "end": 80,
+        "text": "spatial learning and memory ability"
+      },
+      {
+        "id": "P3_93_96",
+        "type": "gene",
+        "start": 93,
+        "end": 96,
+        "text": "tau"
+      },
+      {
+        "id": "P4_121_127",
+        "type": "other",
+        "start": 121,
+        "end": 127,
+        "text": "Ser199"
+      },
+      {
+        "id": "P5_129_135",
+        "type": "other",
+        "start": 129,
+        "end": 135,
+        "text": "Thr205"
+      },
+      {
+        "id": "P6_137_143",
+        "type": "other",
+        "start": 137,
+        "end": 143,
+        "text": "Ser396"
+      },
+      {
+        "id": "P7_145_151",
+        "type": "other",
+        "start": 145,
+        "end": 151,
+        "text": "Ser404"
+      },
+      {
+        "id": "P8_161_173",
+        "type": "other",
+        "start": 161,
+        "end": 173,
+        "text": "APP/PS1 mice"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_20_32",
+          "type": "drug",
+          "start": 20,
+          "end": 32,
+          "text": "SY treatment"
+        },
+        "tail": {
+          "id": "P2_45_80",
+          "type": "other",
+          "start": 45,
+          "end": 80,
+          "text": "spatial learning and memory ability"
+        }
+      },
+      {
+        "type": "treatment_target_for",
+        "head": {
+          "id": "P1_20_32",
+          "type": "drug",
+          "start": 20,
+          "end": 32,
+          "text": "SY treatment"
+        },
+        "tail": {
+          "id": "P3_93_96",
+          "type": "gene",
+          "start": 93,
+          "end": 96,
+          "text": "tau"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "32925067",
+    "sent_id": "32925067_s6",
+    "text": "Mann-Whitney U tests, Spearman correlations and regression models were conducted.",
+    "entities": [
+      {
+        "id": "P1_0_20",
+        "type": "method",
+        "start": 0,
+        "end": 20,
+        "text": "Mann-Whitney U tests"
+      },
+      {
+        "id": "P2_22_43",
+        "type": "method",
+        "start": 22,
+        "end": 43,
+        "text": "Spearman correlations"
+      },
+      {
+        "id": "P3_48_65",
+        "type": "method",
+        "start": 48,
+        "end": 65,
+        "text": "regression models"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "30727887",
+    "sent_id": "30727887_s6",
+    "text": "In vivo, the treatment with ANNP/siRNA significantly improves the spatial learning and memory of APP/PS1 double transgenic mice, as determined by mean escape latency, times of crossing the platform area during the 60 s swimming and the percentage of the distance in the target quadrant.",
+    "entities": [
+      {
+        "id": "P1_28_38",
+        "type": "drug",
+        "start": 28,
+        "end": 38,
+        "text": "ANNP/siRNA"
+      },
+      {
+        "id": "P2_66_93",
+        "type": "other",
+        "start": 66,
+        "end": 93,
+        "text": "spatial learning and memory"
+      },
+      {
+        "id": "P3_97_100",
+        "type": "gene",
+        "start": 97,
+        "end": 100,
+        "text": "APP"
+      },
+      {
+        "id": "P4_101_104",
+        "type": "gene",
+        "start": 101,
+        "end": 104,
+        "text": "PS1"
+      },
+      {
+        "id": "P5_97_127",
+        "type": "other",
+        "start": 97,
+        "end": 127,
+        "text": "APP/PS1 double transgenic mice"
+      },
+      {
+        "id": "P6_146_165",
+        "type": "method",
+        "start": 146,
+        "end": 165,
+        "text": "mean escape latency"
+      },
+      {
+        "id": "P7_167_202",
+        "type": "method",
+        "start": 167,
+        "end": 202,
+        "text": "times of crossing the platform area"
+      },
+      {
+        "id": "P8_236_285",
+        "type": "method",
+        "start": 236,
+        "end": 285,
+        "text": "percentage of the distance in the target quadrant"
+      }
+    ],
+    "relations": [
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P1_28_38",
+          "type": "drug",
+          "start": 28,
+          "end": 38,
+          "text": "ANNP/siRNA"
+        },
+        "tail": {
+          "id": "P5_97_127",
+          "type": "other",
+          "start": 97,
+          "end": 127,
+          "text": "APP/PS1 double transgenic mice"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_28_38",
+          "type": "drug",
+          "start": 28,
+          "end": 38,
+          "text": "ANNP/siRNA"
+        },
+        "tail": {
+          "id": "P2_66_93",
+          "type": "other",
+          "start": 66,
+          "end": 93,
+          "text": "spatial learning and memory"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P6_146_165",
+          "type": "method",
+          "start": 146,
+          "end": 165,
+          "text": "mean escape latency"
+        },
+        "tail": {
+          "id": "P2_66_93",
+          "type": "other",
+          "start": 66,
+          "end": 93,
+          "text": "spatial learning and memory"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P7_167_202",
+          "type": "method",
+          "start": 167,
+          "end": 202,
+          "text": "times of crossing the platform area"
+        },
+        "tail": {
+          "id": "P2_66_93",
+          "type": "other",
+          "start": 66,
+          "end": 93,
+          "text": "spatial learning and memory"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P8_236_285",
+          "type": "method",
+          "start": 236,
+          "end": 285,
+          "text": "percentage of the distance in the target quadrant"
+        },
+        "tail": {
+          "id": "P2_66_93",
+          "type": "other",
+          "start": 66,
+          "end": 93,
+          "text": "spatial learning and memory"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P3_97_100",
+          "type": "gene",
+          "start": 97,
+          "end": 100,
+          "text": "APP"
+        },
+        "tail": {
+          "id": "P5_97_127",
+          "type": "other",
+          "start": 97,
+          "end": 127,
+          "text": "APP/PS1 double transgenic mice"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P4_101_104",
+          "type": "gene",
+          "start": 101,
+          "end": 104,
+          "text": "PS1"
+        },
+        "tail": {
+          "id": "P5_97_127",
+          "type": "other",
+          "start": 97,
+          "end": 127,
+          "text": "APP/PS1 double transgenic mice"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "30704519",
+    "sent_id": "30704519_s7",
+    "text": "Tau regions with unadjusted correlations of p <= 0.006 (Bonferroni correction) with FAQ were used to evaluate the cross-sectional association between FAQ (dependent variable) and regional cerebral tau deposition, amyloid burden, and tau-amyloid interaction in separate general linear regression models with backward elimination.",
+    "entities": [
+      {
+        "id": "P1_0_3",
+        "type": "gene",
+        "start": 0,
+        "end": 3,
+        "text": "Tau"
+      },
+      {
+        "id": "P2_84_87",
+        "type": "method",
+        "start": 84,
+        "end": 87,
+        "text": "FAQ"
+      },
+      {
+        "id": "P3_56_77",
+        "type": "method",
+        "start": 56,
+        "end": 77,
+        "text": "Bonferroni correction"
+      },
+      {
+        "id": "P4_213_220",
+        "type": "gene",
+        "start": 213,
+        "end": 220,
+        "text": "amyloid"
+      },
+      {
+        "id": "P5_269_301",
+        "type": "method",
+        "start": 269,
+        "end": 301,
+        "text": "general linear regression models"
+      },
+      {
+        "id": "P6_307_327",
+        "type": "method",
+        "start": 307,
+        "end": 327,
+        "text": "backward elimination"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_84_87",
+          "type": "method",
+          "start": 84,
+          "end": 87,
+          "text": "FAQ"
+        },
+        "tail": {
+          "id": "P1_0_3",
+          "type": "gene",
+          "start": 0,
+          "end": 3,
+          "text": "Tau"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_84_87",
+          "type": "method",
+          "start": 84,
+          "end": 87,
+          "text": "FAQ"
+        },
+        "tail": {
+          "id": "P4_213_220",
+          "type": "gene",
+          "start": 213,
+          "end": 220,
+          "text": "amyloid"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "29473731",
+    "sent_id": "29473731_s7",
+    "text": "The two compounds inhibit acetylcholinesterase, butyrylcholinesterase, and beta-secretase enzymes in high- to sub-micromolar range.",
+    "entities": [
+      {
+        "id": "P1_8_17",
+        "type": "drug",
+        "start": 8,
+        "end": 17,
+        "text": "compounds"
+      },
+      {
+        "id": "P2_26_46",
+        "type": "gene",
+        "start": 26,
+        "end": 46,
+        "text": "acetylcholinesterase"
+      },
+      {
+        "id": "P3_48_69",
+        "type": "gene",
+        "start": 48,
+        "end": 69,
+        "text": "butyrylcholinesterase"
+      },
+      {
+        "id": "P4_75_89",
+        "type": "gene",
+        "start": 75,
+        "end": 89,
+        "text": "beta-secretase"
+      }
+    ],
+    "relations": [
+      {
+        "type": "treatment_target_for",
+        "head": {
+          "id": "P1_8_17",
+          "type": "drug",
+          "start": 8,
+          "end": 17,
+          "text": "compounds"
+        },
+        "tail": {
+          "id": "P2_26_46",
+          "type": "gene",
+          "start": 26,
+          "end": 46,
+          "text": "acetylcholinesterase"
+        }
+      },
+      {
+        "type": "treatment_target_for",
+        "head": {
+          "id": "P1_8_17",
+          "type": "drug",
+          "start": 8,
+          "end": 17,
+          "text": "compounds"
+        },
+        "tail": {
+          "id": "P3_48_69",
+          "type": "gene",
+          "start": 48,
+          "end": 69,
+          "text": "butyrylcholinesterase"
+        }
+      },
+      {
+        "type": "treatment_target_for",
+        "head": {
+          "id": "P1_8_17",
+          "type": "drug",
+          "start": 8,
+          "end": 17,
+          "text": "compounds"
+        },
+        "tail": {
+          "id": "P4_75_89",
+          "type": "gene",
+          "start": 75,
+          "end": 89,
+          "text": "beta-secretase"
+        }
+      }
+    ]
   }
 ]
