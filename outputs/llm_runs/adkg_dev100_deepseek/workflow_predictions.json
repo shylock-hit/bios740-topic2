@@ -1,0 +1,576 @@
+[
+  {
+    "doc_id": "30569876",
+    "sent_id": "30569876_s8",
+    "text": "The absence of DAPK1 promotes efficient learning and better memory in mice and prevents the development of AD by acting on many key proteins including Pin1 and its downstream targets tau and APP.",
+    "entities": [
+      {
+        "id": "P1_15_20",
+        "type": "gene",
+        "start": 15,
+        "end": 20,
+        "text": "DAPK1"
+      },
+      {
+        "id": "P2_107_109",
+        "type": "disease",
+        "start": 107,
+        "end": 109,
+        "text": "AD"
+      },
+      {
+        "id": "P3_151_155",
+        "type": "gene",
+        "start": 151,
+        "end": 155,
+        "text": "Pin1"
+      },
+      {
+        "id": "P4_183_186",
+        "type": "gene",
+        "start": 183,
+        "end": 186,
+        "text": "tau"
+      },
+      {
+        "id": "P5_191_194",
+        "type": "gene",
+        "start": 191,
+        "end": 194,
+        "text": "APP"
+      }
+    ],
+    "relations": [
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P1_15_20",
+          "type": "gene",
+          "start": 15,
+          "end": 20,
+          "text": "DAPK1"
+        },
+        "tail": {
+          "id": "P2_107_109",
+          "type": "disease",
+          "start": 107,
+          "end": 109,
+          "text": "AD"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_15_20",
+          "type": "gene",
+          "start": 15,
+          "end": 20,
+          "text": "DAPK1"
+        },
+        "tail": {
+          "id": "P3_151_155",
+          "type": "gene",
+          "start": 151,
+          "end": 155,
+          "text": "Pin1"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_15_20",
+          "type": "gene",
+          "start": 15,
+          "end": 20,
+          "text": "DAPK1"
+        },
+        "tail": {
+          "id": "P4_183_186",
+          "type": "gene",
+          "start": 183,
+          "end": 186,
+          "text": "tau"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_15_20",
+          "type": "gene",
+          "start": 15,
+          "end": 20,
+          "text": "DAPK1"
+        },
+        "tail": {
+          "id": "P5_191_194",
+          "type": "gene",
+          "start": 191,
+          "end": 194,
+          "text": "APP"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_151_155",
+          "type": "gene",
+          "start": 151,
+          "end": 155,
+          "text": "Pin1"
+        },
+        "tail": {
+          "id": "P4_183_186",
+          "type": "gene",
+          "start": 183,
+          "end": 186,
+          "text": "tau"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_151_155",
+          "type": "gene",
+          "start": 151,
+          "end": 155,
+          "text": "Pin1"
+        },
+        "tail": {
+          "id": "P5_191_194",
+          "type": "gene",
+          "start": 191,
+          "end": 194,
+          "text": "APP"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "26737239",
+    "sent_id": "26737239_s2",
+    "text": "Among all the biomarkers proposed in the literature, a measure of the hippocampal atrophy via Magnetic Resonance Imaging (MRI) seems to be one of the most reliable.",
+    "entities": [
+      {
+        "id": "P1_14_24",
+        "type": "other",
+        "start": 14,
+        "end": 24,
+        "text": "biomarkers"
+      },
+      {
+        "id": "P2_70_89",
+        "type": "disease",
+        "start": 70,
+        "end": 89,
+        "text": "hippocampal atrophy"
+      },
+      {
+        "id": "P3_94_120",
+        "type": "method",
+        "start": 94,
+        "end": 120,
+        "text": "Magnetic Resonance Imaging"
+      },
+      {
+        "id": "P4_122_125",
+        "type": "method",
+        "start": 122,
+        "end": 125,
+        "text": "MRI"
+      }
+    ],
+    "relations": [
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P4_122_125",
+          "type": "method",
+          "start": 122,
+          "end": 125,
+          "text": "MRI"
+        },
+        "tail": {
+          "id": "P3_94_120",
+          "type": "method",
+          "start": 94,
+          "end": 120,
+          "text": "Magnetic Resonance Imaging"
+        }
+      },
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P3_94_120",
+          "type": "method",
+          "start": 94,
+          "end": 120,
+          "text": "Magnetic Resonance Imaging"
+        },
+        "tail": {
+          "id": "P2_70_89",
+          "type": "disease",
+          "start": 70,
+          "end": 89,
+          "text": "hippocampal atrophy"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "30704519",
+    "sent_id": "30704519_s3",
+    "text": "OBJECTIVE: To investigate the association between IADL impairment and in vivo regional cerebral tau and cortical amyloid deposition across clinically normal (CN) elderly, MCI, and AD dementia.",
+    "entities": [
+      {
+        "id": "P1_50_65",
+        "type": "disease",
+        "start": 50,
+        "end": 65,
+        "text": "IADL impairment"
+      },
+      {
+        "id": "P2_96_99",
+        "type": "other",
+        "start": 96,
+        "end": 99,
+        "text": "tau"
+      },
+      {
+        "id": "P3_104_131",
+        "type": "other",
+        "start": 104,
+        "end": 131,
+        "text": "cortical amyloid deposition"
+      },
+      {
+        "id": "P4_171_174",
+        "type": "disease",
+        "start": 171,
+        "end": 174,
+        "text": "MCI"
+      },
+      {
+        "id": "P5_180_191",
+        "type": "disease",
+        "start": 180,
+        "end": 191,
+        "text": "AD dementia"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_50_65",
+          "type": "disease",
+          "start": 50,
+          "end": 65,
+          "text": "IADL impairment"
+        },
+        "tail": {
+          "id": "P2_96_99",
+          "type": "other",
+          "start": 96,
+          "end": 99,
+          "text": "tau"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_50_65",
+          "type": "disease",
+          "start": 50,
+          "end": 65,
+          "text": "IADL impairment"
+        },
+        "tail": {
+          "id": "P3_104_131",
+          "type": "other",
+          "start": 104,
+          "end": 131,
+          "text": "cortical amyloid deposition"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "29992181",
+    "sent_id": "29992181_s4",
+    "text": "In this review, we discuss the interactions between chronic stress and AD pathology, overview the roles played by microglia in AD, especially focusing on chronic stress as an environmental risk factor modulating their function, and present recently-described microglial phenotypes associated with neuroprotection in AD.",
+    "entities": [
+      {
+        "id": "P1_52_66",
+        "type": "other",
+        "start": 52,
+        "end": 66,
+        "text": "chronic stress"
+      },
+      {
+        "id": "P2_71_73",
+        "type": "disease",
+        "start": 71,
+        "end": 73,
+        "text": "AD"
+      },
+      {
+        "id": "P3_114_123",
+        "type": "other",
+        "start": 114,
+        "end": 123,
+        "text": "microglia"
+      },
+      {
+        "id": "P4_259_280",
+        "type": "other",
+        "start": 259,
+        "end": 280,
+        "text": "microglial phenotypes"
+      },
+      {
+        "id": "P5_297_312",
+        "type": "other",
+        "start": 297,
+        "end": 312,
+        "text": "neuroprotection"
+      }
+    ],
+    "relations": [
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P1_52_66",
+          "type": "other",
+          "start": 52,
+          "end": 66,
+          "text": "chronic stress"
+        },
+        "tail": {
+          "id": "P2_71_73",
+          "type": "disease",
+          "start": 71,
+          "end": 73,
+          "text": "AD"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_114_123",
+          "type": "other",
+          "start": 114,
+          "end": 123,
+          "text": "microglia"
+        },
+        "tail": {
+          "id": "P2_71_73",
+          "type": "disease",
+          "start": 71,
+          "end": 73,
+          "text": "AD"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P4_259_280",
+          "type": "other",
+          "start": 259,
+          "end": 280,
+          "text": "microglial phenotypes"
+        },
+        "tail": {
+          "id": "P5_297_312",
+          "type": "other",
+          "start": 297,
+          "end": 312,
+          "text": "neuroprotection"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P5_297_312",
+          "type": "other",
+          "start": 297,
+          "end": 312,
+          "text": "neuroprotection"
+        },
+        "tail": {
+          "id": "P2_71_73",
+          "type": "disease",
+          "start": 71,
+          "end": 73,
+          "text": "AD"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "29091313",
+    "sent_id": "29091313_s12",
+    "text": "Increased gene expression level of GLP-1 receptor and NGF may underlie the beneficial action of exenatide in STZ/NA-induced diabetes.",
+    "entities": [
+      {
+        "id": "P1_35_49",
+        "type": "gene",
+        "start": 35,
+        "end": 49,
+        "text": "GLP-1 receptor"
+      },
+      {
+        "id": "P2_54_57",
+        "type": "gene",
+        "start": 54,
+        "end": 57,
+        "text": "NGF"
+      },
+      {
+        "id": "P3_96_105",
+        "type": "drug",
+        "start": 96,
+        "end": 105,
+        "text": "exenatide"
+      },
+      {
+        "id": "P4_109_132",
+        "type": "disease",
+        "start": 109,
+        "end": 132,
+        "text": "STZ/NA-induced diabetes"
+      }
+    ],
+    "relations": [
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P3_96_105",
+          "type": "drug",
+          "start": 96,
+          "end": 105,
+          "text": "exenatide"
+        },
+        "tail": {
+          "id": "P4_109_132",
+          "type": "disease",
+          "start": 109,
+          "end": 132,
+          "text": "STZ/NA-induced diabetes"
+        }
+      },
+      {
+        "type": "treatment_target_for",
+        "head": {
+          "id": "P3_96_105",
+          "type": "drug",
+          "start": 96,
+          "end": 105,
+          "text": "exenatide"
+        },
+        "tail": {
+          "id": "P1_35_49",
+          "type": "gene",
+          "start": 35,
+          "end": 49,
+          "text": "GLP-1 receptor"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_35_49",
+          "type": "gene",
+          "start": 35,
+          "end": 49,
+          "text": "GLP-1 receptor"
+        },
+        "tail": {
+          "id": "P4_109_132",
+          "type": "disease",
+          "start": 109,
+          "end": 132,
+          "text": "STZ/NA-induced diabetes"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_54_57",
+          "type": "gene",
+          "start": 54,
+          "end": 57,
+          "text": "NGF"
+        },
+        "tail": {
+          "id": "P4_109_132",
+          "type": "disease",
+          "start": 109,
+          "end": 132,
+          "text": "STZ/NA-induced diabetes"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "33498392",
+    "sent_id": "33498392_s3",
+    "text": "Memantine, a NMDA receptor antagonist, represents the fourth and a combination of donepezil and memantine the fifth treatment option.",
+    "entities": [
+      {
+        "id": "P1_0_9",
+        "type": "drug",
+        "start": 0,
+        "end": 9,
+        "text": "Memantine"
+      },
+      {
+        "id": "P2_82_91",
+        "type": "drug",
+        "start": 82,
+        "end": 91,
+        "text": "donepezil"
+      },
+      {
+        "id": "P3_13_26",
+        "type": "other",
+        "start": 13,
+        "end": 26,
+        "text": "NMDA receptor"
+      }
+    ],
+    "relations": [
+      {
+        "type": "treatment_target_for",
+        "head": {
+          "id": "P1_0_9",
+          "type": "drug",
+          "start": 0,
+          "end": 9,
+          "text": "Memantine"
+        },
+        "tail": {
+          "id": "P3_13_26",
+          "type": "other",
+          "start": 13,
+          "end": 26,
+          "text": "NMDA receptor"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "29276649",
+    "sent_id": "29276649_s10",
+    "text": "This will help guide the development of evidence-based, supportive interventions that improve communication about the needs of ET patients and those who are close to them.",
+    "entities": [
+      {
+        "id": "P1_127_129",
+        "type": "disease",
+        "start": 127,
+        "end": 129,
+        "text": "ET"
+      }
+    ],
+    "relations": []
+  }
+]

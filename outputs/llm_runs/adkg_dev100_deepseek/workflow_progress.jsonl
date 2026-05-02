@@ -1,0 +1,7 @@
+{"index": 1, "sent_id": "30569876_s8", "latency_seconds": 40.339393916976405, "validation_error_count": 0, "status": "ok", "failure": null}
+{"index": 2, "sent_id": "26737239_s2", "latency_seconds": 28.218982084013987, "validation_error_count": 0, "status": "ok", "failure": null}
+{"index": 3, "sent_id": "30704519_s3", "latency_seconds": 44.26264195799013, "validation_error_count": 0, "status": "ok", "failure": null}
+{"index": 4, "sent_id": "29992181_s4", "latency_seconds": 55.53903245800757, "validation_error_count": 0, "status": "ok", "failure": null}
+{"index": 5, "sent_id": "29091313_s12", "latency_seconds": 42.96917525000754, "validation_error_count": 0, "status": "ok", "failure": null}
+{"index": 6, "sent_id": "33498392_s3", "latency_seconds": 36.8899582909944, "validation_error_count": 0, "status": "ok", "failure": null}
+{"index": 7, "sent_id": "29276649_s10", "latency_seconds": 12.268873875000281, "validation_error_count": 0, "status": "ok", "failure": null}

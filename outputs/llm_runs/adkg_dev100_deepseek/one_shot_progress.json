@@ -1,0 +1,8 @@
+{
+  "mode": "one_shot",
+  "processed": 100,
+  "total": 100,
+  "avg_latency_seconds": 15.082865056671144,
+  "validation_error_count": 0,
+  "last_sent_id": "28323826_s9"
+}

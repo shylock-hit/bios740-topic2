@@ -1,0 +1,4 @@
+index,sent_id,latency_seconds,validation_error_count,status,failure
+1,30569876_s8,40.339393916976405,0,ok,
+2,26737239_s2,28.218982084013987,0,ok,
+3,30704519_s3,44.26264195799013,0,ok,

@@ -1,0 +1,10 @@
+{
+  "mode": "workflow",
+  "processed": 7,
+  "total": 10,
+  "avg_latency_seconds": 37.212579690427184,
+  "validation_error_count": 0,
+  "parse_success_count": 7,
+  "failure_count": 0,
+  "last_sent_id": "29276649_s10"
+}
