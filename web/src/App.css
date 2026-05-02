@@ -319,6 +319,35 @@ button.accent {
   stroke-dasharray: 4 4;
 }
 
+.trace-grid-vertical {
+  stroke: rgba(255, 255, 255, 0.06);
+}
+
+.trace-axis-line {
+  stroke: rgba(255, 255, 255, 0.22);
+  stroke-width: 1;
+}
+
+.trace-axis-label {
+  fill: #91a7c0;
+  font-size: 11px;
+}
+
+.trace-point-hit {
+  fill: transparent;
+  cursor: pointer;
+}
+
+.trace-tooltip-box {
+  fill: rgba(8, 12, 18, 0.94);
+  stroke: rgba(255, 255, 255, 0.12);
+}
+
+.trace-tooltip-text {
+  fill: #e8f0f8;
+  font-size: 11px;
+}
+
 .trace-legend {
   display: flex;
   gap: 18px;

@@ -12,8 +12,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from bios740_topic2.data_io import load_dataset
 
 
+def infer_dataset_name(path: str) -> str:
+    stem = Path(path).stem.strip()
+    return stem.upper() if stem else "UNKNOWN"
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Sample ADKG dev sentences for LLM annotation.")
+    parser = argparse.ArgumentParser(description="Sample dev sentences for LLM annotation.")
     parser.add_argument("--input", default="data/raw/ADKG.json")
     parser.add_argument("--output", default="outputs/llm_runs/adkg_dev_sample.json")
     parser.add_argument("--count", type=int, default=100)
@@ -29,7 +34,7 @@ def main() -> None:
     sampled = rng.sample(dev, sample_count)
 
     output = {
-        "dataset": "ADKG",
+        "dataset": infer_dataset_name(args.input),
         "split": "dev",
         "seed": args.seed,
         "count": sample_count,

@@ -66,6 +66,7 @@ export const messages = {
       lastJob: 'Last Job',
       runDir: 'Run Dir',
       autoTemplateHint: 'Template fields are editable after auto-fill.',
+      runGuideTitle: 'Recommended order',
     },
     hero: {
       eyebrow: 'Agentic Annotation Workflow',
@@ -81,8 +82,16 @@ export const messages = {
       generateArtifacts: 'Generate Artifacts',
       analyzeErrors: 'Analyze Errors',
     },
+    guide: {
+      probeProvider: 'Check whether the configured model API is reachable.',
+      sampleData: 'Generate the dev sample for the current dataset and sample size.',
+      runExperiment: 'Launch the one-shot / workflow experiment.',
+      generateSummary: 'Build the markdown summary from metrics.json.',
+      generateArtifacts: 'Render report-ready charts and artifact files.',
+      analyzeErrors: 'Generate the error analysis markdown.',
+    },
     providerOptions: {
-      openaiCompat: 'OpenAI Compatible',
+      openaiCompat: 'DeepSeek (OpenAI-compatible)',
       mock: 'Mock',
     },
   },
@@ -144,6 +153,7 @@ export const messages = {
       lastJob: '最近任务',
       runDir: '运行目录',
       autoTemplateHint: '模板自动填充后仍可手动修改。',
+      runGuideTitle: '推荐顺序',
     },
     hero: {
       eyebrow: '智能体标注工作流',
@@ -158,8 +168,16 @@ export const messages = {
       generateArtifacts: '生成图表',
       analyzeErrors: '分析错误',
     },
+    guide: {
+      probeProvider: '先检查当前模型接口是否可用。',
+      sampleData: '按当前数据集和采样条数生成 dev 样本。',
+      runExperiment: '启动 one-shot / workflow 实验。',
+      generateSummary: '根据 metrics.json 生成摘要表。',
+      generateArtifacts: '生成图表等可引用产物。',
+      analyzeErrors: '生成错误分析文档。',
+    },
     providerOptions: {
-      openaiCompat: 'OpenAI 兼容接口',
+      openaiCompat: 'DeepSeek（OpenAI 兼容协议）',
       mock: 'Mock',
     },
   },

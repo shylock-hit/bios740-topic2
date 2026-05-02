@@ -1,0 +1,10 @@
+{
+  "mode": "one_shot",
+  "processed": 48,
+  "total": 100,
+  "avg_latency_seconds": 18.025953588500972,
+  "validation_error_count": 0,
+  "parse_success_count": 48,
+  "failure_count": 0,
+  "last_sent_id": "26714935_s2"
+}

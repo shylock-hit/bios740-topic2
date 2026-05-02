@@ -70,7 +70,7 @@ def _percentile(values: list[float], percentile: float) -> float:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run LLM annotation experiment on sampled ADKG data.")
-    parser.add_argument("--sample", required=True, help="Sample JSON produced by sample_adkg_dev_for_llm.py")
+    parser.add_argument("--sample", required=True, help="Sample JSON produced by sample_dev_for_llm.py")
     parser.add_argument("--output-dir", default="outputs/llm_runs/mock_run")
     parser.add_argument("--mode", choices=("one_shot", "workflow", "both"), default="both")
     parser.add_argument("--provider", choices=("mock", "openai_compat"), default="mock")

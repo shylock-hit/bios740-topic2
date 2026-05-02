@@ -572,5 +572,313 @@
       }
     ],
     "relations": []
+  },
+  {
+    "doc_id": "31201950",
+    "sent_id": "31201950_s8",
+    "text": "These findings are potentially important for Alzheimer's disease risk prediction and development of novel therapeutic approaches.",
+    "entities": [
+      {
+        "id": "P1_45_64",
+        "type": "disease",
+        "start": 45,
+        "end": 64,
+        "text": "Alzheimer's disease"
+      },
+      {
+        "id": "P2_65_80",
+        "type": "method",
+        "start": 65,
+        "end": 80,
+        "text": "risk prediction"
+      },
+      {
+        "id": "P3_100_128",
+        "type": "other",
+        "start": 100,
+        "end": 128,
+        "text": "novel therapeutic approaches"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_65_80",
+          "type": "method",
+          "start": 65,
+          "end": 80,
+          "text": "risk prediction"
+        },
+        "tail": {
+          "id": "P1_45_64",
+          "type": "disease",
+          "start": 45,
+          "end": 64,
+          "text": "Alzheimer's disease"
+        }
+      },
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P3_100_128",
+          "type": "other",
+          "start": 100,
+          "end": 128,
+          "text": "novel therapeutic approaches"
+        },
+        "tail": {
+          "id": "P1_45_64",
+          "type": "disease",
+          "start": 45,
+          "end": 64,
+          "text": "Alzheimer's disease"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "28285880",
+    "sent_id": "28285880_s2",
+    "text": "Amyloid precursor protein (APP) processing and the accumulation of APP-derived amyloid beta (Abeta) peptides are key processes in Alzheimer's disease (AD).",
+    "entities": [
+      {
+        "id": "P1_0_25",
+        "type": "gene",
+        "start": 0,
+        "end": 25,
+        "text": "Amyloid precursor protein"
+      },
+      {
+        "id": "P2_27_30",
+        "type": "gene",
+        "start": 27,
+        "end": 30,
+        "text": "APP"
+      },
+      {
+        "id": "P3_79_91",
+        "type": "gene",
+        "start": 79,
+        "end": 91,
+        "text": "amyloid beta"
+      },
+      {
+        "id": "P4_93_98",
+        "type": "gene",
+        "start": 93,
+        "end": 98,
+        "text": "Abeta"
+      },
+      {
+        "id": "P5_130_149",
+        "type": "disease",
+        "start": 130,
+        "end": 149,
+        "text": "Alzheimer's disease"
+      },
+      {
+        "id": "P6_151_153",
+        "type": "disease",
+        "start": 151,
+        "end": 153,
+        "text": "AD"
+      }
+    ],
+    "relations": [
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P1_0_25",
+          "type": "gene",
+          "start": 0,
+          "end": 25,
+          "text": "Amyloid precursor protein"
+        },
+        "tail": {
+          "id": "P2_27_30",
+          "type": "gene",
+          "start": 27,
+          "end": 30,
+          "text": "APP"
+        }
+      },
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P3_79_91",
+          "type": "gene",
+          "start": 79,
+          "end": 91,
+          "text": "amyloid beta"
+        },
+        "tail": {
+          "id": "P4_93_98",
+          "type": "gene",
+          "start": 93,
+          "end": 98,
+          "text": "Abeta"
+        }
+      },
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P5_130_149",
+          "type": "disease",
+          "start": 130,
+          "end": 149,
+          "text": "Alzheimer's disease"
+        },
+        "tail": {
+          "id": "P6_151_153",
+          "type": "disease",
+          "start": 151,
+          "end": 153,
+          "text": "AD"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_0_25",
+          "type": "gene",
+          "start": 0,
+          "end": 25,
+          "text": "Amyloid precursor protein"
+        },
+        "tail": {
+          "id": "P5_130_149",
+          "type": "disease",
+          "start": 130,
+          "end": 149,
+          "text": "Alzheimer's disease"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_27_30",
+          "type": "gene",
+          "start": 27,
+          "end": 30,
+          "text": "APP"
+        },
+        "tail": {
+          "id": "P5_130_149",
+          "type": "disease",
+          "start": 130,
+          "end": 149,
+          "text": "Alzheimer's disease"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_79_91",
+          "type": "gene",
+          "start": 79,
+          "end": 91,
+          "text": "amyloid beta"
+        },
+        "tail": {
+          "id": "P5_130_149",
+          "type": "disease",
+          "start": 130,
+          "end": 149,
+          "text": "Alzheimer's disease"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P4_93_98",
+          "type": "gene",
+          "start": 93,
+          "end": 98,
+          "text": "Abeta"
+        },
+        "tail": {
+          "id": "P5_130_149",
+          "type": "disease",
+          "start": 130,
+          "end": 149,
+          "text": "Alzheimer's disease"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_0_25",
+          "type": "gene",
+          "start": 0,
+          "end": 25,
+          "text": "Amyloid precursor protein"
+        },
+        "tail": {
+          "id": "P3_79_91",
+          "type": "gene",
+          "start": 79,
+          "end": 91,
+          "text": "amyloid beta"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_27_30",
+          "type": "gene",
+          "start": 27,
+          "end": 30,
+          "text": "APP"
+        },
+        "tail": {
+          "id": "P4_93_98",
+          "type": "gene",
+          "start": 93,
+          "end": 98,
+          "text": "Abeta"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "26254232",
+    "sent_id": "26254232_s0",
+    "text": "Microglia in Alzheimer's disease: A multifaceted relationship.",
+    "entities": [
+      {
+        "id": "P1_0_9",
+        "type": "other",
+        "start": 0,
+        "end": 9,
+        "text": "Microglia"
+      },
+      {
+        "id": "P2_13_32",
+        "type": "disease",
+        "start": 13,
+        "end": 32,
+        "text": "Alzheimer's disease"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_0_9",
+          "type": "other",
+          "start": 0,
+          "end": 9,
+          "text": "Microglia"
+        },
+        "tail": {
+          "id": "P2_13_32",
+          "type": "disease",
+          "start": 13,
+          "end": 32,
+          "text": "Alzheimer's disease"
+        }
+      }
+    ]
   }
 ]

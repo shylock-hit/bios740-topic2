@@ -59,7 +59,7 @@ def sample_data(request: SampleRequest) -> dict[str, str]:
     result = _run_python(
         [
             "python",
-            "scripts/sample_adkg_dev_for_llm.py",
+            "scripts/sample_dev_for_llm.py",
             "--input",
             request.input_path,
             "--output",
