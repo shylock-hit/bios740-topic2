@@ -29,7 +29,7 @@
 ### Task 2: Build fixed-sample script for ADKG dev
 
 **Files:**
-- Create: `scripts/sample_adkg_dev_for_llm.py`
+- Create: `scripts/sample_dev_for_llm.py`
 - Create: `tests/test_llm_sampling.py`
 
 **Steps:**

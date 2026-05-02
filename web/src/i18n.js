@@ -81,6 +81,21 @@ export const messages = {
       rawJobs: 'Raw job log',
       rawProbe: 'Raw probe payload',
       etaSource: 'ETA source',
+      baselineTraining: 'Baseline Training',
+      preset: 'Preset',
+      epochs: 'Epochs',
+      batchSize: 'Batch Size',
+      runLabel: 'Run Label',
+      startTraining: 'Start Training',
+      trainingStatus: 'Training Status',
+      gpuSummary: 'GPU Summary',
+      logTail: 'Log Tail',
+      phase: 'Phase',
+      currentEpoch: 'Current Epoch',
+      trainDatasetHint: 'Use this on AutoDL / GPU environments.',
+      gpuName: 'GPU',
+      gpuMemory: 'GPU Memory',
+      gpuUtil: 'GPU Util',
     },
     hero: {
       eyebrow: 'Agentic Annotation Workflow',
@@ -95,6 +110,7 @@ export const messages = {
       generateSummary: 'Generate Summary',
       generateArtifacts: 'Generate Artifacts',
       analyzeErrors: 'Analyze Errors',
+      startTraining: 'Start Training',
     },
     guide: {
       probeProvider: 'Check whether the configured model API is reachable.',
@@ -107,6 +123,10 @@ export const messages = {
     providerOptions: {
       openaiCompat: 'DeepSeek (OpenAI-compatible)',
       mock: 'Mock',
+    },
+    training: {
+      smoke: 'smoke',
+      full: 'full',
     },
   },
   zh: {
@@ -182,6 +202,21 @@ export const messages = {
       rawJobs: '原始任务日志',
       rawProbe: '原始探测结果',
       etaSource: 'ETA 来源',
+      baselineTraining: 'Baseline 训练',
+      preset: '预设',
+      epochs: '训练轮数',
+      batchSize: 'Batch Size',
+      runLabel: '运行标签',
+      startTraining: '启动训练',
+      trainingStatus: '训练状态',
+      gpuSummary: 'GPU 摘要',
+      logTail: '日志尾部',
+      phase: '阶段',
+      currentEpoch: '当前 Epoch',
+      trainDatasetHint: '这一块建议在 AutoDL / GPU 环境使用。',
+      gpuName: '显卡',
+      gpuMemory: '显存',
+      gpuUtil: 'GPU 利用率',
     },
     hero: {
       eyebrow: '智能体标注工作流',
@@ -195,6 +230,7 @@ export const messages = {
       generateSummary: '生成摘要',
       generateArtifacts: '生成图表',
       analyzeErrors: '分析错误',
+      startTraining: '启动训练',
     },
     guide: {
       probeProvider: '先检查当前模型接口是否可用。',
@@ -207,6 +243,10 @@ export const messages = {
     providerOptions: {
       openaiCompat: 'DeepSeek（OpenAI 兼容协议）',
       mock: 'Mock',
+    },
+    training: {
+      smoke: 'smoke',
+      full: 'full',
     },
   },
 }

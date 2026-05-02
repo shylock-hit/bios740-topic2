@@ -1,0 +1,498 @@
+[
+  {
+    "doc_id": "25866524",
+    "sent_id": "25866524_s10",
+    "text": "There was no significant difference of FC in right DLPFC network between depressed subjects and the health controls.",
+    "entities": [
+      {
+        "id": "P1_39_41",
+        "type": "method",
+        "start": 39,
+        "end": 41,
+        "text": "FC"
+      },
+      {
+        "id": "P2_45_64",
+        "type": "other",
+        "start": 45,
+        "end": 64,
+        "text": "right DLPFC network"
+      },
+      {
+        "id": "P3_73_82",
+        "type": "disease",
+        "start": 73,
+        "end": 82,
+        "text": "depressed"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "20221103_160",
+    "sent_id": "20221103_160_s0",
+    "text": "Young adulthood offers an opportunity for early dietary interventions, with research suggesting that a Mediterranean diet (MD) could be beneficial in treating depression.",
+    "entities": [
+      {
+        "id": "P1_103_121",
+        "type": "method",
+        "start": 103,
+        "end": 121,
+        "text": "Mediterranean diet"
+      },
+      {
+        "id": "P2_123_125",
+        "type": "method",
+        "start": 123,
+        "end": 125,
+        "text": "MD"
+      },
+      {
+        "id": "P3_159_169",
+        "type": "disease",
+        "start": 159,
+        "end": 169,
+        "text": "depression"
+      }
+    ],
+    "relations": [
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P2_123_125",
+          "type": "method",
+          "start": 123,
+          "end": 125,
+          "text": "MD"
+        },
+        "tail": {
+          "id": "P1_103_121",
+          "type": "method",
+          "start": 103,
+          "end": 121,
+          "text": "Mediterranean diet"
+        }
+      },
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P1_103_121",
+          "type": "method",
+          "start": 103,
+          "end": 121,
+          "text": "Mediterranean diet"
+        },
+        "tail": {
+          "id": "P3_159_169",
+          "type": "disease",
+          "start": 159,
+          "end": 169,
+          "text": "depression"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "36573969",
+    "sent_id": "36573969_s3",
+    "text": "Generalized anxiety disorder (6.2% lifetime prevalence), social anxiety disorder (13% lifetime prevalence), and panic disorder (5.2% lifetime prevalence) with or without agoraphobia are common anxiety disorders seen in primary care.",
+    "entities": [
+      {
+        "id": "P1_0_28",
+        "type": "disease",
+        "start": 0,
+        "end": 28,
+        "text": "Generalized anxiety disorder"
+      },
+      {
+        "id": "P2_57_80",
+        "type": "disease",
+        "start": 57,
+        "end": 80,
+        "text": "social anxiety disorder"
+      },
+      {
+        "id": "P3_112_126",
+        "type": "disease",
+        "start": 112,
+        "end": 126,
+        "text": "panic disorder"
+      },
+      {
+        "id": "P4_170_181",
+        "type": "disease",
+        "start": 170,
+        "end": 181,
+        "text": "agoraphobia"
+      },
+      {
+        "id": "P5_193_210",
+        "type": "disease",
+        "start": 193,
+        "end": 210,
+        "text": "anxiety disorders"
+      }
+    ],
+    "relations": [
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P1_0_28",
+          "type": "disease",
+          "start": 0,
+          "end": 28,
+          "text": "Generalized anxiety disorder"
+        },
+        "tail": {
+          "id": "P5_193_210",
+          "type": "disease",
+          "start": 193,
+          "end": 210,
+          "text": "anxiety disorders"
+        }
+      },
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P2_57_80",
+          "type": "disease",
+          "start": 57,
+          "end": 80,
+          "text": "social anxiety disorder"
+        },
+        "tail": {
+          "id": "P5_193_210",
+          "type": "disease",
+          "start": 193,
+          "end": 210,
+          "text": "anxiety disorders"
+        }
+      },
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P3_112_126",
+          "type": "disease",
+          "start": 112,
+          "end": 126,
+          "text": "panic disorder"
+        },
+        "tail": {
+          "id": "P5_193_210",
+          "type": "disease",
+          "start": 193,
+          "end": 210,
+          "text": "anxiety disorders"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_112_126",
+          "type": "disease",
+          "start": 112,
+          "end": 126,
+          "text": "panic disorder"
+        },
+        "tail": {
+          "id": "P4_170_181",
+          "type": "disease",
+          "start": 170,
+          "end": 181,
+          "text": "agoraphobia"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "32171414",
+    "sent_id": "32171414_s5",
+    "text": "Six main feeding and eating disorders are now recognised in diagnostic systems: anorexia nervosa, bulimia nervosa, binge eating disorder, avoidant-restrictive food intake disorder, pica, and rumination disorder.",
+    "entities": [
+      {
+        "id": "P1_9_37",
+        "type": "disease",
+        "start": 9,
+        "end": 37,
+        "text": "feeding and eating disorders"
+      },
+      {
+        "id": "P2_80_96",
+        "type": "disease",
+        "start": 80,
+        "end": 96,
+        "text": "anorexia nervosa"
+      },
+      {
+        "id": "P3_98_113",
+        "type": "disease",
+        "start": 98,
+        "end": 113,
+        "text": "bulimia nervosa"
+      },
+      {
+        "id": "P4_115_136",
+        "type": "disease",
+        "start": 115,
+        "end": 136,
+        "text": "binge eating disorder"
+      },
+      {
+        "id": "P5_138_179",
+        "type": "disease",
+        "start": 138,
+        "end": 179,
+        "text": "avoidant-restrictive food intake disorder"
+      },
+      {
+        "id": "P6_181_185",
+        "type": "disease",
+        "start": 181,
+        "end": 185,
+        "text": "pica"
+      },
+      {
+        "id": "P7_191_210",
+        "type": "disease",
+        "start": 191,
+        "end": 210,
+        "text": "rumination disorder"
+      },
+      {
+        "id": "P8_60_78",
+        "type": "method",
+        "start": 60,
+        "end": 78,
+        "text": "diagnostic systems"
+      }
+    ],
+    "relations": [
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P2_80_96",
+          "type": "disease",
+          "start": 80,
+          "end": 96,
+          "text": "anorexia nervosa"
+        },
+        "tail": {
+          "id": "P1_9_37",
+          "type": "disease",
+          "start": 9,
+          "end": 37,
+          "text": "feeding and eating disorders"
+        }
+      },
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P3_98_113",
+          "type": "disease",
+          "start": 98,
+          "end": 113,
+          "text": "bulimia nervosa"
+        },
+        "tail": {
+          "id": "P1_9_37",
+          "type": "disease",
+          "start": 9,
+          "end": 37,
+          "text": "feeding and eating disorders"
+        }
+      },
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P4_115_136",
+          "type": "disease",
+          "start": 115,
+          "end": 136,
+          "text": "binge eating disorder"
+        },
+        "tail": {
+          "id": "P1_9_37",
+          "type": "disease",
+          "start": 9,
+          "end": 37,
+          "text": "feeding and eating disorders"
+        }
+      },
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P5_138_179",
+          "type": "disease",
+          "start": 138,
+          "end": 179,
+          "text": "avoidant-restrictive food intake disorder"
+        },
+        "tail": {
+          "id": "P1_9_37",
+          "type": "disease",
+          "start": 9,
+          "end": 37,
+          "text": "feeding and eating disorders"
+        }
+      },
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P6_181_185",
+          "type": "disease",
+          "start": 181,
+          "end": 185,
+          "text": "pica"
+        },
+        "tail": {
+          "id": "P1_9_37",
+          "type": "disease",
+          "start": 9,
+          "end": 37,
+          "text": "feeding and eating disorders"
+        }
+      },
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P7_191_210",
+          "type": "disease",
+          "start": 191,
+          "end": 210,
+          "text": "rumination disorder"
+        },
+        "tail": {
+          "id": "P1_9_37",
+          "type": "disease",
+          "start": 9,
+          "end": 37,
+          "text": "feeding and eating disorders"
+        }
+      },
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P8_60_78",
+          "type": "method",
+          "start": 60,
+          "end": 78,
+          "text": "diagnostic systems"
+        },
+        "tail": {
+          "id": "P2_80_96",
+          "type": "disease",
+          "start": 80,
+          "end": 96,
+          "text": "anorexia nervosa"
+        }
+      },
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P8_60_78",
+          "type": "method",
+          "start": 60,
+          "end": 78,
+          "text": "diagnostic systems"
+        },
+        "tail": {
+          "id": "P3_98_113",
+          "type": "disease",
+          "start": 98,
+          "end": 113,
+          "text": "bulimia nervosa"
+        }
+      },
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P8_60_78",
+          "type": "method",
+          "start": 60,
+          "end": 78,
+          "text": "diagnostic systems"
+        },
+        "tail": {
+          "id": "P4_115_136",
+          "type": "disease",
+          "start": 115,
+          "end": 136,
+          "text": "binge eating disorder"
+        }
+      },
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P8_60_78",
+          "type": "method",
+          "start": 60,
+          "end": 78,
+          "text": "diagnostic systems"
+        },
+        "tail": {
+          "id": "P5_138_179",
+          "type": "disease",
+          "start": 138,
+          "end": 179,
+          "text": "avoidant-restrictive food intake disorder"
+        }
+      },
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P8_60_78",
+          "type": "method",
+          "start": 60,
+          "end": 78,
+          "text": "diagnostic systems"
+        },
+        "tail": {
+          "id": "P6_181_185",
+          "type": "disease",
+          "start": 181,
+          "end": 185,
+          "text": "pica"
+        }
+      },
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P8_60_78",
+          "type": "method",
+          "start": 60,
+          "end": 78,
+          "text": "diagnostic systems"
+        },
+        "tail": {
+          "id": "P7_191_210",
+          "type": "disease",
+          "start": 191,
+          "end": 210,
+          "text": "rumination disorder"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "18087206",
+    "sent_id": "18087206_s3",
+    "text": "However, very little research has been conducted into the differences between the change processes in ERP and CT.",
+    "entities": [
+      {
+        "id": "P1_102_105",
+        "type": "method",
+        "start": 102,
+        "end": 105,
+        "text": "ERP"
+      },
+      {
+        "id": "P2_110_112",
+        "type": "method",
+        "start": 110,
+        "end": 112,
+        "text": "CT"
+      }
+    ],
+    "relations": []
+  }
+]

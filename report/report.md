@@ -423,7 +423,7 @@ The end-to-end annotation pipeline follows a 10-step data flow:
 
 ```
 data/raw/ADKG.json
-  → sample_adkg_dev_for_llm.py
+  → sample_dev_for_llm.py
   → outputs/llm_runs/adkg_dev100_sample.json
   → run_llm_annotation_experiment.py
   → provider call(s) through llm_workflow.py
@@ -626,7 +626,7 @@ A `MockLLMClient` with heuristic extraction is available for testing without API
 - `tests/test_llm_client.py` — configuration loading and prompt construction
 
 **Verified locally:**
-- Sample generation works (`sample_adkg_dev_for_llm.py` produces `adkg_dev100_sample.json`)
+- Sample generation works (`sample_dev_for_llm.py` produces `adkg_dev100_sample.json`)
 - Mock workflow run works (one-shot and workflow modes produce predictions and metrics)
 - Metrics summary generation works (`summarize_llm_results.py` produces two-table markdown)
 - Error analysis generation works (`analyze_llm_errors.py` produces boundary errors and failure histogram)
@@ -685,7 +685,7 @@ Agentic annotation (extension):
 
 ```bash
 # Step 1: Sample ADKG dev sentences
-python scripts/sample_adkg_dev_for_llm.py --input data/raw/ADKG.json --output outputs/llm_runs/adkg_dev100_sample.json --count 100 --seed 740
+python scripts/sample_dev_for_llm.py --input data/raw/ADKG.json --output outputs/llm_runs/adkg_dev100_sample.json --count 100 --seed 740
 
 # Step 2: Run experiment (mock provider for testing)
 python scripts/run_llm_annotation_experiment.py --sample outputs/llm_runs/adkg_dev100_sample.json --output-dir outputs/llm_runs/adkg_dev100_mock --mode both --provider mock

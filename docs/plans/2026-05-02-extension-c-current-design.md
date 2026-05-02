@@ -65,7 +65,7 @@ The current target experiment is:
 
 ### Scripts
 
-- `scripts/sample_adkg_dev_for_llm.py`
+- `scripts/sample_dev_for_llm.py`
   - Loads `data/raw/ADKG.json`
   - Samples a deterministic subset from the `dev` split
   - Writes a JSON artifact with metadata and sampled sentences
@@ -91,7 +91,7 @@ The current target experiment is:
 The end-to-end flow is:
 
 1. `data/raw/ADKG.json`
-2. `sample_adkg_dev_for_llm.py`
+2. `sample_dev_for_llm.py`
 3. `outputs/llm_runs/adkg_dev100_sample.json`
 4. `run_llm_annotation_experiment.py`
 5. provider call(s) through `llm_workflow.py`

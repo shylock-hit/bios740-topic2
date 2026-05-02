@@ -87,6 +87,11 @@
   gap: 10px;
 }
 
+.button-grid.single-action {
+  grid-template-columns: 1fr;
+  margin-top: 12px;
+}
+
 button,
 input,
 select {
@@ -366,6 +371,19 @@ button.accent {
   min-height: 0;
   max-height: 260px;
   margin: 0 12px 12px;
+}
+
+.training-panel {
+  margin-top: 12px;
+}
+
+.training-subtitle {
+  margin-top: 14px;
+  margin-bottom: 10px;
+}
+
+.training-log {
+  margin: 0;
 }
 
 .log-block,

@@ -362,7 +362,7 @@ The end-to-end annotation pipeline follows a 10-step data flow:
 
 ```
 data/raw/ADKG.json
-  → sample_adkg_dev_for_llm.py
+  → sample_dev_for_llm.py
   → outputs/llm_runs/adkg_dev100_sample.json
   → run_llm_annotation_experiment.py
   → provider call(s) through llm_workflow.py
@@ -548,7 +548,7 @@ nohup bash scripts/train_adkg_full.sh > outputs/logs/adkg_train_console.log 2>&1
 nohup bash scripts/train_mdkg_full.sh > outputs/logs/mdkg_train_console.log 2>&1 &
 
 # Agentic annotation (extension)
-python scripts/sample_adkg_dev_for_llm.py --input data/raw/ADKG.json --output outputs/llm_runs/adkg_dev100_sample.json --count 100 --seed 740
+python scripts/sample_dev_for_llm.py --input data/raw/ADKG.json --output outputs/llm_runs/adkg_dev100_sample.json --count 100 --seed 740
 python scripts/run_llm_annotation_experiment.py --sample outputs/llm_runs/adkg_dev100_sample.json --output-dir outputs/llm_runs/adkg_dev100_deepseek --mode both --provider openai_compat --env-file .env.llm
 python scripts/summarize_llm_results.py --metrics outputs/llm_runs/adkg_dev100_deepseek/metrics.json --output outputs/llm_runs/adkg_dev100_deepseek/summary.md
 python scripts/analyze_llm_errors.py --gold outputs/llm_runs/adkg_dev100_sample.json --pred outputs/llm_runs/adkg_dev100_deepseek/one_shot_predictions.json --progress-jsonl outputs/llm_runs/adkg_dev100_deepseek/one_shot_progress.jsonl --output outputs/llm_runs/adkg_dev100_deepseek/one_shot_error_summary.md

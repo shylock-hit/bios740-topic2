@@ -10,6 +10,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from bios740_topic2.demo_jobs import JobRegistry, safe_relpath
+from bios740_topic2.train_monitor import build_training_command, parse_nvidia_smi, parse_training_progress
 
 
 APP_ROOT = Path(__file__).resolve().parents[2]
@@ -49,7 +50,19 @@ class ArtifactRequest(BaseModel):
     gold_path: str = "outputs/llm_runs/adkg_dev100_sample.json"
 
 
+class TrainRequest(BaseModel):
+    dataset: str
+    preset: str
+    epochs: int
+    batch_size: int
+    label: str
+
+
 def _run_python(cmd: list[str]) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(cmd, cwd=str(APP_ROOT), capture_output=True, text=True)
+
+
+def _run_capture(cmd: list[str]) -> subprocess.CompletedProcess[str]:
     return subprocess.run(cmd, cwd=str(APP_ROOT), capture_output=True, text=True)
 
 
@@ -125,6 +138,57 @@ def list_status() -> dict[str, list[dict]]:
             }
         )
     return {"jobs": records}
+
+
+@app.post("/api/train/start")
+def start_training(request: TrainRequest) -> dict[str, str]:
+    cmd = build_training_command(
+        dataset=request.dataset,
+        preset=request.preset,
+        epochs=request.epochs,
+        batch_size=request.batch_size,
+        label=request.label,
+    )
+    record = registry.create(
+        "baseline_training",
+        cmd,
+        str(APP_ROOT),
+        metadata={
+            "dataset": request.dataset,
+            "preset": request.preset,
+            "label": request.label,
+            "total_epochs": request.epochs,
+        },
+    )
+    registry.run_async(record)
+    return {"status": "started", "job_id": record.id}
+
+
+@app.get("/api/train/status")
+def training_status(job_id: str) -> dict:
+    record = registry.get(job_id)
+    if record is None:
+        raise HTTPException(status_code=404, detail="Training job not found")
+    total_epochs = int(record.metadata.get("total_epochs", 0) or 0)
+    progress = parse_training_progress(record.stdout + "\n" + record.stderr, total_epochs=total_epochs)
+    return {
+        "job": {
+            "id": record.id,
+            "status": record.status,
+            "metadata": record.metadata,
+            "returncode": record.returncode,
+        },
+        "progress": progress,
+        "log_tail": (record.stdout + "\n" + record.stderr)[-4000:],
+    }
+
+
+@app.get("/api/train/gpu")
+def gpu_status() -> dict:
+    result = _run_capture(["nvidia-smi"])
+    if result.returncode != 0:
+        raise HTTPException(status_code=500, detail=result.stderr or result.stdout)
+    return parse_nvidia_smi(result.stdout)
 
 
 @app.post("/api/summarize")

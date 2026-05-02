@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import './App.css'
 import { detectInitialLocale, messages } from './i18n'
 
@@ -42,7 +42,11 @@ const api = async (path, options = {}) => {
   return payload
 }
 
-const prettyPath = (path) => path.replace(/^outputs\/llm_runs\//, '')
+const prettyPath = (path, runDir = '') => {
+  const runPrefix = runDir ? `outputs/llm_runs/${runDir}/` : ''
+  if (runPrefix && path.startsWith(runPrefix)) return path.slice(runPrefix.length)
+  return path.replace(/^outputs\/llm_runs\//, '')
+}
 
 function estimateEta(progress, rows, windowSize = 10) {
   if (!progress) {
@@ -349,6 +353,7 @@ function ProbeSummary({ probe, t }) {
       <div className="probe-header">
         <span className={`status-badge ${ok ? 'done' : 'failed'}`}>{ok ? t.labels.success : t.labels.failed}</span>
       </div>
+      <div className="probe-summary-title">{t.labels.structuredProbe}</div>
       <div className="status-metric-grid">
         <div className="status-metric">
           <span>{t.labels.baseUrl}</span>
@@ -383,7 +388,7 @@ function ProbeSummary({ probe, t }) {
   )
 }
 
-function FileGroups({ groups, handleFilePreview, t }) {
+function FileGroups({ groups, handleFilePreview, runDir, t }) {
   return (
     <div className="file-groups">
       {groups.map((group) => (
@@ -392,7 +397,7 @@ function FileGroups({ groups, handleFilePreview, t }) {
           <div className="file-list">
             {group.files.map((file) => (
               <button key={file} className="file-item" onClick={() => handleFilePreview(file)}>
-                {prettyPath(file)}
+                {prettyPath(file, runDir)}
               </button>
             ))}
           </div>
@@ -430,10 +435,25 @@ function App() {
   const [latencyChart, setLatencyChart] = useState([])
   const [busyAction, setBusyAction] = useState('')
   const [progressRows, setProgressRows] = useState({ one_shot: [], workflow: [] })
+  const [trainingConfig, setTrainingConfig] = useState({
+    dataset: 'ADKG',
+    preset: 'smoke',
+    epochs: 1,
+    batchSize: 1,
+    label: 'smoke_ui',
+  })
+  const [trainingJobId, setTrainingJobId] = useState('')
+  const [trainingStatus, setTrainingStatus] = useState(null)
+  const [gpuStatus, setGpuStatus] = useState(null)
+  const runDirRef = useRef(config.runDir)
 
   useEffect(() => {
     window.localStorage.setItem('bios740-demo-locale', locale)
   }, [locale])
+
+  useEffect(() => {
+    runDirRef.current = config.runDir
+  }, [config.runDir])
 
   useEffect(() => {
     if (!preview.content) {
@@ -449,10 +469,20 @@ function App() {
   }, [])
 
   useEffect(() => {
+    if (!trainingJobId) return
+    const timer = setInterval(() => {
+      refreshTrainingStatus(trainingJobId)
+      refreshGpuStatus()
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [trainingJobId])
+
+  useEffect(() => {
     refreshFiles()
   }, [config.runDir])
 
   const updateConfig = (key, value) => setConfig((prev) => ({ ...prev, [key]: value }))
+  const updateTrainingConfig = (key, value) => setTrainingConfig((prev) => ({ ...prev, [key]: value }))
 
   const applyDatasetTemplate = (dataset) => {
     if (!datasetTemplates[dataset]) {
@@ -480,17 +510,31 @@ function App() {
     }
   }
 
+  const refreshTrainingStatus = async (jobId) => {
+    try {
+      const payload = await api(`/api/train/status?job_id=${encodeURIComponent(jobId)}`)
+      setTrainingStatus(payload)
+    } catch {}
+  }
+
+  const refreshGpuStatus = async () => {
+    try {
+      const payload = await api('/api/train/gpu')
+      setGpuStatus(payload)
+    } catch {}
+  }
+
   const refreshStatus = async () => {
     try {
       const payload = await api('/api/status')
       setJobs(payload.jobs)
     } catch {}
-    await refreshFiles()
+    await refreshFiles(runDirRef.current)
   }
 
-  const refreshFiles = async () => {
+  const refreshFiles = async (runDirName = runDirRef.current) => {
     try {
-      const payload = await api(`/api/files?run_dir_name=${encodeURIComponent(config.runDir)}`)
+      const payload = await api(`/api/files?run_dir_name=${encodeURIComponent(runDirName)}`)
       setFiles(payload.files)
       await hydrateDerivedViews(payload.files)
     } catch {
@@ -563,7 +607,7 @@ function App() {
         updateConfig('samplePath', payload.output)
         updateConfig('goldPath', payload.output)
       }
-      await refreshStatus()
+      await refreshStatus(runDirRef.current)
     } catch (error) {
       setPreview({ type: 'text', title: `${label} ${t.ui.error}`, content: String(error.message || error) })
     } finally {
@@ -573,11 +617,34 @@ function App() {
 
   const handleFilePreview = async (path) => {
     if (path.endsWith('.png')) {
-      setPreview({ type: 'image', title: prettyPath(path), content: `/api/file?path=${encodeURIComponent(path)}` })
+      setPreview({ type: 'image', title: prettyPath(path, config.runDir), content: `/api/file?path=${encodeURIComponent(path)}` })
       return
     }
     const content = await fetchTextFile(path)
-    setPreview({ type: 'text', title: prettyPath(path), content })
+    setPreview({ type: 'text', title: prettyPath(path, config.runDir), content })
+  }
+
+  const startTraining = async () => {
+    setBusyAction(t.actions.startTraining)
+    try {
+      const payload = await api('/api/train/start', {
+        method: 'POST',
+        body: JSON.stringify({
+          dataset: trainingConfig.dataset,
+          preset: trainingConfig.preset,
+          epochs: trainingConfig.epochs,
+          batch_size: trainingConfig.batchSize,
+          label: trainingConfig.label,
+        }),
+      })
+      setTrainingJobId(payload.job_id)
+      await refreshTrainingStatus(payload.job_id)
+      await refreshGpuStatus()
+    } catch (error) {
+      setPreview({ type: 'text', title: `${t.actions.startTraining} ${t.ui.error}`, content: String(error.message || error) })
+    } finally {
+      setBusyAction('')
+    }
   }
 
   const latestJob = jobs[jobs.length - 1]
@@ -732,7 +799,7 @@ function App() {
         <section className="grid two">
           <div className="card">
             <div className="section-title">{t.labels.producedFiles}</div>
-            <FileGroups groups={fileGroups} handleFilePreview={handleFilePreview} t={t} />
+            <FileGroups groups={fileGroups} handleFilePreview={handleFilePreview} runDir={config.runDir} t={t} />
           </div>
 
           <div className="card">
@@ -767,6 +834,105 @@ function App() {
           <div className="chart-box">
             <LatencyTrace data={latencyChart} t={t} />
           </div>
+        </section>
+
+        <section className="grid two">
+          <div className="card">
+            <div className="section-title">{t.labels.baselineTraining}</div>
+            <div className="field-grid">
+              <label>
+                <span>{t.labels.dataset}</span>
+                <select value={trainingConfig.dataset} onChange={(e) => updateTrainingConfig('dataset', e.target.value)}>
+                  <option value="ADKG">{t.dataset.adkg}</option>
+                  <option value="MDKG">{t.dataset.mdkg}</option>
+                </select>
+              </label>
+              <label>
+                <span>{t.labels.preset}</span>
+                <select value={trainingConfig.preset} onChange={(e) => updateTrainingConfig('preset', e.target.value)}>
+                  <option value="smoke">{t.training.smoke}</option>
+                  <option value="full">{t.training.full}</option>
+                </select>
+              </label>
+              <label>
+                <span>{t.labels.epochs}</span>
+                <input type="number" value={trainingConfig.epochs} onChange={(e) => updateTrainingConfig('epochs', Number(e.target.value))} />
+              </label>
+              <label>
+                <span>{t.labels.batchSize}</span>
+                <input type="number" value={trainingConfig.batchSize} onChange={(e) => updateTrainingConfig('batchSize', Number(e.target.value))} />
+              </label>
+              <label className="wide">
+                <span>{t.labels.runLabel}</span>
+                <input value={trainingConfig.label} onChange={(e) => updateTrainingConfig('label', e.target.value)} />
+              </label>
+            </div>
+            <div className="busy-row">{t.labels.trainDatasetHint}</div>
+            <div className="button-grid single-action">
+              <button className="accent" onClick={startTraining}>{t.actions.startTraining}</button>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="section-title">{t.labels.trainingStatus}</div>
+            {trainingStatus ? (
+              <>
+                <div className="status-metric-grid">
+                  <div className="status-metric">
+                    <span>{t.labels.dataset}</span>
+                    <strong>{trainingStatus.job.metadata.dataset}</strong>
+                  </div>
+                  <div className="status-metric">
+                    <span>{t.labels.preset}</span>
+                    <strong>{trainingStatus.job.metadata.preset}</strong>
+                  </div>
+                  <div className="status-metric">
+                    <span>{t.labels.phase}</span>
+                    <strong>{trainingStatus.progress.phase}</strong>
+                  </div>
+                  <div className="status-metric">
+                    <span>{t.labels.currentEpoch}</span>
+                    <strong>{trainingStatus.progress.current_epoch}/{trainingStatus.progress.total_epochs}</strong>
+                  </div>
+                </div>
+                <div className="progress-panel refined training-panel">
+                  <div className="progress-track">
+                    <div className="progress-fill" style={{ width: `${trainingStatus.progress.progress_percent}%` }} />
+                  </div>
+                  <div className="progress-meta">
+                    <span>{t.ui.progress}: {trainingStatus.progress.progress_percent}%</span>
+                    <span>{trainingStatus.job.status}</span>
+                  </div>
+                </div>
+                <div className="section-title training-subtitle">{t.labels.logTail}</div>
+                <pre className="log-block compact training-log">{trainingStatus.log_tail || t.ui.pending}</pre>
+              </>
+            ) : (
+              <div className="empty-state">{t.ui.pending}</div>
+            )}
+          </div>
+        </section>
+
+        <section className="card">
+          <div className="section-title">{t.labels.gpuSummary}</div>
+          {gpuStatus ? (
+            <div className="status-metric-grid">
+              <div className="status-metric">
+                <span>{t.labels.gpuName}</span>
+                <strong>{gpuStatus.gpu_name || '-'}</strong>
+              </div>
+              <div className="status-metric">
+                <span>{t.labels.gpuMemory}</span>
+                <strong>{gpuStatus.memory_used_mib}/{gpuStatus.memory_total_mib} MiB</strong>
+              </div>
+              <div className="status-metric">
+                <span>{t.labels.gpuUtil}</span>
+                <strong>{gpuStatus.gpu_util_percent}%</strong>
+              </div>
+            </div>
+          ) : (
+            <div className="empty-state">{t.ui.pending}</div>
+          )}
         </section>
       </main>
     </div>
