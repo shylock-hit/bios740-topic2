@@ -1,0 +1,73 @@
+[
+  {
+    "doc_id": "29854935",
+    "sent_id": "29854935_s6",
+    "text": "Furthermore, shorter AD duration, younger age, APOE epsilon4 carrier status, and use of two AD concomitant medications were associated with faster disease progression rates.",
+    "entities": [
+      {
+        "id": "P1_21_23",
+        "type": "disease",
+        "start": 21,
+        "end": 23,
+        "text": "AD"
+      },
+      {
+        "id": "P2_47_60",
+        "type": "gene",
+        "start": 47,
+        "end": 60,
+        "text": "APOE epsilon4"
+      },
+      {
+        "id": "P3_92_118",
+        "type": "drug",
+        "start": 92,
+        "end": 118,
+        "text": "AD concomitant medications"
+      },
+      {
+        "id": "P4_147_166",
+        "type": "disease",
+        "start": 147,
+        "end": 166,
+        "text": "disease progression"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_47_60",
+          "type": "gene",
+          "start": 47,
+          "end": 60,
+          "text": "APOE epsilon4"
+        },
+        "tail": {
+          "id": "P4_147_166",
+          "type": "disease",
+          "start": 147,
+          "end": 166,
+          "text": "disease progression"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_92_118",
+          "type": "drug",
+          "start": 92,
+          "end": 118,
+          "text": "AD concomitant medications"
+        },
+        "tail": {
+          "id": "P4_147_166",
+          "type": "disease",
+          "start": 147,
+          "end": 166,
+          "text": "disease progression"
+        }
+      }
+    ]
+  }
+]

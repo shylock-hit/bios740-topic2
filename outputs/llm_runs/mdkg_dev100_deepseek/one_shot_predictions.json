@@ -6630,5 +6630,337 @@
         }
       }
     ]
+  },
+  {
+    "doc_id": "30804341",
+    "sent_id": "30804341_s3",
+    "text": "While increased homocysteine levels can cause symptoms such as osteoporosis and eye lens dislocation, high homocysteine levels are most closely associated with cardiovascular complications.",
+    "entities": [
+      {
+        "id": "P1_6_35",
+        "type": "other",
+        "start": 6,
+        "end": 35,
+        "text": "increased homocysteine levels"
+      },
+      {
+        "id": "P2_63_75",
+        "type": "disease",
+        "start": 63,
+        "end": 75,
+        "text": "osteoporosis"
+      },
+      {
+        "id": "P3_80_100",
+        "type": "disease",
+        "start": 80,
+        "end": 100,
+        "text": "eye lens dislocation"
+      },
+      {
+        "id": "P4_102_126",
+        "type": "other",
+        "start": 102,
+        "end": 126,
+        "text": "high homocysteine levels"
+      },
+      {
+        "id": "P5_160_188",
+        "type": "disease",
+        "start": 160,
+        "end": 188,
+        "text": "cardiovascular complications"
+      }
+    ],
+    "relations": [
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P1_6_35",
+          "type": "other",
+          "start": 6,
+          "end": 35,
+          "text": "increased homocysteine levels"
+        },
+        "tail": {
+          "id": "P2_63_75",
+          "type": "disease",
+          "start": 63,
+          "end": 75,
+          "text": "osteoporosis"
+        }
+      },
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P1_6_35",
+          "type": "other",
+          "start": 6,
+          "end": 35,
+          "text": "increased homocysteine levels"
+        },
+        "tail": {
+          "id": "P3_80_100",
+          "type": "disease",
+          "start": 80,
+          "end": 100,
+          "text": "eye lens dislocation"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P4_102_126",
+          "type": "other",
+          "start": 102,
+          "end": 126,
+          "text": "high homocysteine levels"
+        },
+        "tail": {
+          "id": "P5_160_188",
+          "type": "disease",
+          "start": 160,
+          "end": 188,
+          "text": "cardiovascular complications"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "28323826",
+    "sent_id": "28323826_s11",
+    "text": "Confidence limits for these estimates are often wide, particularly for APOE-e4/e4 individuals and for the dementia outcome at 5 y.",
+    "entities": [
+      {
+        "id": "P1_71_81",
+        "type": "mutation",
+        "start": 71,
+        "end": 81,
+        "text": "APOE-e4/e4"
+      },
+      {
+        "id": "P2_106_114",
+        "type": "disease",
+        "start": 106,
+        "end": 114,
+        "text": "dementia"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_71_81",
+          "type": "mutation",
+          "start": 71,
+          "end": 81,
+          "text": "APOE-e4/e4"
+        },
+        "tail": {
+          "id": "P2_106_114",
+          "type": "disease",
+          "start": 106,
+          "end": 114,
+          "text": "dementia"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "29454025",
+    "sent_id": "29454025_s2",
+    "text": "Recent studies reported that APP interacts with other membrane proteins, including G protein coupled receptors, affecting their biological functions.",
+    "entities": [
+      {
+        "id": "P1_29_32",
+        "type": "gene",
+        "start": 29,
+        "end": 32,
+        "text": "APP"
+      },
+      {
+        "id": "P2_83_110",
+        "type": "other",
+        "start": 83,
+        "end": 110,
+        "text": "G protein coupled receptors"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_29_32",
+          "type": "gene",
+          "start": 29,
+          "end": 32,
+          "text": "APP"
+        },
+        "tail": {
+          "id": "P2_83_110",
+          "type": "other",
+          "start": 83,
+          "end": 110,
+          "text": "G protein coupled receptors"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "31792492",
+    "sent_id": "31792492_s5",
+    "text": "In this article, we present the TDQ-30, a new picture-naming test designed to detect mild word-finding deficits in adults and elderly people.",
+    "entities": [
+      {
+        "id": "P1_32_38",
+        "type": "method",
+        "start": 32,
+        "end": 38,
+        "text": "TDQ-30"
+      },
+      {
+        "id": "P2_46_65",
+        "type": "method",
+        "start": 46,
+        "end": 65,
+        "text": "picture-naming test"
+      },
+      {
+        "id": "P3_85_111",
+        "type": "disease",
+        "start": 85,
+        "end": 111,
+        "text": "mild word-finding deficits"
+      }
+    ],
+    "relations": [
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P1_32_38",
+          "type": "method",
+          "start": 32,
+          "end": 38,
+          "text": "TDQ-30"
+        },
+        "tail": {
+          "id": "P2_46_65",
+          "type": "method",
+          "start": 46,
+          "end": 65,
+          "text": "picture-naming test"
+        }
+      },
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P1_32_38",
+          "type": "method",
+          "start": 32,
+          "end": 38,
+          "text": "TDQ-30"
+        },
+        "tail": {
+          "id": "P3_85_111",
+          "type": "disease",
+          "start": 85,
+          "end": 111,
+          "text": "mild word-finding deficits"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "33070776",
+    "sent_id": "33070776_s4",
+    "text": "METHODS: U251 cells were co-incubated with 10 muM of Abeta1-42 and treated with VB.",
+    "entities": [
+      {
+        "id": "P1_9_19",
+        "type": "other",
+        "start": 9,
+        "end": 19,
+        "text": "U251 cells"
+      },
+      {
+        "id": "P2_53_62",
+        "type": "gene",
+        "start": 53,
+        "end": 62,
+        "text": "Abeta1-42"
+      },
+      {
+        "id": "P3_80_82",
+        "type": "drug",
+        "start": 80,
+        "end": 82,
+        "text": "VB"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "28323826",
+    "sent_id": "28323826_s9",
+    "text": "Five-year incidence of dementia was negligible except for APOE-e4/e4 individuals and those over 70 y.",
+    "entities": [
+      {
+        "id": "P1_23_31",
+        "type": "disease",
+        "start": 23,
+        "end": 31,
+        "text": "dementia"
+      },
+      {
+        "id": "P2_58_68",
+        "type": "gene",
+        "start": 58,
+        "end": 68,
+        "text": "APOE-e4/e4"
+      },
+      {
+        "id": "P3_91_100",
+        "type": "other",
+        "start": 91,
+        "end": 100,
+        "text": "over 70 y"
+      }
+    ],
+    "relations": [
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P2_58_68",
+          "type": "gene",
+          "start": 58,
+          "end": 68,
+          "text": "APOE-e4/e4"
+        },
+        "tail": {
+          "id": "P1_23_31",
+          "type": "disease",
+          "start": 23,
+          "end": 31,
+          "text": "dementia"
+        }
+      },
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P3_91_100",
+          "type": "other",
+          "start": 91,
+          "end": 100,
+          "text": "over 70 y"
+        },
+        "tail": {
+          "id": "P1_23_31",
+          "type": "disease",
+          "start": 23,
+          "end": 31,
+          "text": "dementia"
+        }
+      }
+    ]
   }
 ]
