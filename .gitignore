@@ -1,0 +1,51 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Environment and secrets
+.env
+.env.*
+*.pem
+*.key
+*secret*
+*credential*
+*token*
+
+# Raw course data and archives
+ADKG.json
+MDKG.json
+data/raw/
+data/raw_sources/
+data/raw_zenodo_converted_backup/
+*.tar.gz
+*.zip
+
+# Heavy/generated model artifacts
+outputs/checkpoints/
+outputs/logs/
+outputs/spert/
+outputs/spert_shared/
+outputs/spert_configs/
+outputs/test_cli/
+outputs/test_spert/
+
+# Keep lightweight report artifacts and summaries, ignore transient caches elsewhere.

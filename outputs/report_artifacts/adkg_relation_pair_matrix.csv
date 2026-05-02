@@ -1,0 +1,7 @@
+,disease,drug,gene,method,mutation,other
+disease,1534,3,23,11,12,87
+drug,424,286,47,10,0,43
+gene,395,12,598,3,0,97
+method,404,2,14,372,0,38
+mutation,50,1,5,2,4,2
+other,431,10,19,33,1,523

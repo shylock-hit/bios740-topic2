@@ -1,0 +1,10 @@
+,Health_factors,disease,drug,gene,method,physiology,region,signs,symptom
+Health_factors,282,861,6,8,38,23,7,34,24
+disease,679,1935,17,48,73,111,75,21,38
+drug,54,700,286,31,49,115,35,17,41
+gene,22,371,31,301,14,175,115,20,12
+method,123,1067,10,21,656,77,23,36,36
+physiology,33,351,21,54,29,176,143,9,16
+region,7,114,9,7,13,41,190,2,8
+signs,13,122,8,2,10,14,65,36,11
+symptom,15,188,4,6,11,10,84,5,15

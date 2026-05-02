@@ -1,0 +1,10 @@
+{
+  "ADKG": {
+    "log": "outputs/logs/adkg_train_console.log",
+    "error": "missing log"
+  },
+  "MDKG": {
+    "log": "outputs/logs/mdkg_train_console.log",
+    "error": "missing log"
+  }
+}

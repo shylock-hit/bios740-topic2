@@ -1,0 +1,14 @@
+{
+  "ADKG": {
+    "sentences": "8031",
+    "entities": "20859",
+    "unique_entities": "7399",
+    "relations": "5496"
+  },
+  "MDKG": {
+    "sentences": "6678",
+    "entities": "28660",
+    "unique_entities": "11211",
+    "relations": "10560"
+  }
+}

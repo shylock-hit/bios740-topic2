@@ -1,0 +1,163 @@
+# Biomedical Knowledge Graph Extraction from PubMed Abstracts
+
+## Abstract
+
+We study biomedical triplet extraction on two PubMed-derived corpora: ADKG, focused on
+Alzheimer's disease and related neurodegenerative disorders, and MDKG, focused on mental
+disorders. The task requires identifying entity mentions and directed biomedical relations from
+sentence-level text. We implement a reproducible SpERT-based pipeline using PubMedBERT, including
+data validation, exploratory analysis, conversion to model input, training, evaluation, and error
+analysis. The selected extension component is transfer learning and domain adaptation between ADKG
+and MDKG. At the current checkpoint, the ADKG and MDKG full single-domain runs are complete, and
+the transfer run remains to be filled from GPU logs if time permits.
+
+## 1 Introduction
+
+Biomedical knowledge graphs require reliable extraction of structured subject-relation-object
+triplets from scientific literature. In this project, we focus on sentence-level named entity
+recognition (NER) and relation extraction (RE) for two disease-centered corpora. ADKG covers
+Alzheimer's disease and related neurodegenerative disorders, while MDKG covers mental disorders
+including schizophrenia, depression, bipolar disorder, PTSD, and OCD.
+
+The core objective is to build and evaluate a triplet extraction pipeline on both datasets. We use
+SpERT, a span-based joint entity and relation extraction model, with PubMedBERT as the encoder. The
+extension component studies transfer learning and domain adaptation: models trained on one corpus
+will be compared with cross-domain or adapted models on the other corpus to quantify cross-domain
+generalization.
+
+## 2 Data
+
+Both datasets are provided as JSON files with `train`, `dev`, and `test` splits. Each sample is a
+single PubMed sentence with character-offset entity annotations and directed relation annotations.
+We use the course Google Drive mirror because it exactly matches the assignment statistics.
+
+| Dataset | Domain | Abstracts | Sentences | Train | Dev | Test | Entities | Relations |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| ADKG | Alzheimer's disease | 758 | 8,031 | 5,605 | 1,206 | 1,220 | 20,859 | 5,496 |
+| MDKG | Mental disorders | 946 | 6,678 | 4,825 | 941 | 912 | 28,660 | 10,560 |
+
+ADKG contains six entity types: `disease`, `gene`, `drug`, `method`, `mutation`, and `other`.
+MDKG contains nine entity types: `disease`, `method`, `Health_factors`, `drug`, `gene`,
+`physiology`, `region`, `signs`, and `symptom`. The relation schemas overlap for common biomedical
+relations such as `abbreviation_for`, `associated_with`, `hyponym_of`, `treatment_for`,
+`risk_factor_of`, `help_diagnose`, and `characteristic_of`, with additional domain-specific
+relations in each corpus.
+
+EDA showed that MDKG is denser than ADKG: the train split has 4.30 entities and 1.57 relations per
+sentence in MDKG, compared with 2.61 entities and 0.70 relations per sentence in ADKG. This makes
+MDKG more relation-dense and potentially more difficult due to more candidate entity pairs per
+sentence.
+
+## 3 Method
+
+We use SpERT for joint NER and RE. SpERT enumerates candidate spans up to a maximum span length and
+classifies entity types for spans and relation types for entity pairs. PubMedBERT
+(`microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract`) is used as the contextual encoder because
+it is pretrained on biomedical abstracts and is well matched to PubMed text.
+
+The preprocessing pipeline validates entity offsets, converts character-level entity spans to
+token-level spans, writes SpERT-compatible JSON split files, and generates `types.json` schema
+files. We train separate single-domain models for ADKG and MDKG. For the extension component, the
+planned comparison is cross-domain transfer: ADKG-trained models evaluated or adapted to MDKG, and
+MDKG-trained models evaluated or adapted to ADKG.
+
+The main training configuration uses 20 epochs, batch size 2, evaluation batch size 4, maximum span
+size 10, relation filter threshold 0.4, and PubMedBERT initialization. A one-epoch smoke test was
+first run to verify the full training pipeline before full experiments.
+
+## 4 Evaluation
+
+We report strict micro-averaged precision, recall, and F1. An entity prediction is correct only if
+its sentence ID, span, and entity type match the gold annotation. A relation prediction is correct
+only if the relation type and both directed endpoints match. We report relation scores with named
+entity classification (NEC), which requires both endpoint spans and entity types to be correct.
+This is the stricter and more clinically meaningful metric.
+
+### 4.1 Main Results
+
+This table uses entity `micro` and relation `With NEC micro` from the final SpERT evaluation block.
+
+| Run | Entity P | Entity R | Entity F1 | Relation P | Relation R | Relation F1 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| ADKG, PubMedBERT | 65.41 | 65.20 | 65.30 | 41.91 | 38.75 | 40.27 |
+| MDKG, PubMedBERT | 78.26 | 80.69 | 79.45 | 48.54 | 50.86 | 49.67 |
+| ADKG -> MDKG transfer | TBD | TBD | TBD | TBD | TBD | TBD |
+| MDKG -> ADKG transfer | TBD | TBD | TBD | TBD | TBD | TBD |
+
+### 4.2 Smoke Test Result
+
+The one-epoch ADKG smoke test completed successfully on an RTX 4080 32GB GPU. It produced entity
+micro F1 of 64.57 and strict relation-with-NEC micro F1 of 38.30 on the ADKG development split.
+This confirms that the data format, PubMedBERT loading, GPU training, and evaluation pipeline are
+working. The full 20-epoch ADKG run produced entity micro F1 of 65.30 and strict relation-with-NEC
+micro F1 of 40.27 on the ADKG development split. The full 20-epoch MDKG run produced entity micro
+F1 of 79.45 and strict relation-with-NEC micro F1 of 49.67 on the MDKG development split.
+
+### 4.3 ADKG Type-Level Observations
+
+ADKG entity recognition was strongest for `disease` (F1 78.88) and moderate for `gene` (63.51) and
+`drug` (57.00). It was weaker for `other` (42.92), `method` (48.68), and especially the rare
+`mutation` type (37.50 over only 16 development examples). Relation extraction was dominated by
+`abbreviation_for` (strict NEC F1 69.69), while semantically broader relations such as
+`associated_with` were much harder (strict NEC F1 9.55). This supports the expectation that
+well-localized lexical relations are easier than broad biomedical associations.
+
+MDKG entity recognition was strongest for `disease` (F1 86.91), `drug` (82.74), `method` (81.12),
+and `region` (80.21), while `symptom` was weakest (39.18 over 43 development examples). Relation
+extraction again favored lexically explicit relations such as `abbreviation_for` (strict NEC F1
+74.47) and `hyponym_of` (59.60). Broader or more contextual relations were lower, including
+`characteristic_of` (32.92) and `associated_with` (38.81), although MDKG's `associated_with`
+performance was substantially higher than ADKG's.
+
+## 5 Analysis Plan
+
+We will analyze results at both entity-type and relation-type levels. For ADKG, rare types such as
+`mutation` and rare relations such as `treatment_target_for` are expected to have lower recall. For
+MDKG, broad categories such as `method` and `Health_factors` may create boundary ambiguity, while
+relation-dense sentences may increase false positives among candidate entity pairs.
+
+The error analysis will focus on four cases: entity boundary errors, head-tail direction errors,
+long-distance relation misses, and semantically plausible relations absent from gold labels. These
+cases align with the assignment requirement to inspect edge cases such as one-word boundary misses
+and imperfect but acceptable relations.
+
+## 6 Extension: Transfer Learning and Domain Adaptation
+
+The selected extension component is transfer learning and domain adaptation. ADKG and MDKG share
+several relation types but differ in entity schema and disease domain. This makes them suitable for
+testing whether relation extraction representations transfer across biomedical subdomains.
+
+The immediate priority is to run one transfer setting if time permits. Because the full ADKG and
+MDKG schemas use different classifier heads, the transfer experiment uses a shared-schema subset
+containing the common entity types (`disease`, `drug`, `gene`, `method`) and common relation types
+(`abbreviation_for`, `associated_with`, `characteristic_of`, `help_diagnose`, `hyponym_of`,
+`risk_factor_of`, `treatment_for`). The shared-schema training data retains 2,968 ADKG train
+relations and 3,788 MDKG train relations. The planned experiment is source-domain pretraining
+followed by target-domain fine-tuning, e.g. ADKG shared-schema training followed by MDKG
+shared-schema fine-tuning. Improvements or failures will be interpreted with respect to schema
+overlap, domain-specific entity types, and relation density.
+
+## 7 Reproducibility
+
+The code repository includes scripts for validation, EDA, SpERT conversion, training, and resource
+estimation. The main commands are:
+
+```bash
+python -m pytest -v
+bash scripts/run_all.sh
+python scripts/estimate_resources.py
+bash scripts/train_adkg_full.sh
+bash scripts/train_mdkg_full.sh
+```
+
+Training was run on AutoDL with an RTX 4080 32GB GPU. Model weights were cached from the Hugging
+Face mirror endpoint. Console logs and checkpoints are saved under `outputs/logs/` and
+`outputs/checkpoints/`.
+
+## 8 Conclusion
+
+This project implements a biomedical triplet extraction pipeline for ADKG and MDKG using SpERT with
+PubMedBERT. The pipeline covers the core assignment requirements: EDA, model training,
+benchmarking, strict F1 evaluation, type-level analysis, and edge-case inspection. The ADKG and MDKG
+single-domain runs are complete, while the selected transfer-learning extension should be finalized
+from the next GPU run before submission if time permits.
