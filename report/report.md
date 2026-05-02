@@ -66,11 +66,19 @@ python scripts/generate_report_artifacts.py
 They are stored in `outputs/report_artifacts/` and are derived from the official JSON files in
 `data/raw/`. Use these source notes in the report captions:
 
-| Figure | Files | Caption note |
-| --- | --- | --- |
-| Label distributions | `adkg_entity_counts.png`, `mdkg_entity_counts.png`, `adkg_relation_counts.png`, `mdkg_relation_counts.png` | Entity and relation type frequencies computed from official ADKG/MDKG JSON files. |
-| Sentence structure | `adkg_sentence_lengths.png`, `mdkg_sentence_lengths.png`, `adkg_entities_per_sentence.png`, `mdkg_entities_per_sentence.png` | Sentence length and entity density distributions computed before model training. |
-| Relation structure | `adkg_relation_pair_heatmap.png`, `mdkg_relation_pair_heatmap.png`, `adkg_relation_distance_bins.png`, `mdkg_relation_distance_bins.png` | Entity-type pair co-occurrence and relation endpoint distance summaries. |
+**Figure 1. Entity type distributions in ADKG and MDKG.** Source: official ADKG/MDKG JSON files
+under `data/raw/`, plotted by `scripts/generate_report_artifacts.py`.
+
+![ADKG entity counts](./figures/adkg_entity_counts.png)
+
+![MDKG entity counts](./figures/mdkg_entity_counts.png)
+
+**Figure 2. Relation type distributions in ADKG and MDKG.** Source: official ADKG/MDKG JSON files
+under `data/raw/`, plotted by `scripts/generate_report_artifacts.py`.
+
+![ADKG relation counts](./figures/adkg_relation_counts.png)
+
+![MDKG relation counts](./figures/mdkg_relation_counts.png)
 
 ## Model
 
