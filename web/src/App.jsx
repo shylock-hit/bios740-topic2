@@ -305,23 +305,80 @@ function LatencyTrace({ data, t }) {
 
 function ProgressPanel({ title, progress, eta, t }) {
   const pct = progress?.total ? Math.round((progress.processed / progress.total) * 100) : 0
+  const completed = progress?.total && progress?.processed >= progress?.total
   return (
-    <div className="progress-panel">
+    <div className="progress-panel refined">
       <div className="progress-head">
         <span>{title}</span>
+        <span className={`status-badge ${completed ? 'done' : 'running'}`}>
+          {completed ? t.ui.completed : t.ui.running}
+        </span>
         <strong>{progress ? `${progress.processed}/${progress.total}` : t.ui.idle}</strong>
       </div>
       <div className="progress-track">
         <div className="progress-fill" style={{ width: `${pct}%` }} />
       </div>
-      <div className="progress-meta">
-        <span>{t.ui.progress}: {pct}%</span>
-        <span>{t.ui.recentEta}: {formatDuration(eta.etaSeconds, t)}</span>
+      <div className="status-metric-grid">
+        <div className="status-metric">
+          <span>{t.ui.progress}</span>
+          <strong>{pct}%</strong>
+        </div>
+        <div className="status-metric">
+          <span>{t.ui.avgLatency}</span>
+          <strong>{eta.recentAvg ? `${eta.recentAvg.toFixed(1)}s` : t.ui.pending}</strong>
+        </div>
+        <div className="status-metric">
+          <span>{t.ui.recentEta}</span>
+          <strong>{formatDuration(eta.etaSeconds, t)}</strong>
+        </div>
       </div>
-      <div className="progress-meta">
-        <span>{t.ui.avgLatency}: {eta.recentAvg ? `${eta.recentAvg.toFixed(1)}s` : t.ui.pending}</span>
-        <span>{t.ui.source}: {eta.source === 'recent_window' ? t.ui.recentWindow : eta.source === 'overall_average' ? t.ui.overallAverage : t.ui.pending}</span>
+      <div className="progress-meta compact">
+        <span>{t.labels.etaSource}</span>
+        <strong>{eta.source === 'recent_window' ? t.ui.recentWindow : eta.source === 'overall_average' ? t.ui.overallAverage : t.ui.pending}</strong>
       </div>
+    </div>
+  )
+}
+
+function ProbeSummary({ probe, t }) {
+  if (!probe) return <div className="empty-state">{t.ui.noProbeRunYet}</div>
+  const result = Array.isArray(probe.results) ? probe.results[0] : null
+  const ok = result?.ok
+  return (
+    <div className="probe-summary">
+      <div className="probe-header">
+        <span className={`status-badge ${ok ? 'done' : 'failed'}`}>{ok ? t.labels.success : t.labels.failed}</span>
+      </div>
+      <div className="status-metric-grid">
+        <div className="status-metric">
+          <span>{t.labels.baseUrl}</span>
+          <strong>{probe.base_url || '-'}</strong>
+        </div>
+        <div className="status-metric">
+          <span>{t.labels.model}</span>
+          <strong>{probe.model || '-'}</strong>
+        </div>
+        <div className="status-metric">
+          <span>{t.labels.wireApi}</span>
+          <strong>{probe.wire_api || '-'}</strong>
+        </div>
+        <div className="status-metric">
+          <span>{t.labels.endpoint}</span>
+          <strong>{result?.url || '-'}</strong>
+        </div>
+        <div className="status-metric">
+          <span>{t.labels.httpStatus}</span>
+          <strong>{result?.http_status ?? '-'}</strong>
+        </div>
+        <div className="status-metric">
+          <span>{t.labels.result}</span>
+          <strong>{ok ? t.labels.success : t.labels.failed}</strong>
+        </div>
+      </div>
+      <details className="raw-panel">
+        <summary>{t.labels.rawProbe}</summary>
+        <pre className="log-block compact">{JSON.stringify(probe, null, 2)}</pre>
+      </details>
     </div>
   )
 }
@@ -623,6 +680,17 @@ function App() {
             <button onClick={() => callAction(t.actions.analyzeErrors, '/api/errors', { run_dir_name: config.runDir, gold_path: config.goldPath })}>{t.actions.analyzeErrors}</button>
           </div>
           <div className="busy-row">{busyAction ? `${t.ui.running}: ${busyAction}` : t.ui.idle}</div>
+          <div className="run-guide">
+            <div className="run-guide-title">{t.labels.runGuideTitle}</div>
+            <ol className="run-guide-list">
+              <li><strong>{t.actions.probeProvider}</strong><span>{t.guide.probeProvider}</span></li>
+              <li><strong>{t.actions.sampleData}</strong><span>{t.guide.sampleData}</span></li>
+              <li><strong>{t.actions.runExperiment}</strong><span>{t.guide.runExperiment}</span></li>
+              <li><strong>{t.actions.generateSummary}</strong><span>{t.guide.generateSummary}</span></li>
+              <li><strong>{t.actions.generateArtifacts}</strong><span>{t.guide.generateArtifacts}</span></li>
+              <li><strong>{t.actions.analyzeErrors}</strong><span>{t.guide.analyzeErrors}</span></li>
+            </ol>
+          </div>
         </section>
       </aside>
 
@@ -649,12 +717,15 @@ function App() {
               <ProgressPanel title={t.labels.oneShot} progress={oneShotProgress} eta={oneShotEta} t={t} />
               <ProgressPanel title={t.labels.workflow} progress={workflowProgress} eta={workflowEta} t={t} />
             </div>
-            <pre className="log-block">{JSON.stringify(jobs, null, 2)}</pre>
+            <details className="raw-panel">
+              <summary>{t.labels.rawJobs}</summary>
+              <pre className="log-block compact">{JSON.stringify(jobs, null, 2)}</pre>
+            </details>
           </div>
 
           <div className="card">
             <div className="section-title">{t.labels.probeOutput}</div>
-            <pre className="log-block">{probe ? JSON.stringify(probe, null, 2) : t.ui.noProbeRunYet}</pre>
+            <ProbeSummary probe={probe} t={t} />
           </div>
         </section>
 

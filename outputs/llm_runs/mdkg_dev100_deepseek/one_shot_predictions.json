@@ -3297,5 +3297,2464 @@
         }
       }
     ]
+  },
+  {
+    "doc_id": "28005562",
+    "sent_id": "28005562_s9",
+    "text": "Other results were less predictable: pvFTLD patients performed better on one test of executive function (trail making test part B) but worse on another (digit span backward).",
+    "entities": [
+      {
+        "id": "P1_37_43",
+        "type": "disease",
+        "start": 37,
+        "end": 43,
+        "text": "pvFTLD"
+      },
+      {
+        "id": "P2_105_129",
+        "type": "method",
+        "start": 105,
+        "end": 129,
+        "text": "trail making test part B"
+      },
+      {
+        "id": "P3_153_172",
+        "type": "method",
+        "start": 153,
+        "end": 172,
+        "text": "digit span backward"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_37_43",
+          "type": "disease",
+          "start": 37,
+          "end": 43,
+          "text": "pvFTLD"
+        },
+        "tail": {
+          "id": "P2_105_129",
+          "type": "method",
+          "start": 105,
+          "end": 129,
+          "text": "trail making test part B"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_37_43",
+          "type": "disease",
+          "start": 37,
+          "end": 43,
+          "text": "pvFTLD"
+        },
+        "tail": {
+          "id": "P3_153_172",
+          "type": "method",
+          "start": 153,
+          "end": 172,
+          "text": "digit span backward"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "32066688",
+    "sent_id": "32066688_s3",
+    "text": "Alternative APP cleavage by alpha-secretase (a family of membrane-bound metalloproteases- Adamalysins) precludes the generation of toxic Abeta and yields a neuroprotective and neurotrophic secreted sAPPalpha fragment.",
+    "entities": [
+      {
+        "id": "P1_12_15",
+        "type": "gene",
+        "start": 12,
+        "end": 15,
+        "text": "APP"
+      },
+      {
+        "id": "P2_28_43",
+        "type": "gene",
+        "start": 28,
+        "end": 43,
+        "text": "alpha-secretase"
+      },
+      {
+        "id": "P3_90_101",
+        "type": "gene",
+        "start": 90,
+        "end": 101,
+        "text": "Adamalysins"
+      },
+      {
+        "id": "P4_137_142",
+        "type": "other",
+        "start": 137,
+        "end": 142,
+        "text": "Abeta"
+      },
+      {
+        "id": "P5_198_207",
+        "type": "other",
+        "start": 198,
+        "end": 207,
+        "text": "sAPPalpha"
+      }
+    ],
+    "relations": [
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P2_28_43",
+          "type": "gene",
+          "start": 28,
+          "end": 43,
+          "text": "alpha-secretase"
+        },
+        "tail": {
+          "id": "P3_90_101",
+          "type": "gene",
+          "start": 90,
+          "end": 101,
+          "text": "Adamalysins"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_28_43",
+          "type": "gene",
+          "start": 28,
+          "end": 43,
+          "text": "alpha-secretase"
+        },
+        "tail": {
+          "id": "P1_12_15",
+          "type": "gene",
+          "start": 12,
+          "end": 15,
+          "text": "APP"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_28_43",
+          "type": "gene",
+          "start": 28,
+          "end": 43,
+          "text": "alpha-secretase"
+        },
+        "tail": {
+          "id": "P4_137_142",
+          "type": "other",
+          "start": 137,
+          "end": 142,
+          "text": "Abeta"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_28_43",
+          "type": "gene",
+          "start": 28,
+          "end": 43,
+          "text": "alpha-secretase"
+        },
+        "tail": {
+          "id": "P5_198_207",
+          "type": "other",
+          "start": 198,
+          "end": 207,
+          "text": "sAPPalpha"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "26714935",
+    "sent_id": "26714935_s8",
+    "text": "Finally, the frequency of the APOE epsilon4 allele was compared in EO and LO groups.",
+    "entities": [
+      {
+        "id": "P1_30_50",
+        "type": "mutation",
+        "start": 30,
+        "end": 50,
+        "text": "APOE epsilon4 allele"
+      },
+      {
+        "id": "P2_67_69",
+        "type": "disease",
+        "start": 67,
+        "end": 69,
+        "text": "EO"
+      },
+      {
+        "id": "P3_74_76",
+        "type": "disease",
+        "start": 74,
+        "end": 76,
+        "text": "LO"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "28385104",
+    "sent_id": "28385104_s4",
+    "text": "CSF NF-L level was measured with a commercially available NF-L enzyme-linked immunosorbent assay.",
+    "entities": [
+      {
+        "id": "P1_0_3",
+        "type": "other",
+        "start": 0,
+        "end": 3,
+        "text": "CSF"
+      },
+      {
+        "id": "P2_4_8",
+        "type": "gene",
+        "start": 4,
+        "end": 8,
+        "text": "NF-L"
+      },
+      {
+        "id": "P3_63_96",
+        "type": "method",
+        "start": 63,
+        "end": 96,
+        "text": "enzyme-linked immunosorbent assay"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_0_3",
+          "type": "other",
+          "start": 0,
+          "end": 3,
+          "text": "CSF"
+        },
+        "tail": {
+          "id": "P2_4_8",
+          "type": "gene",
+          "start": 4,
+          "end": 8,
+          "text": "NF-L"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_4_8",
+          "type": "gene",
+          "start": 4,
+          "end": 8,
+          "text": "NF-L"
+        },
+        "tail": {
+          "id": "P3_63_96",
+          "type": "method",
+          "start": 63,
+          "end": 96,
+          "text": "enzyme-linked immunosorbent assay"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "33098511",
+    "sent_id": "33098511_s0",
+    "text": "Sirtuins as Possible Predictors of Aging and Alzheimer's Disease Development: Verification in the Hippocampus and Saliva.",
+    "entities": [
+      {
+        "id": "P1_0_8",
+        "type": "gene",
+        "start": 0,
+        "end": 8,
+        "text": "Sirtuins"
+      },
+      {
+        "id": "P2_35_40",
+        "type": "disease",
+        "start": 35,
+        "end": 40,
+        "text": "Aging"
+      },
+      {
+        "id": "P3_45_64",
+        "type": "disease",
+        "start": 45,
+        "end": 64,
+        "text": "Alzheimer's Disease"
+      },
+      {
+        "id": "P4_98_109",
+        "type": "other",
+        "start": 98,
+        "end": 109,
+        "text": "Hippocampus"
+      },
+      {
+        "id": "P5_114_120",
+        "type": "other",
+        "start": 114,
+        "end": 120,
+        "text": "Saliva"
+      }
+    ],
+    "relations": [
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P1_0_8",
+          "type": "gene",
+          "start": 0,
+          "end": 8,
+          "text": "Sirtuins"
+        },
+        "tail": {
+          "id": "P2_35_40",
+          "type": "disease",
+          "start": 35,
+          "end": 40,
+          "text": "Aging"
+        }
+      },
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P1_0_8",
+          "type": "gene",
+          "start": 0,
+          "end": 8,
+          "text": "Sirtuins"
+        },
+        "tail": {
+          "id": "P3_45_64",
+          "type": "disease",
+          "start": 45,
+          "end": 64,
+          "text": "Alzheimer's Disease"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "26737239",
+    "sent_id": "26737239_s1",
+    "text": "A challenging point in neuroimaging is the diagnosis of Alzheimer's disease (AD) during its asymptomatic phase.",
+    "entities": [
+      {
+        "id": "P1_23_35",
+        "type": "method",
+        "start": 23,
+        "end": 35,
+        "text": "neuroimaging"
+      },
+      {
+        "id": "P2_56_75",
+        "type": "disease",
+        "start": 56,
+        "end": 75,
+        "text": "Alzheimer's disease"
+      },
+      {
+        "id": "P3_77_79",
+        "type": "disease",
+        "start": 77,
+        "end": 79,
+        "text": "AD"
+      }
+    ],
+    "relations": [
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P3_77_79",
+          "type": "disease",
+          "start": 77,
+          "end": 79,
+          "text": "AD"
+        },
+        "tail": {
+          "id": "P2_56_75",
+          "type": "disease",
+          "start": 56,
+          "end": 75,
+          "text": "Alzheimer's disease"
+        }
+      },
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P1_23_35",
+          "type": "method",
+          "start": 23,
+          "end": 35,
+          "text": "neuroimaging"
+        },
+        "tail": {
+          "id": "P2_56_75",
+          "type": "disease",
+          "start": 56,
+          "end": 75,
+          "text": "Alzheimer's disease"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "27918765",
+    "sent_id": "27918765_s2",
+    "text": "An important problem in this disease is the lack of a sensitive, specific, and noninvasive biochemical diagnosis to help in clinical evaluation, monitoring of disease progression, and early differential diagnosis from related neurodegenerative diseases.",
+    "entities": [
+      {
+        "id": "P1_24_36",
+        "type": "disease",
+        "start": 24,
+        "end": 36,
+        "text": "this disease"
+      },
+      {
+        "id": "P2_91_112",
+        "type": "method",
+        "start": 91,
+        "end": 112,
+        "text": "biochemical diagnosis"
+      },
+      {
+        "id": "P3_124_143",
+        "type": "method",
+        "start": 124,
+        "end": 143,
+        "text": "clinical evaluation"
+      },
+      {
+        "id": "P4_145_178",
+        "type": "method",
+        "start": 145,
+        "end": 178,
+        "text": "monitoring of disease progression"
+      },
+      {
+        "id": "P5_184_212",
+        "type": "method",
+        "start": 184,
+        "end": 212,
+        "text": "early differential diagnosis"
+      },
+      {
+        "id": "P6_218_252",
+        "type": "disease",
+        "start": 218,
+        "end": 252,
+        "text": "related neurodegenerative diseases"
+      }
+    ],
+    "relations": [
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P2_91_112",
+          "type": "method",
+          "start": 91,
+          "end": 112,
+          "text": "biochemical diagnosis"
+        },
+        "tail": {
+          "id": "P1_24_36",
+          "type": "disease",
+          "start": 24,
+          "end": 36,
+          "text": "this disease"
+        }
+      },
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P5_184_212",
+          "type": "method",
+          "start": 184,
+          "end": 212,
+          "text": "early differential diagnosis"
+        },
+        "tail": {
+          "id": "P1_24_36",
+          "type": "disease",
+          "start": 24,
+          "end": 36,
+          "text": "this disease"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "29543755",
+    "sent_id": "29543755_s4",
+    "text": "Nanomedicines could further contribute to making nose-to-brain delivery a reality.",
+    "entities": [
+      {
+        "id": "P1_0_13",
+        "type": "drug",
+        "start": 0,
+        "end": 13,
+        "text": "Nanomedicines"
+      },
+      {
+        "id": "P2_49_71",
+        "type": "method",
+        "start": 49,
+        "end": 71,
+        "text": "nose-to-brain delivery"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_0_13",
+          "type": "drug",
+          "start": 0,
+          "end": 13,
+          "text": "Nanomedicines"
+        },
+        "tail": {
+          "id": "P2_49_71",
+          "type": "method",
+          "start": 49,
+          "end": 71,
+          "text": "nose-to-brain delivery"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "27335008",
+    "sent_id": "27335008_s1",
+    "text": "In vitro antioxidant virtue and life-prolonging effect of phycoerythrin (PE; a pigment protein isolated from Phormidium sp.",
+    "entities": [
+      {
+        "id": "P1_58_71",
+        "type": "drug",
+        "start": 58,
+        "end": 71,
+        "text": "phycoerythrin"
+      },
+      {
+        "id": "P2_73_75",
+        "type": "drug",
+        "start": 73,
+        "end": 75,
+        "text": "PE"
+      },
+      {
+        "id": "P3_109_123",
+        "type": "other",
+        "start": 109,
+        "end": 123,
+        "text": "Phormidium sp."
+      }
+    ],
+    "relations": [
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P2_73_75",
+          "type": "drug",
+          "start": 73,
+          "end": 75,
+          "text": "PE"
+        },
+        "tail": {
+          "id": "P1_58_71",
+          "type": "drug",
+          "start": 58,
+          "end": 71,
+          "text": "phycoerythrin"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_58_71",
+          "type": "drug",
+          "start": 58,
+          "end": 71,
+          "text": "phycoerythrin"
+        },
+        "tail": {
+          "id": "P3_109_123",
+          "type": "other",
+          "start": 109,
+          "end": 123,
+          "text": "Phormidium sp."
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "32819425",
+    "sent_id": "32819425_s3",
+    "text": "Its significance in ALS has, however, been little addressed.",
+    "entities": [
+      {
+        "id": "P1_20_23",
+        "type": "disease",
+        "start": 20,
+        "end": 23,
+        "text": "ALS"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "27802001",
+    "sent_id": "27802001_s2",
+    "text": "Moreover, we investigate the factors that affect each item in the questionnaire.",
+    "entities": [],
+    "relations": []
+  },
+  {
+    "doc_id": "28729939",
+    "sent_id": "28729939_s4",
+    "text": "The authors showed that this method is able to predict cognitive outcomes of ADNI subjects using FreeSurfer-based baseline MRI features, MMSE score demographic information and ApoE status.",
+    "entities": [
+      {
+        "id": "P1_24_35",
+        "type": "method",
+        "start": 24,
+        "end": 35,
+        "text": "this method"
+      },
+      {
+        "id": "P2_55_73",
+        "type": "other",
+        "start": 55,
+        "end": 73,
+        "text": "cognitive outcomes"
+      },
+      {
+        "id": "P3_77_90",
+        "type": "other",
+        "start": 77,
+        "end": 90,
+        "text": "ADNI subjects"
+      },
+      {
+        "id": "P4_97_135",
+        "type": "method",
+        "start": 97,
+        "end": 135,
+        "text": "FreeSurfer-based baseline MRI features"
+      },
+      {
+        "id": "P5_137_147",
+        "type": "method",
+        "start": 137,
+        "end": 147,
+        "text": "MMSE score"
+      },
+      {
+        "id": "P6_148_171",
+        "type": "other",
+        "start": 148,
+        "end": 171,
+        "text": "demographic information"
+      },
+      {
+        "id": "P7_176_187",
+        "type": "gene",
+        "start": 176,
+        "end": 187,
+        "text": "ApoE status"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_24_35",
+          "type": "method",
+          "start": 24,
+          "end": 35,
+          "text": "this method"
+        },
+        "tail": {
+          "id": "P2_55_73",
+          "type": "other",
+          "start": 55,
+          "end": 73,
+          "text": "cognitive outcomes"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P5_137_147",
+          "type": "method",
+          "start": 137,
+          "end": 147,
+          "text": "MMSE score"
+        },
+        "tail": {
+          "id": "P2_55_73",
+          "type": "other",
+          "start": 55,
+          "end": 73,
+          "text": "cognitive outcomes"
+        }
+      },
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P7_176_187",
+          "type": "gene",
+          "start": 176,
+          "end": 187,
+          "text": "ApoE status"
+        },
+        "tail": {
+          "id": "P2_55_73",
+          "type": "other",
+          "start": 55,
+          "end": 73,
+          "text": "cognitive outcomes"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "31555411",
+    "sent_id": "31555411_s0",
+    "text": "Behavioral variant of frontotemporal dementia or frontal variant of Alzheimer's disease?",
+    "entities": [
+      {
+        "id": "P1_0_45",
+        "type": "disease",
+        "start": 0,
+        "end": 45,
+        "text": "Behavioral variant of frontotemporal dementia"
+      },
+      {
+        "id": "P2_49_87",
+        "type": "disease",
+        "start": 49,
+        "end": 87,
+        "text": "frontal variant of Alzheimer's disease"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "31555411",
+    "sent_id": "31555411_s2",
+    "text": "Alzheimer's disease (AD) has heterogeneous clinical presentations.",
+    "entities": [
+      {
+        "id": "P1_0_19",
+        "type": "disease",
+        "start": 0,
+        "end": 19,
+        "text": "Alzheimer's disease"
+      },
+      {
+        "id": "P2_21_23",
+        "type": "disease",
+        "start": 21,
+        "end": 23,
+        "text": "AD"
+      }
+    ],
+    "relations": [
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P2_21_23",
+          "type": "disease",
+          "start": 21,
+          "end": 23,
+          "text": "AD"
+        },
+        "tail": {
+          "id": "P1_0_19",
+          "type": "disease",
+          "start": 0,
+          "end": 19,
+          "text": "Alzheimer's disease"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "30989573",
+    "sent_id": "30989573_s1",
+    "text": "Although the mechanism of Alzheimer's disease (AD) is still not fully understood, the development of multifunctional AChE inhibitors remains a research focus for AD treatment.",
+    "entities": [
+      {
+        "id": "P1_26_45",
+        "type": "disease",
+        "start": 26,
+        "end": 45,
+        "text": "Alzheimer's disease"
+      },
+      {
+        "id": "P2_47_49",
+        "type": "disease",
+        "start": 47,
+        "end": 49,
+        "text": "AD"
+      },
+      {
+        "id": "P3_117_132",
+        "type": "drug",
+        "start": 117,
+        "end": 132,
+        "text": "AChE inhibitors"
+      }
+    ],
+    "relations": [
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P2_47_49",
+          "type": "disease",
+          "start": 47,
+          "end": 49,
+          "text": "AD"
+        },
+        "tail": {
+          "id": "P1_26_45",
+          "type": "disease",
+          "start": 26,
+          "end": 45,
+          "text": "Alzheimer's disease"
+        }
+      },
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P3_117_132",
+          "type": "drug",
+          "start": 117,
+          "end": 132,
+          "text": "AChE inhibitors"
+        },
+        "tail": {
+          "id": "P2_47_49",
+          "type": "disease",
+          "start": 47,
+          "end": 49,
+          "text": "AD"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "28394034",
+    "sent_id": "28394034_s10",
+    "text": "These variables were not only important themselves but also in interaction with gender, education, MMSE, and total intracranial volume.",
+    "entities": [
+      {
+        "id": "P1_99_103",
+        "type": "method",
+        "start": 99,
+        "end": 103,
+        "text": "MMSE"
+      },
+      {
+        "id": "P2_109_134",
+        "type": "other",
+        "start": 109,
+        "end": 134,
+        "text": "total intracranial volume"
+      },
+      {
+        "id": "P3_80_86",
+        "type": "other",
+        "start": 80,
+        "end": 86,
+        "text": "gender"
+      },
+      {
+        "id": "P4_88_97",
+        "type": "other",
+        "start": 88,
+        "end": 97,
+        "text": "education"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "30989573",
+    "sent_id": "30989573_s4",
+    "text": "Then their mechanism of action, the inhibition on Abeta aggregation, neurotoxicity, and neuroprotective activity against Abeta-induced nerve cell injury were well studied.",
+    "entities": [
+      {
+        "id": "P1_50_55",
+        "type": "gene",
+        "start": 50,
+        "end": 55,
+        "text": "Abeta"
+      },
+      {
+        "id": "P2_69_82",
+        "type": "disease",
+        "start": 69,
+        "end": 82,
+        "text": "neurotoxicity"
+      },
+      {
+        "id": "P3_121_152",
+        "type": "disease",
+        "start": 121,
+        "end": 152,
+        "text": "Abeta-induced nerve cell injury"
+      },
+      {
+        "id": "P4_50_67",
+        "type": "other",
+        "start": 50,
+        "end": 67,
+        "text": "Abeta aggregation"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_50_55",
+          "type": "gene",
+          "start": 50,
+          "end": 55,
+          "text": "Abeta"
+        },
+        "tail": {
+          "id": "P2_69_82",
+          "type": "disease",
+          "start": 69,
+          "end": 82,
+          "text": "neurotoxicity"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P4_50_67",
+          "type": "other",
+          "start": 50,
+          "end": 67,
+          "text": "Abeta aggregation"
+        },
+        "tail": {
+          "id": "P2_69_82",
+          "type": "disease",
+          "start": 69,
+          "end": 82,
+          "text": "neurotoxicity"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "28729939",
+    "sent_id": "28729939_s1",
+    "text": "INTRODUCTION: Prediction of Alzheimer's disease (AD) progression based on baseline measures allows us to understand disease progression and has implications in decisions concerning treatment strategy.",
+    "entities": [
+      {
+        "id": "P1_28_47",
+        "type": "disease",
+        "start": 28,
+        "end": 47,
+        "text": "Alzheimer's disease"
+      },
+      {
+        "id": "P2_49_51",
+        "type": "disease",
+        "start": 49,
+        "end": 51,
+        "text": "AD"
+      },
+      {
+        "id": "P3_74_91",
+        "type": "method",
+        "start": 74,
+        "end": 91,
+        "text": "baseline measures"
+      },
+      {
+        "id": "P4_116_135",
+        "type": "other",
+        "start": 116,
+        "end": 135,
+        "text": "disease progression"
+      },
+      {
+        "id": "P5_181_199",
+        "type": "other",
+        "start": 181,
+        "end": 199,
+        "text": "treatment strategy"
+      }
+    ],
+    "relations": [
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P2_49_51",
+          "type": "disease",
+          "start": 49,
+          "end": 51,
+          "text": "AD"
+        },
+        "tail": {
+          "id": "P1_28_47",
+          "type": "disease",
+          "start": 28,
+          "end": 47,
+          "text": "Alzheimer's disease"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "28972881",
+    "sent_id": "28972881_s2",
+    "text": "They may also be linked by the remarkable observation that insulin signaling sets the limits on longevity.",
+    "entities": [
+      {
+        "id": "P1_59_76",
+        "type": "other",
+        "start": 59,
+        "end": 76,
+        "text": "insulin signaling"
+      },
+      {
+        "id": "P2_96_105",
+        "type": "other",
+        "start": 96,
+        "end": 105,
+        "text": "longevity"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_59_76",
+          "type": "other",
+          "start": 59,
+          "end": 76,
+          "text": "insulin signaling"
+        },
+        "tail": {
+          "id": "P2_96_105",
+          "type": "other",
+          "start": 96,
+          "end": 105,
+          "text": "longevity"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "26663182",
+    "sent_id": "26663182_s3",
+    "text": "Studies in different species indicate that it may exist a number of import pathways of nucleus-encoded RNAs to mitochondria, being the most of them largely ATP-dependent.",
+    "entities": [
+      {
+        "id": "P1_68_83",
+        "type": "method",
+        "start": 68,
+        "end": 83,
+        "text": "import pathways"
+      },
+      {
+        "id": "P2_87_107",
+        "type": "other",
+        "start": 87,
+        "end": 107,
+        "text": "nucleus-encoded RNAs"
+      },
+      {
+        "id": "P3_111_123",
+        "type": "other",
+        "start": 111,
+        "end": 123,
+        "text": "mitochondria"
+      },
+      {
+        "id": "P4_156_169",
+        "type": "other",
+        "start": 156,
+        "end": 169,
+        "text": "ATP-dependent"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_68_83",
+          "type": "method",
+          "start": 68,
+          "end": 83,
+          "text": "import pathways"
+        },
+        "tail": {
+          "id": "P2_87_107",
+          "type": "other",
+          "start": 87,
+          "end": 107,
+          "text": "nucleus-encoded RNAs"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_68_83",
+          "type": "method",
+          "start": 68,
+          "end": 83,
+          "text": "import pathways"
+        },
+        "tail": {
+          "id": "P3_111_123",
+          "type": "other",
+          "start": 111,
+          "end": 123,
+          "text": "mitochondria"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P4_156_169",
+          "type": "other",
+          "start": 156,
+          "end": 169,
+          "text": "ATP-dependent"
+        },
+        "tail": {
+          "id": "P1_68_83",
+          "type": "method",
+          "start": 68,
+          "end": 83,
+          "text": "import pathways"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "32945192",
+    "sent_id": "32945192_s5",
+    "text": "The methodological quality of the studies selected was evaluated using the quality assessment tool for observational cohort and cross-sectional studies recommended by Cochrane.",
+    "entities": [
+      {
+        "id": "P1_75_98",
+        "type": "method",
+        "start": 75,
+        "end": 98,
+        "text": "quality assessment tool"
+      },
+      {
+        "id": "P2_167_175",
+        "type": "other",
+        "start": 167,
+        "end": 175,
+        "text": "Cochrane"
+      },
+      {
+        "id": "P3_103_151",
+        "type": "other",
+        "start": 103,
+        "end": 151,
+        "text": "observational cohort and cross-sectional studies"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "28323826",
+    "sent_id": "28323826_s12",
+    "text": "In regression models, APOE-e4 dose and age both consistently increased risk, as did lower education, subjective memory concerns, poorer baseline cognitive performance, and family history of dementia.",
+    "entities": [
+      {
+        "id": "P1_3_20",
+        "type": "method",
+        "start": 3,
+        "end": 20,
+        "text": "regression models"
+      },
+      {
+        "id": "P2_22_34",
+        "type": "gene",
+        "start": 22,
+        "end": 34,
+        "text": "APOE-e4 dose"
+      },
+      {
+        "id": "P3_39_42",
+        "type": "other",
+        "start": 39,
+        "end": 42,
+        "text": "age"
+      },
+      {
+        "id": "P4_84_99",
+        "type": "other",
+        "start": 84,
+        "end": 99,
+        "text": "lower education"
+      },
+      {
+        "id": "P5_101_127",
+        "type": "other",
+        "start": 101,
+        "end": 127,
+        "text": "subjective memory concerns"
+      },
+      {
+        "id": "P6_129_166",
+        "type": "other",
+        "start": 129,
+        "end": 166,
+        "text": "poorer baseline cognitive performance"
+      },
+      {
+        "id": "P7_172_186",
+        "type": "other",
+        "start": 172,
+        "end": 186,
+        "text": "family history"
+      },
+      {
+        "id": "P8_190_198",
+        "type": "disease",
+        "start": 190,
+        "end": 198,
+        "text": "dementia"
+      }
+    ],
+    "relations": [
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P2_22_34",
+          "type": "gene",
+          "start": 22,
+          "end": 34,
+          "text": "APOE-e4 dose"
+        },
+        "tail": {
+          "id": "P8_190_198",
+          "type": "disease",
+          "start": 190,
+          "end": 198,
+          "text": "dementia"
+        }
+      },
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P3_39_42",
+          "type": "other",
+          "start": 39,
+          "end": 42,
+          "text": "age"
+        },
+        "tail": {
+          "id": "P8_190_198",
+          "type": "disease",
+          "start": 190,
+          "end": 198,
+          "text": "dementia"
+        }
+      },
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P4_84_99",
+          "type": "other",
+          "start": 84,
+          "end": 99,
+          "text": "lower education"
+        },
+        "tail": {
+          "id": "P8_190_198",
+          "type": "disease",
+          "start": 190,
+          "end": 198,
+          "text": "dementia"
+        }
+      },
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P5_101_127",
+          "type": "other",
+          "start": 101,
+          "end": 127,
+          "text": "subjective memory concerns"
+        },
+        "tail": {
+          "id": "P8_190_198",
+          "type": "disease",
+          "start": 190,
+          "end": 198,
+          "text": "dementia"
+        }
+      },
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P6_129_166",
+          "type": "other",
+          "start": 129,
+          "end": 166,
+          "text": "poorer baseline cognitive performance"
+        },
+        "tail": {
+          "id": "P8_190_198",
+          "type": "disease",
+          "start": 190,
+          "end": 198,
+          "text": "dementia"
+        }
+      },
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P7_172_186",
+          "type": "other",
+          "start": 172,
+          "end": 186,
+          "text": "family history"
+        },
+        "tail": {
+          "id": "P8_190_198",
+          "type": "disease",
+          "start": 190,
+          "end": 198,
+          "text": "dementia"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "33498392",
+    "sent_id": "33498392_s7",
+    "text": "Here, we investigated aspects such as microbial viability, colonic propulsion, and properties of enteric neurons, affected by assumed intestinal concentration of the four drugs using the mouse as a model organism.",
+    "entities": [
+      {
+        "id": "P1_38_57",
+        "type": "other",
+        "start": 38,
+        "end": 57,
+        "text": "microbial viability"
+      },
+      {
+        "id": "P2_59_77",
+        "type": "other",
+        "start": 59,
+        "end": 77,
+        "text": "colonic propulsion"
+      },
+      {
+        "id": "P3_97_112",
+        "type": "other",
+        "start": 97,
+        "end": 112,
+        "text": "enteric neurons"
+      },
+      {
+        "id": "P4_171_176",
+        "type": "drug",
+        "start": 171,
+        "end": 176,
+        "text": "drugs"
+      },
+      {
+        "id": "P5_187_192",
+        "type": "other",
+        "start": 187,
+        "end": 192,
+        "text": "mouse"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P4_171_176",
+          "type": "drug",
+          "start": 171,
+          "end": 176,
+          "text": "drugs"
+        },
+        "tail": {
+          "id": "P1_38_57",
+          "type": "other",
+          "start": 38,
+          "end": 57,
+          "text": "microbial viability"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P4_171_176",
+          "type": "drug",
+          "start": 171,
+          "end": 176,
+          "text": "drugs"
+        },
+        "tail": {
+          "id": "P2_59_77",
+          "type": "other",
+          "start": 59,
+          "end": 77,
+          "text": "colonic propulsion"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P4_171_176",
+          "type": "drug",
+          "start": 171,
+          "end": 176,
+          "text": "drugs"
+        },
+        "tail": {
+          "id": "P3_97_112",
+          "type": "other",
+          "start": 97,
+          "end": 112,
+          "text": "enteric neurons"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "29091313",
+    "sent_id": "29091313_s5",
+    "text": "Studies on adipobiology of neurotrophins have focused on nerve growth factor (NGF) as an example of adipose-derived neurotrophins.",
+    "entities": [
+      {
+        "id": "P1_11_23",
+        "type": "method",
+        "start": 11,
+        "end": 23,
+        "text": "adipobiology"
+      },
+      {
+        "id": "P2_27_40",
+        "type": "gene",
+        "start": 27,
+        "end": 40,
+        "text": "neurotrophins"
+      },
+      {
+        "id": "P3_57_76",
+        "type": "gene",
+        "start": 57,
+        "end": 76,
+        "text": "nerve growth factor"
+      },
+      {
+        "id": "P4_78_81",
+        "type": "gene",
+        "start": 78,
+        "end": 81,
+        "text": "NGF"
+      },
+      {
+        "id": "P5_100_129",
+        "type": "other",
+        "start": 100,
+        "end": 129,
+        "text": "adipose-derived neurotrophins"
+      }
+    ],
+    "relations": [
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P3_57_76",
+          "type": "gene",
+          "start": 57,
+          "end": 76,
+          "text": "nerve growth factor"
+        },
+        "tail": {
+          "id": "P4_78_81",
+          "type": "gene",
+          "start": 78,
+          "end": 81,
+          "text": "NGF"
+        }
+      },
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P3_57_76",
+          "type": "gene",
+          "start": 57,
+          "end": 76,
+          "text": "nerve growth factor"
+        },
+        "tail": {
+          "id": "P5_100_129",
+          "type": "other",
+          "start": 100,
+          "end": 129,
+          "text": "adipose-derived neurotrophins"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "28847280",
+    "sent_id": "28847280_s7",
+    "text": "RESULTS AND CONCLUSIONS: The results show a direct relationship between the different acoustic parameters present in AD and the verbal fluency tests results.",
+    "entities": [
+      {
+        "id": "P1_117_119",
+        "type": "disease",
+        "start": 117,
+        "end": 119,
+        "text": "AD"
+      },
+      {
+        "id": "P2_86_105",
+        "type": "other",
+        "start": 86,
+        "end": 105,
+        "text": "acoustic parameters"
+      },
+      {
+        "id": "P3_128_156",
+        "type": "method",
+        "start": 128,
+        "end": 156,
+        "text": "verbal fluency tests results"
+      }
+    ],
+    "relations": [
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P2_86_105",
+          "type": "other",
+          "start": 86,
+          "end": 105,
+          "text": "acoustic parameters"
+        },
+        "tail": {
+          "id": "P1_117_119",
+          "type": "disease",
+          "start": 117,
+          "end": 119,
+          "text": "AD"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_86_105",
+          "type": "other",
+          "start": 86,
+          "end": 105,
+          "text": "acoustic parameters"
+        },
+        "tail": {
+          "id": "P3_128_156",
+          "type": "method",
+          "start": 128,
+          "end": 156,
+          "text": "verbal fluency tests results"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "27598108",
+    "sent_id": "27598108_s5",
+    "text": "In the last years, druggable molecular targets and signalling pathways involved in neurogenic processes have been identified, and as a consequence, different drug types have been developed and tested in neuronal plasticity.",
+    "entities": [
+      {
+        "id": "P1_19_46",
+        "type": "gene",
+        "start": 19,
+        "end": 46,
+        "text": "druggable molecular targets"
+      },
+      {
+        "id": "P2_51_70",
+        "type": "other",
+        "start": 51,
+        "end": 70,
+        "text": "signalling pathways"
+      },
+      {
+        "id": "P3_83_103",
+        "type": "other",
+        "start": 83,
+        "end": 103,
+        "text": "neurogenic processes"
+      },
+      {
+        "id": "P4_148_168",
+        "type": "drug",
+        "start": 148,
+        "end": 168,
+        "text": "different drug types"
+      },
+      {
+        "id": "P5_203_222",
+        "type": "other",
+        "start": 203,
+        "end": 222,
+        "text": "neuronal plasticity"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_19_46",
+          "type": "gene",
+          "start": 19,
+          "end": 46,
+          "text": "druggable molecular targets"
+        },
+        "tail": {
+          "id": "P3_83_103",
+          "type": "other",
+          "start": 83,
+          "end": 103,
+          "text": "neurogenic processes"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_51_70",
+          "type": "other",
+          "start": 51,
+          "end": 70,
+          "text": "signalling pathways"
+        },
+        "tail": {
+          "id": "P3_83_103",
+          "type": "other",
+          "start": 83,
+          "end": 103,
+          "text": "neurogenic processes"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P4_148_168",
+          "type": "drug",
+          "start": 148,
+          "end": 168,
+          "text": "different drug types"
+        },
+        "tail": {
+          "id": "P5_203_222",
+          "type": "other",
+          "start": 203,
+          "end": 222,
+          "text": "neuronal plasticity"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "28394034",
+    "sent_id": "28394034_s14",
+    "text": "Furthermore, cognitively normal individuals especially from ADNI and AIBL are not representative of the general population.",
+    "entities": [
+      {
+        "id": "P1_13_43",
+        "type": "other",
+        "start": 13,
+        "end": 43,
+        "text": "cognitively normal individuals"
+      },
+      {
+        "id": "P2_60_64",
+        "type": "other",
+        "start": 60,
+        "end": 64,
+        "text": "ADNI"
+      },
+      {
+        "id": "P3_69_73",
+        "type": "other",
+        "start": 69,
+        "end": 73,
+        "text": "AIBL"
+      },
+      {
+        "id": "P4_104_122",
+        "type": "other",
+        "start": 104,
+        "end": 122,
+        "text": "general population"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "31448102",
+    "sent_id": "31448102_s8",
+    "text": "Our findings also indicate a significant sex* genotype interaction for the CNTNAP2 gene, a member of the neurexin family and a significant interaction for brain area*sex* genotype for PSEN2, a risk factor gene for AD.",
+    "entities": [
+      {
+        "id": "P1_75_87",
+        "type": "gene",
+        "start": 75,
+        "end": 87,
+        "text": "CNTNAP2 gene"
+      },
+      {
+        "id": "P2_105_120",
+        "type": "gene",
+        "start": 105,
+        "end": 120,
+        "text": "neurexin family"
+      },
+      {
+        "id": "P3_184_189",
+        "type": "gene",
+        "start": 184,
+        "end": 189,
+        "text": "PSEN2"
+      },
+      {
+        "id": "P4_214_216",
+        "type": "disease",
+        "start": 214,
+        "end": 216,
+        "text": "AD"
+      },
+      {
+        "id": "P5_41_44",
+        "type": "other",
+        "start": 41,
+        "end": 44,
+        "text": "sex"
+      },
+      {
+        "id": "P6_46_54",
+        "type": "other",
+        "start": 46,
+        "end": 54,
+        "text": "genotype"
+      },
+      {
+        "id": "P7_155_165",
+        "type": "other",
+        "start": 155,
+        "end": 165,
+        "text": "brain area"
+      }
+    ],
+    "relations": [
+      {
+        "type": "hyponym_of",
+        "head": {
+          "id": "P1_75_87",
+          "type": "gene",
+          "start": 75,
+          "end": 87,
+          "text": "CNTNAP2 gene"
+        },
+        "tail": {
+          "id": "P2_105_120",
+          "type": "gene",
+          "start": 105,
+          "end": 120,
+          "text": "neurexin family"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_75_87",
+          "type": "gene",
+          "start": 75,
+          "end": 87,
+          "text": "CNTNAP2 gene"
+        },
+        "tail": {
+          "id": "P5_41_44",
+          "type": "other",
+          "start": 41,
+          "end": 44,
+          "text": "sex"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_75_87",
+          "type": "gene",
+          "start": 75,
+          "end": 87,
+          "text": "CNTNAP2 gene"
+        },
+        "tail": {
+          "id": "P6_46_54",
+          "type": "other",
+          "start": 46,
+          "end": 54,
+          "text": "genotype"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_184_189",
+          "type": "gene",
+          "start": 184,
+          "end": 189,
+          "text": "PSEN2"
+        },
+        "tail": {
+          "id": "P7_155_165",
+          "type": "other",
+          "start": 155,
+          "end": 165,
+          "text": "brain area"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_184_189",
+          "type": "gene",
+          "start": 184,
+          "end": 189,
+          "text": "PSEN2"
+        },
+        "tail": {
+          "id": "P5_41_44",
+          "type": "other",
+          "start": 41,
+          "end": 44,
+          "text": "sex"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_184_189",
+          "type": "gene",
+          "start": 184,
+          "end": 189,
+          "text": "PSEN2"
+        },
+        "tail": {
+          "id": "P6_46_54",
+          "type": "other",
+          "start": 46,
+          "end": 54,
+          "text": "genotype"
+        }
+      },
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P3_184_189",
+          "type": "gene",
+          "start": 184,
+          "end": 189,
+          "text": "PSEN2"
+        },
+        "tail": {
+          "id": "P4_214_216",
+          "type": "disease",
+          "start": 214,
+          "end": 216,
+          "text": "AD"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "29911253",
+    "sent_id": "29911253_s9",
+    "text": "Altogether, DHA could represent a new approach for the treatment of AD through JNK inhibition.",
+    "entities": [
+      {
+        "id": "P1_12_15",
+        "type": "drug",
+        "start": 12,
+        "end": 15,
+        "text": "DHA"
+      },
+      {
+        "id": "P2_68_70",
+        "type": "disease",
+        "start": 68,
+        "end": 70,
+        "text": "AD"
+      },
+      {
+        "id": "P3_79_82",
+        "type": "gene",
+        "start": 79,
+        "end": 82,
+        "text": "JNK"
+      }
+    ],
+    "relations": [
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P1_12_15",
+          "type": "drug",
+          "start": 12,
+          "end": 15,
+          "text": "DHA"
+        },
+        "tail": {
+          "id": "P2_68_70",
+          "type": "disease",
+          "start": 68,
+          "end": 70,
+          "text": "AD"
+        }
+      },
+      {
+        "type": "treatment_target_for",
+        "head": {
+          "id": "P1_12_15",
+          "type": "drug",
+          "start": 12,
+          "end": 15,
+          "text": "DHA"
+        },
+        "tail": {
+          "id": "P3_79_82",
+          "type": "gene",
+          "start": 79,
+          "end": 82,
+          "text": "JNK"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "26349911",
+    "sent_id": "26349911_s3",
+    "text": "Reducing soluble Abeta levels and consequently amyloid plaques constitute an attractive therapeutic avenue to, at least, stabilize AD pathogenesis.",
+    "entities": [
+      {
+        "id": "P1_9_22",
+        "type": "gene",
+        "start": 9,
+        "end": 22,
+        "text": "soluble Abeta"
+      },
+      {
+        "id": "P2_47_62",
+        "type": "other",
+        "start": 47,
+        "end": 62,
+        "text": "amyloid plaques"
+      },
+      {
+        "id": "P3_131_133",
+        "type": "disease",
+        "start": 131,
+        "end": 133,
+        "text": "AD"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_9_22",
+          "type": "gene",
+          "start": 9,
+          "end": 22,
+          "text": "soluble Abeta"
+        },
+        "tail": {
+          "id": "P3_131_133",
+          "type": "disease",
+          "start": 131,
+          "end": 133,
+          "text": "AD"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P2_47_62",
+          "type": "other",
+          "start": 47,
+          "end": 62,
+          "text": "amyloid plaques"
+        },
+        "tail": {
+          "id": "P3_131_133",
+          "type": "disease",
+          "start": 131,
+          "end": 133,
+          "text": "AD"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "27802001",
+    "sent_id": "27802001_s10",
+    "text": "However, no significant correlation was found between the changes in OABSS scores and those in other neuropsychological parameters.",
+    "entities": [
+      {
+        "id": "P1_69_81",
+        "type": "method",
+        "start": 69,
+        "end": 81,
+        "text": "OABSS scores"
+      },
+      {
+        "id": "P2_95_130",
+        "type": "other",
+        "start": 95,
+        "end": 130,
+        "text": "other neuropsychological parameters"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_69_81",
+          "type": "method",
+          "start": 69,
+          "end": 81,
+          "text": "OABSS scores"
+        },
+        "tail": {
+          "id": "P2_95_130",
+          "type": "other",
+          "start": 95,
+          "end": 130,
+          "text": "other neuropsychological parameters"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "33498392",
+    "sent_id": "33498392_s5",
+    "text": "While the first data provide evidence that AD patients might carry an altered microbiome, the influence of administered drugs on gut properties and commensals have been largely ignored so far.",
+    "entities": [
+      {
+        "id": "P1_43_45",
+        "type": "disease",
+        "start": 43,
+        "end": 45,
+        "text": "AD"
+      },
+      {
+        "id": "P2_78_88",
+        "type": "other",
+        "start": 78,
+        "end": 88,
+        "text": "microbiome"
+      },
+      {
+        "id": "P3_120_125",
+        "type": "drug",
+        "start": 120,
+        "end": 125,
+        "text": "drugs"
+      },
+      {
+        "id": "P4_129_143",
+        "type": "other",
+        "start": 129,
+        "end": 143,
+        "text": "gut properties"
+      },
+      {
+        "id": "P5_148_158",
+        "type": "other",
+        "start": 148,
+        "end": 158,
+        "text": "commensals"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_43_45",
+          "type": "disease",
+          "start": 43,
+          "end": 45,
+          "text": "AD"
+        },
+        "tail": {
+          "id": "P2_78_88",
+          "type": "other",
+          "start": 78,
+          "end": 88,
+          "text": "microbiome"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_120_125",
+          "type": "drug",
+          "start": 120,
+          "end": 125,
+          "text": "drugs"
+        },
+        "tail": {
+          "id": "P4_129_143",
+          "type": "other",
+          "start": 129,
+          "end": 143,
+          "text": "gut properties"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_120_125",
+          "type": "drug",
+          "start": 120,
+          "end": 125,
+          "text": "drugs"
+        },
+        "tail": {
+          "id": "P5_148_158",
+          "type": "other",
+          "start": 148,
+          "end": 158,
+          "text": "commensals"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "33216035",
+    "sent_id": "33216035_s2",
+    "text": "Abeta is transported across the blood-brain barrier by LRP1 and P-gp as efflux transporters and RAGE as influx transporter.",
+    "entities": [
+      {
+        "id": "P1_0_5",
+        "type": "gene",
+        "start": 0,
+        "end": 5,
+        "text": "Abeta"
+      },
+      {
+        "id": "P2_32_51",
+        "type": "other",
+        "start": 32,
+        "end": 51,
+        "text": "blood-brain barrier"
+      },
+      {
+        "id": "P3_55_59",
+        "type": "gene",
+        "start": 55,
+        "end": 59,
+        "text": "LRP1"
+      },
+      {
+        "id": "P4_64_68",
+        "type": "gene",
+        "start": 64,
+        "end": 68,
+        "text": "P-gp"
+      },
+      {
+        "id": "P5_96_100",
+        "type": "gene",
+        "start": 96,
+        "end": 100,
+        "text": "RAGE"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_0_5",
+          "type": "gene",
+          "start": 0,
+          "end": 5,
+          "text": "Abeta"
+        },
+        "tail": {
+          "id": "P3_55_59",
+          "type": "gene",
+          "start": 55,
+          "end": 59,
+          "text": "LRP1"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_0_5",
+          "type": "gene",
+          "start": 0,
+          "end": 5,
+          "text": "Abeta"
+        },
+        "tail": {
+          "id": "P4_64_68",
+          "type": "gene",
+          "start": 64,
+          "end": 68,
+          "text": "P-gp"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_0_5",
+          "type": "gene",
+          "start": 0,
+          "end": 5,
+          "text": "Abeta"
+        },
+        "tail": {
+          "id": "P5_96_100",
+          "type": "gene",
+          "start": 96,
+          "end": 100,
+          "text": "RAGE"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_0_5",
+          "type": "gene",
+          "start": 0,
+          "end": 5,
+          "text": "Abeta"
+        },
+        "tail": {
+          "id": "P2_32_51",
+          "type": "other",
+          "start": 32,
+          "end": 51,
+          "text": "blood-brain barrier"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "30689578",
+    "sent_id": "30689578_s1",
+    "text": "Cerebral amyloid-beta (Abeta) plaques are the hallmark biomarker of Alzheimer's disease (AD) and are detectable decades before clinical symptoms.",
+    "entities": [
+      {
+        "id": "P1_9_21",
+        "type": "gene",
+        "start": 9,
+        "end": 21,
+        "text": "amyloid-beta"
+      },
+      {
+        "id": "P2_23_28",
+        "type": "gene",
+        "start": 23,
+        "end": 28,
+        "text": "Abeta"
+      },
+      {
+        "id": "P3_30_37",
+        "type": "other",
+        "start": 30,
+        "end": 37,
+        "text": "plaques"
+      },
+      {
+        "id": "P4_68_87",
+        "type": "disease",
+        "start": 68,
+        "end": 87,
+        "text": "Alzheimer's disease"
+      },
+      {
+        "id": "P5_89_91",
+        "type": "disease",
+        "start": 89,
+        "end": 91,
+        "text": "AD"
+      }
+    ],
+    "relations": [
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P2_23_28",
+          "type": "gene",
+          "start": 23,
+          "end": 28,
+          "text": "Abeta"
+        },
+        "tail": {
+          "id": "P1_9_21",
+          "type": "gene",
+          "start": 9,
+          "end": 21,
+          "text": "amyloid-beta"
+        }
+      },
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P5_89_91",
+          "type": "disease",
+          "start": 89,
+          "end": 91,
+          "text": "AD"
+        },
+        "tail": {
+          "id": "P4_68_87",
+          "type": "disease",
+          "start": 68,
+          "end": 87,
+          "text": "Alzheimer's disease"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_9_21",
+          "type": "gene",
+          "start": 9,
+          "end": 21,
+          "text": "amyloid-beta"
+        },
+        "tail": {
+          "id": "P3_30_37",
+          "type": "other",
+          "start": 30,
+          "end": 37,
+          "text": "plaques"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P3_30_37",
+          "type": "other",
+          "start": 30,
+          "end": 37,
+          "text": "plaques"
+        },
+        "tail": {
+          "id": "P4_68_87",
+          "type": "disease",
+          "start": 68,
+          "end": 87,
+          "text": "Alzheimer's disease"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "30281672",
+    "sent_id": "30281672_s5",
+    "text": "RESULTS: The study involved 258 participants, mean age 66.9+-7.9 years.",
+    "entities": [],
+    "relations": []
+  },
+  {
+    "doc_id": "30804341",
+    "sent_id": "30804341_s1",
+    "text": "Hyperhomocysteinemia/Homocysteinuria is characterized by an increased level of toxic homocysteine in the plasma.",
+    "entities": [
+      {
+        "id": "P1_0_20",
+        "type": "disease",
+        "start": 0,
+        "end": 20,
+        "text": "Hyperhomocysteinemia"
+      },
+      {
+        "id": "P2_21_36",
+        "type": "disease",
+        "start": 21,
+        "end": 36,
+        "text": "Homocysteinuria"
+      },
+      {
+        "id": "P3_5_17",
+        "type": "other",
+        "start": 5,
+        "end": 17,
+        "text": "homocysteine"
+      },
+      {
+        "id": "P4_105_111",
+        "type": "other",
+        "start": 105,
+        "end": 111,
+        "text": "plasma"
+      }
+    ],
+    "relations": [
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P3_5_17",
+          "type": "other",
+          "start": 5,
+          "end": 17,
+          "text": "homocysteine"
+        },
+        "tail": {
+          "id": "P1_0_20",
+          "type": "disease",
+          "start": 0,
+          "end": 20,
+          "text": "Hyperhomocysteinemia"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P3_5_17",
+          "type": "other",
+          "start": 5,
+          "end": 17,
+          "text": "homocysteine"
+        },
+        "tail": {
+          "id": "P2_21_36",
+          "type": "disease",
+          "start": 21,
+          "end": 36,
+          "text": "Homocysteinuria"
+        }
+      }
+    ]
   }
 ]
