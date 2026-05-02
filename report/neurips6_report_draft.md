@@ -48,6 +48,23 @@ sentence in MDKG, compared with 2.61 entities and 0.70 relations per sentence in
 MDKG more relation-dense and potentially more difficult due to more candidate entity pairs per
 sentence.
 
+### 2.1 EDA Figures
+
+The exploratory figures are generated from the official course JSON files in `data/raw/` using
+`scripts/generate_report_artifacts.py`; the resulting images and CSV tables are stored in
+`outputs/report_artifacts/`. Figure 1 summarizes entity and relation label imbalance, while Figure
+2 summarizes sentence-level structure and relation endpoint patterns. These plots are descriptive
+dataset statistics, not model outputs.
+
+| Figure | Files | What it shows |
+| --- | --- | --- |
+| Figure 1: Label distributions | `adkg_entity_counts.png`, `mdkg_entity_counts.png`, `adkg_relation_counts.png`, `mdkg_relation_counts.png` | Entity and relation type imbalance in ADKG and MDKG. |
+| Figure 2: Sentence and relation structure | `adkg_sentence_lengths.png`, `mdkg_sentence_lengths.png`, `adkg_entities_per_sentence.png`, `mdkg_entities_per_sentence.png`, `adkg_relation_pair_heatmap.png`, `mdkg_relation_pair_heatmap.png`, `adkg_relation_distance_bins.png`, `mdkg_relation_distance_bins.png` | Sentence length, entity density, relation type-pair co-occurrence, and relation endpoint distance. |
+
+Source note: all figure data are computed from `data/raw/ADKG.json` and `data/raw/MDKG.json`,
+which match the assignment dataset statistics: ADKG has 8,031 sentences, 20,859 entities, and
+5,496 relations; MDKG has 6,678 sentences, 28,660 entities, and 10,560 relations.
+
 ## 3 Method
 
 We use SpERT for joint NER and RE. SpERT enumerates candidate spans up to a maximum span length and

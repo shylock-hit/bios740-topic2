@@ -56,6 +56,15 @@ python scripts/estimate_resources.py
 The pipeline writes EDA summaries to `outputs/*_eda_summary.json`, SpERT-format files to
 `outputs/spert/`, and SpERT config templates to `outputs/spert_configs/`.
 
+Report-ready EDA figures can be generated with:
+
+```bash
+python scripts/generate_report_artifacts.py
+```
+
+The images and CSV tables are written to `outputs/report_artifacts/`. They are computed from the
+official assignment JSON files in `data/raw/ADKG.json` and `data/raw/MDKG.json`.
+
 ## Model
 
 The recommended training path is SpERT with PubMedBERT:
