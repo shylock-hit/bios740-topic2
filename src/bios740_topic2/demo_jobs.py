@@ -19,6 +19,7 @@ class JobRecord:
     stderr: str = ""
     returncode: int | None = None
     metadata: dict[str, Any] = field(default_factory=dict)
+    process: subprocess.Popen[str] | None = None
 
 
 class JobRegistry:
@@ -50,21 +51,51 @@ class JobRegistry:
         thread = threading.Thread(target=self._run, args=(record.id,), daemon=True)
         thread.start()
 
+    def stop(self, job_id: str) -> bool:
+        record = self.get(job_id)
+        if record is None or record.process is None or record.status != "running":
+            return False
+        record.process.terminate()
+        record.status = "stopping"
+        return True
+
+    def _stream_output(self, stream, record: JobRecord, field_name: str) -> None:
+        chunks: list[str] = []
+        try:
+            for line in iter(stream.readline, ""):
+                if not line:
+                    break
+                chunks.append(line)
+                setattr(record, field_name, getattr(record, field_name) + line)
+        finally:
+            stream.close()
+
     def _run(self, job_id: str) -> None:
         record = self.get(job_id)
         if record is None:
             return
         record.status = "running"
-        proc = subprocess.run(
+        proc = subprocess.Popen(
             record.cmd,
             cwd=record.workdir,
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=True,
         )
-        record.stdout = proc.stdout
-        record.stderr = proc.stderr
-        record.returncode = proc.returncode
-        record.status = "completed" if proc.returncode == 0 else "failed"
+        record.process = proc
+        stdout_thread = threading.Thread(target=self._stream_output, args=(proc.stdout, record, "stdout"), daemon=True)
+        stderr_thread = threading.Thread(target=self._stream_output, args=(proc.stderr, record, "stderr"), daemon=True)
+        stdout_thread.start()
+        stderr_thread.start()
+        returncode = proc.wait()
+        stdout_thread.join()
+        stderr_thread.join()
+        record.returncode = returncode
+        if record.status == "stopping":
+            record.status = "stopped"
+        else:
+            record.status = "completed" if returncode == 0 else "failed"
+        record.process = None
 
 
 def safe_relpath(root: Path, path: Path) -> str:

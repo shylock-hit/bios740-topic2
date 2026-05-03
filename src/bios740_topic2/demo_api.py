@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import subprocess
+from datetime import datetime
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
@@ -10,6 +11,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from bios740_topic2.demo_jobs import JobRegistry, safe_relpath
+from bios740_topic2.kg_aggregate import aggregate_graph
 from bios740_topic2.train_monitor import build_training_command, parse_nvidia_smi, parse_training_progress
 
 
@@ -58,12 +60,29 @@ class TrainRequest(BaseModel):
     label: str
 
 
+class TrainStopRequest(BaseModel):
+    job_id: str
+
+
 def _run_python(cmd: list[str]) -> subprocess.CompletedProcess[str]:
     return subprocess.run(cmd, cwd=str(APP_ROOT), capture_output=True, text=True)
 
 
 def _run_capture(cmd: list[str]) -> subprocess.CompletedProcess[str]:
     return subprocess.run(cmd, cwd=str(APP_ROOT), capture_output=True, text=True)
+
+
+def _unique_run_dir(base_name: str) -> Path:
+    candidate = OUTPUT_ROOT / base_name
+    if not candidate.exists() or not any(candidate.iterdir()):
+        return candidate
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    for index in range(100):
+        suffix = timestamp if index == 0 else f"{timestamp}_{index}"
+        candidate = OUTPUT_ROOT / f"{base_name}_{suffix}"
+        if not candidate.exists():
+            return candidate
+    raise RuntimeError(f"Unable to allocate unique run directory for {base_name}")
 
 
 @app.post("/api/sample")
@@ -98,7 +117,7 @@ def probe_provider(request: ProbeRequest) -> JSONResponse:
 
 @app.post("/api/run")
 def run_experiment(request: RunRequest) -> dict[str, str]:
-    run_dir = OUTPUT_ROOT / request.output_dir_name
+    run_dir = _unique_run_dir(request.output_dir_name)
     record = registry.create(
         "run_experiment",
         [
@@ -116,7 +135,10 @@ def run_experiment(request: RunRequest) -> dict[str, str]:
             request.env_file,
         ],
         str(APP_ROOT),
-        metadata={"run_dir": safe_relpath(APP_ROOT, run_dir)},
+        metadata={
+            "run_dir": safe_relpath(APP_ROOT, run_dir),
+            "requested_run_dir": request.output_dir_name,
+        },
     )
     registry.run_async(record)
     return {"status": "started", "job_id": record.id, "run_dir": safe_relpath(APP_ROOT, run_dir)}
@@ -189,6 +211,48 @@ def gpu_status() -> dict:
     if result.returncode != 0:
         raise HTTPException(status_code=500, detail=result.stderr or result.stdout)
     return parse_nvidia_smi(result.stdout)
+
+
+@app.post("/api/train/stop")
+def stop_training(request: TrainStopRequest) -> dict[str, str]:
+    stopped = registry.stop(request.job_id)
+    if not stopped:
+        raise HTTPException(status_code=400, detail="Training job is not running")
+    return {"status": "stopped"}
+
+
+@app.get("/api/kg/graph")
+def kg_graph(
+    run_dir_name: str,
+    mode: str = "one_shot",
+    top_k_edges: int = 50,
+    relation_type: str | None = None,
+    min_edge_count: int = 1,
+) -> dict:
+    run_dir = OUTPUT_ROOT / run_dir_name
+    prediction_file = run_dir / f"{mode}_predictions.json"
+    if not prediction_file.exists():
+        raise HTTPException(status_code=404, detail=f"Prediction file not found for mode: {mode}")
+    payload = json.loads(prediction_file.read_text(encoding="utf-8"))
+    samples = payload["samples"] if isinstance(payload, dict) and "samples" in payload else payload
+    return aggregate_graph(
+        samples=samples,
+        top_k_edges=top_k_edges,
+        relation_type=relation_type,
+        min_edge_count=min_edge_count,
+    )
+
+
+@app.get("/api/kg/relations")
+def kg_relations(run_dir_name: str, mode: str = "one_shot") -> dict[str, list[str]]:
+    run_dir = OUTPUT_ROOT / run_dir_name
+    prediction_file = run_dir / f"{mode}_predictions.json"
+    if not prediction_file.exists():
+        raise HTTPException(status_code=404, detail=f"Prediction file not found for mode: {mode}")
+    payload = json.loads(prediction_file.read_text(encoding="utf-8"))
+    samples = payload["samples"] if isinstance(payload, dict) and "samples" in payload else payload
+    relation_types = sorted({relation["type"] for sample in samples for relation in sample.get("relations", [])})
+    return {"relation_types": relation_types}
 
 
 @app.post("/api/summarize")

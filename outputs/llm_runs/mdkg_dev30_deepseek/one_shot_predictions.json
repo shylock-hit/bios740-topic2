@@ -1,441 +1,676 @@
 [
   {
-    "doc_id": "25866524",
-    "sent_id": "25866524_s10",
-    "text": "There was no significant difference of FC in right DLPFC network between depressed subjects and the health controls.",
+    "doc_id": "26085274",
+    "sent_id": "26085274_s3",
+    "text": "The hippocampus is thought to negatively regulate the stress response and to mediate various cognitive and mnemonic aspects of stress-induced impairments, although the neuronal underpinnings sufficient to support behavioural improvements are largely unknown.",
     "entities": [
       {
-        "id": "P1_39_41",
-        "type": "method",
-        "start": 39,
-        "end": 41,
-        "text": "FC"
-      },
-      {
-        "id": "P2_45_64",
+        "id": "P1_4_15",
         "type": "other",
-        "start": 45,
-        "end": 64,
-        "text": "right DLPFC network"
+        "start": 4,
+        "end": 15,
+        "text": "hippocampus"
       },
       {
-        "id": "P3_73_91",
+        "id": "P2_54_69",
+        "type": "other",
+        "start": 54,
+        "end": 69,
+        "text": "stress response"
+      },
+      {
+        "id": "P3_93_123",
+        "type": "other",
+        "start": 93,
+        "end": 123,
+        "text": "cognitive and mnemonic aspects"
+      },
+      {
+        "id": "P4_127_153",
         "type": "disease",
-        "start": 73,
-        "end": 91,
-        "text": "depressed subjects"
-      },
-      {
-        "id": "P4_100_115",
-        "type": "other",
-        "start": 100,
-        "end": 115,
-        "text": "health controls"
-      }
-    ],
-    "relations": []
-  },
-  {
-    "doc_id": "20221103_160",
-    "sent_id": "20221103_160_s0",
-    "text": "Young adulthood offers an opportunity for early dietary interventions, with research suggesting that a Mediterranean diet (MD) could be beneficial in treating depression.",
-    "entities": [
-      {
-        "id": "P1_103_121",
-        "type": "other",
-        "start": 103,
-        "end": 121,
-        "text": "Mediterranean diet"
-      },
-      {
-        "id": "P2_123_125",
-        "type": "other",
-        "start": 123,
-        "end": 125,
-        "text": "MD"
-      },
-      {
-        "id": "P3_159_169",
-        "type": "disease",
-        "start": 159,
-        "end": 169,
-        "text": "depression"
+        "start": 127,
+        "end": 153,
+        "text": "stress-induced impairments"
       }
     ],
     "relations": [
       {
-        "type": "abbreviation_for",
+        "type": "associated_with",
         "head": {
-          "id": "P2_123_125",
+          "id": "P1_4_15",
           "type": "other",
-          "start": 123,
-          "end": 125,
-          "text": "MD"
+          "start": 4,
+          "end": 15,
+          "text": "hippocampus"
         },
         "tail": {
-          "id": "P1_103_121",
+          "id": "P2_54_69",
           "type": "other",
-          "start": 103,
-          "end": 121,
-          "text": "Mediterranean diet"
-        }
-      },
-      {
-        "type": "treatment_for",
-        "head": {
-          "id": "P1_103_121",
-          "type": "other",
-          "start": 103,
-          "end": 121,
-          "text": "Mediterranean diet"
-        },
-        "tail": {
-          "id": "P3_159_169",
-          "type": "disease",
-          "start": 159,
-          "end": 169,
-          "text": "depression"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "36573969",
-    "sent_id": "36573969_s3",
-    "text": "Generalized anxiety disorder (6.2% lifetime prevalence), social anxiety disorder (13% lifetime prevalence), and panic disorder (5.2% lifetime prevalence) with or without agoraphobia are common anxiety disorders seen in primary care.",
-    "entities": [
-      {
-        "id": "P1_0_28",
-        "type": "disease",
-        "start": 0,
-        "end": 28,
-        "text": "Generalized anxiety disorder"
-      },
-      {
-        "id": "P2_57_80",
-        "type": "disease",
-        "start": 57,
-        "end": 80,
-        "text": "social anxiety disorder"
-      },
-      {
-        "id": "P3_112_126",
-        "type": "disease",
-        "start": 112,
-        "end": 126,
-        "text": "panic disorder"
-      },
-      {
-        "id": "P4_170_181",
-        "type": "disease",
-        "start": 170,
-        "end": 181,
-        "text": "agoraphobia"
-      },
-      {
-        "id": "P5_193_210",
-        "type": "disease",
-        "start": 193,
-        "end": 210,
-        "text": "anxiety disorders"
-      },
-      {
-        "id": "P6_219_231",
-        "type": "other",
-        "start": 219,
-        "end": 231,
-        "text": "primary care"
-      }
-    ],
-    "relations": [
-      {
-        "type": "hyponym_of",
-        "head": {
-          "id": "P1_0_28",
-          "type": "disease",
-          "start": 0,
-          "end": 28,
-          "text": "Generalized anxiety disorder"
-        },
-        "tail": {
-          "id": "P5_193_210",
-          "type": "disease",
-          "start": 193,
-          "end": 210,
-          "text": "anxiety disorders"
-        }
-      },
-      {
-        "type": "hyponym_of",
-        "head": {
-          "id": "P2_57_80",
-          "type": "disease",
-          "start": 57,
-          "end": 80,
-          "text": "social anxiety disorder"
-        },
-        "tail": {
-          "id": "P5_193_210",
-          "type": "disease",
-          "start": 193,
-          "end": 210,
-          "text": "anxiety disorders"
-        }
-      },
-      {
-        "type": "hyponym_of",
-        "head": {
-          "id": "P3_112_126",
-          "type": "disease",
-          "start": 112,
-          "end": 126,
-          "text": "panic disorder"
-        },
-        "tail": {
-          "id": "P5_193_210",
-          "type": "disease",
-          "start": 193,
-          "end": 210,
-          "text": "anxiety disorders"
+          "start": 54,
+          "end": 69,
+          "text": "stress response"
         }
       },
       {
         "type": "associated_with",
         "head": {
-          "id": "P3_112_126",
-          "type": "disease",
-          "start": 112,
-          "end": 126,
-          "text": "panic disorder"
+          "id": "P1_4_15",
+          "type": "other",
+          "start": 4,
+          "end": 15,
+          "text": "hippocampus"
         },
         "tail": {
-          "id": "P4_170_181",
+          "id": "P4_127_153",
           "type": "disease",
-          "start": 170,
-          "end": 181,
-          "text": "agoraphobia"
+          "start": 127,
+          "end": 153,
+          "text": "stress-induced impairments"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "20037593",
+    "sent_id": "20037593_s3",
+    "text": "In a rat model of panic disorder, chronic inhibition of GABA synthesis in the dorsomedial-perifornical hypothalamus of rats produces anxiety-like states and a similar vulnerability to sodium lactate-induced cardioexcitatory responses.",
+    "entities": [
+      {
+        "id": "P1_5_14",
+        "type": "method",
+        "start": 5,
+        "end": 14,
+        "text": "rat model"
+      },
+      {
+        "id": "P2_18_32",
+        "type": "disease",
+        "start": 18,
+        "end": 32,
+        "text": "panic disorder"
+      },
+      {
+        "id": "P3_56_60",
+        "type": "gene",
+        "start": 56,
+        "end": 60,
+        "text": "GABA"
+      },
+      {
+        "id": "P4_78_115",
+        "type": "other",
+        "start": 78,
+        "end": 115,
+        "text": "dorsomedial-perifornical hypothalamus"
+      },
+      {
+        "id": "P5_133_152",
+        "type": "disease",
+        "start": 133,
+        "end": 152,
+        "text": "anxiety-like states"
+      },
+      {
+        "id": "P6_184_198",
+        "type": "drug",
+        "start": 184,
+        "end": 198,
+        "text": "sodium lactate"
+      },
+      {
+        "id": "P7_207_233",
+        "type": "other",
+        "start": 207,
+        "end": 233,
+        "text": "cardioexcitatory responses"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_5_14",
+          "type": "method",
+          "start": 5,
+          "end": 14,
+          "text": "rat model"
+        },
+        "tail": {
+          "id": "P2_18_32",
+          "type": "disease",
+          "start": 18,
+          "end": 32,
+          "text": "panic disorder"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_56_60",
+          "type": "gene",
+          "start": 56,
+          "end": 60,
+          "text": "GABA"
+        },
+        "tail": {
+          "id": "P2_18_32",
+          "type": "disease",
+          "start": 18,
+          "end": 32,
+          "text": "panic disorder"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P4_78_115",
+          "type": "other",
+          "start": 78,
+          "end": 115,
+          "text": "dorsomedial-perifornical hypothalamus"
+        },
+        "tail": {
+          "id": "P2_18_32",
+          "type": "disease",
+          "start": 18,
+          "end": 32,
+          "text": "panic disorder"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P5_133_152",
+          "type": "disease",
+          "start": 133,
+          "end": 152,
+          "text": "anxiety-like states"
+        },
+        "tail": {
+          "id": "P2_18_32",
+          "type": "disease",
+          "start": 18,
+          "end": 32,
+          "text": "panic disorder"
+        }
+      },
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P6_184_198",
+          "type": "drug",
+          "start": 184,
+          "end": 198,
+          "text": "sodium lactate"
+        },
+        "tail": {
+          "id": "P2_18_32",
+          "type": "disease",
+          "start": 18,
+          "end": 32,
+          "text": "panic disorder"
         }
       }
     ]
   },
   {
     "doc_id": "32171414",
-    "sent_id": "32171414_s5",
-    "text": "Six main feeding and eating disorders are now recognised in diagnostic systems: anorexia nervosa, bulimia nervosa, binge eating disorder, avoidant-restrictive food intake disorder, pica, and rumination disorder.",
+    "sent_id": "32171414_s2",
+    "text": "Disturbed attitudes towards weight, body shape, and eating play a key role in the origin and maintenance of eating disorders.",
     "entities": [
       {
-        "id": "P1_9_37",
+        "id": "P2_108_124",
         "type": "disease",
-        "start": 9,
-        "end": 37,
-        "text": "feeding and eating disorders"
-      },
-      {
-        "id": "P2_80_96",
-        "type": "disease",
-        "start": 80,
-        "end": 96,
-        "text": "anorexia nervosa"
-      },
-      {
-        "id": "P3_98_113",
-        "type": "disease",
-        "start": 98,
-        "end": 113,
-        "text": "bulimia nervosa"
-      },
-      {
-        "id": "P4_115_136",
-        "type": "disease",
-        "start": 115,
-        "end": 136,
-        "text": "binge eating disorder"
-      },
-      {
-        "id": "P5_138_179",
-        "type": "disease",
-        "start": 138,
-        "end": 179,
-        "text": "avoidant-restrictive food intake disorder"
-      },
-      {
-        "id": "P6_181_185",
-        "type": "disease",
-        "start": 181,
-        "end": 185,
-        "text": "pica"
-      },
-      {
-        "id": "P7_191_210",
-        "type": "disease",
-        "start": 191,
-        "end": 210,
-        "text": "rumination disorder"
-      }
-    ],
-    "relations": [
-      {
-        "type": "hyponym_of",
-        "head": {
-          "id": "P2_80_96",
-          "type": "disease",
-          "start": 80,
-          "end": 96,
-          "text": "anorexia nervosa"
-        },
-        "tail": {
-          "id": "P1_9_37",
-          "type": "disease",
-          "start": 9,
-          "end": 37,
-          "text": "feeding and eating disorders"
-        }
-      },
-      {
-        "type": "hyponym_of",
-        "head": {
-          "id": "P3_98_113",
-          "type": "disease",
-          "start": 98,
-          "end": 113,
-          "text": "bulimia nervosa"
-        },
-        "tail": {
-          "id": "P1_9_37",
-          "type": "disease",
-          "start": 9,
-          "end": 37,
-          "text": "feeding and eating disorders"
-        }
-      },
-      {
-        "type": "hyponym_of",
-        "head": {
-          "id": "P4_115_136",
-          "type": "disease",
-          "start": 115,
-          "end": 136,
-          "text": "binge eating disorder"
-        },
-        "tail": {
-          "id": "P1_9_37",
-          "type": "disease",
-          "start": 9,
-          "end": 37,
-          "text": "feeding and eating disorders"
-        }
-      },
-      {
-        "type": "hyponym_of",
-        "head": {
-          "id": "P5_138_179",
-          "type": "disease",
-          "start": 138,
-          "end": 179,
-          "text": "avoidant-restrictive food intake disorder"
-        },
-        "tail": {
-          "id": "P1_9_37",
-          "type": "disease",
-          "start": 9,
-          "end": 37,
-          "text": "feeding and eating disorders"
-        }
-      },
-      {
-        "type": "hyponym_of",
-        "head": {
-          "id": "P6_181_185",
-          "type": "disease",
-          "start": 181,
-          "end": 185,
-          "text": "pica"
-        },
-        "tail": {
-          "id": "P1_9_37",
-          "type": "disease",
-          "start": 9,
-          "end": 37,
-          "text": "feeding and eating disorders"
-        }
-      },
-      {
-        "type": "hyponym_of",
-        "head": {
-          "id": "P7_191_210",
-          "type": "disease",
-          "start": 191,
-          "end": 210,
-          "text": "rumination disorder"
-        },
-        "tail": {
-          "id": "P1_9_37",
-          "type": "disease",
-          "start": 9,
-          "end": 37,
-          "text": "feeding and eating disorders"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "18087206",
-    "sent_id": "18087206_s3",
-    "text": "However, very little research has been conducted into the differences between the change processes in ERP and CT.",
-    "entities": [
-      {
-        "id": "P1_102_105",
-        "type": "method",
-        "start": 102,
-        "end": 105,
-        "text": "ERP"
-      },
-      {
-        "id": "P2_110_112",
-        "type": "method",
-        "start": 110,
-        "end": 112,
-        "text": "CT"
+        "start": 108,
+        "end": 124,
+        "text": "eating disorders"
       }
     ],
     "relations": []
   },
   {
-    "doc_id": "31704113",
-    "sent_id": "31704113_s3",
-    "text": "Experimental studies suggest that abnormalities in the differentiation competence of glial progenitor cells lead to failure in the morphological and functional maturation of oligodendrocytes and astrocytes.",
+    "doc_id": "30522980",
+    "sent_id": "30522980_s3",
+    "text": "These approaches included social interaction, engagement with nature, relaxation, distraction, sensory stimulation, physical activity, altering perceptions, engaging in hobbies, self-expression, and exploration.",
     "entities": [
       {
-        "id": "P1_34_107",
-        "type": "disease",
-        "start": 34,
-        "end": 107,
-        "text": "abnormalities in the differentiation competence of glial progenitor cells"
+        "id": "P1_26_44",
+        "type": "method",
+        "start": 26,
+        "end": 44,
+        "text": "social interaction"
       },
       {
-        "id": "P2_116_205",
-        "type": "disease",
+        "id": "P2_46_68",
+        "type": "method",
+        "start": 46,
+        "end": 68,
+        "text": "engagement with nature"
+      },
+      {
+        "id": "P3_70_80",
+        "type": "method",
+        "start": 70,
+        "end": 80,
+        "text": "relaxation"
+      },
+      {
+        "id": "P4_82_93",
+        "type": "method",
+        "start": 82,
+        "end": 93,
+        "text": "distraction"
+      },
+      {
+        "id": "P5_95_114",
+        "type": "method",
+        "start": 95,
+        "end": 114,
+        "text": "sensory stimulation"
+      },
+      {
+        "id": "P6_116_133",
+        "type": "method",
         "start": 116,
-        "end": 205,
-        "text": "failure in the morphological and functional maturation of oligodendrocytes and astrocytes"
+        "end": 133,
+        "text": "physical activity"
+      },
+      {
+        "id": "P7_135_155",
+        "type": "method",
+        "start": 135,
+        "end": 155,
+        "text": "altering perceptions"
+      },
+      {
+        "id": "P8_157_176",
+        "type": "method",
+        "start": 157,
+        "end": 176,
+        "text": "engaging in hobbies"
+      },
+      {
+        "id": "P9_178_193",
+        "type": "method",
+        "start": 178,
+        "end": 193,
+        "text": "self-expression"
+      },
+      {
+        "id": "P10_199_210",
+        "type": "method",
+        "start": 199,
+        "end": 210,
+        "text": "exploration"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "32005059",
+    "sent_id": "32005059_s14",
+    "text": "For the selection of sham acupuncture, both methods performed similarly in a clinical setting.",
+    "entities": [
+      {
+        "id": "P1_21_37",
+        "type": "method",
+        "start": 21,
+        "end": 37,
+        "text": "sham acupuncture"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "31569326",
+    "sent_id": "31569326_s7",
+    "text": "The GP plays a crucial part in initiating and supporting patients with these measures.",
+    "entities": [
+      {
+        "id": "P1_4_6",
+        "type": "other",
+        "start": 4,
+        "end": 6,
+        "text": "GP"
+      },
+      {
+        "id": "P2_57_65",
+        "type": "other",
+        "start": 57,
+        "end": 65,
+        "text": "patients"
+      },
+      {
+        "id": "P3_71_85",
+        "type": "other",
+        "start": 71,
+        "end": 85,
+        "text": "these measures"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "18635808",
+    "sent_id": "18635808_s1",
+    "text": "Obsessive-compulsive disorder (OCD) is characterized by repetitive thoughts and behaviors associated with underlying dysregulation of frontostriatal circuitry.",
+    "entities": [
+      {
+        "id": "P1_0_29",
+        "type": "disease",
+        "start": 0,
+        "end": 29,
+        "text": "Obsessive-compulsive disorder"
+      },
+      {
+        "id": "P2_31_34",
+        "type": "other",
+        "start": 31,
+        "end": 34,
+        "text": "OCD"
+      },
+      {
+        "id": "P3_56_89",
+        "type": "other",
+        "start": 56,
+        "end": 89,
+        "text": "repetitive thoughts and behaviors"
+      },
+      {
+        "id": "P4_134_158",
+        "type": "other",
+        "start": 134,
+        "end": 158,
+        "text": "frontostriatal circuitry"
       }
     ],
     "relations": [
       {
-        "type": "risk_factor_of",
+        "type": "abbreviation_for",
         "head": {
-          "id": "P1_34_107",
-          "type": "disease",
-          "start": 34,
-          "end": 107,
-          "text": "abnormalities in the differentiation competence of glial progenitor cells"
+          "id": "P2_31_34",
+          "type": "other",
+          "start": 31,
+          "end": 34,
+          "text": "OCD"
         },
         "tail": {
-          "id": "P2_116_205",
+          "id": "P1_0_29",
           "type": "disease",
-          "start": 116,
-          "end": 205,
-          "text": "failure in the morphological and functional maturation of oligodendrocytes and astrocytes"
+          "start": 0,
+          "end": 29,
+          "text": "Obsessive-compulsive disorder"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P1_0_29",
+          "type": "disease",
+          "start": 0,
+          "end": 29,
+          "text": "Obsessive-compulsive disorder"
+        },
+        "tail": {
+          "id": "P3_56_89",
+          "type": "other",
+          "start": 56,
+          "end": 89,
+          "text": "repetitive thoughts and behaviors"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "26544749",
+    "sent_id": "26544749_s13",
+    "text": "Egger's linear regression test revealed a potential publication bias for interleukin 1.",
+    "entities": [
+      {
+        "id": "P1_0_30",
+        "type": "method",
+        "start": 0,
+        "end": 30,
+        "text": "Egger's linear regression test"
+      },
+      {
+        "id": "P2_52_68",
+        "type": "other",
+        "start": 52,
+        "end": 68,
+        "text": "publication bias"
+      },
+      {
+        "id": "P3_73_86",
+        "type": "gene",
+        "start": 73,
+        "end": 86,
+        "text": "interleukin 1"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_0_30",
+          "type": "method",
+          "start": 0,
+          "end": 30,
+          "text": "Egger's linear regression test"
+        },
+        "tail": {
+          "id": "P2_52_68",
+          "type": "other",
+          "start": 52,
+          "end": 68,
+          "text": "publication bias"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_52_68",
+          "type": "other",
+          "start": 52,
+          "end": 68,
+          "text": "publication bias"
+        },
+        "tail": {
+          "id": "P3_73_86",
+          "type": "gene",
+          "start": 73,
+          "end": 86,
+          "text": "interleukin 1"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "18064038",
+    "sent_id": "18064038_s2",
+    "text": "As the underlying genetic and neuronal abnormalities in schizophrenia are largely unknown, it is challenging to measure the severity of its symptoms objectively, or to design and evaluate psychotherapeutic interventions.",
+    "entities": [
+      {
+        "id": "P1_56_69",
+        "type": "disease",
+        "start": 56,
+        "end": 69,
+        "text": "schizophrenia"
+      },
+      {
+        "id": "P3_30_52",
+        "type": "other",
+        "start": 30,
+        "end": 52,
+        "text": "neuronal abnormalities"
+      },
+      {
+        "id": "P4_140_148",
+        "type": "other",
+        "start": 140,
+        "end": 148,
+        "text": "symptoms"
+      },
+      {
+        "id": "P5_188_219",
+        "type": "other",
+        "start": 188,
+        "end": 219,
+        "text": "psychotherapeutic interventions"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_30_52",
+          "type": "other",
+          "start": 30,
+          "end": 52,
+          "text": "neuronal abnormalities"
+        },
+        "tail": {
+          "id": "P1_56_69",
+          "type": "disease",
+          "start": 56,
+          "end": 69,
+          "text": "schizophrenia"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P4_140_148",
+          "type": "other",
+          "start": 140,
+          "end": 148,
+          "text": "symptoms"
+        },
+        "tail": {
+          "id": "P1_56_69",
+          "type": "disease",
+          "start": 56,
+          "end": 69,
+          "text": "schizophrenia"
+        }
+      },
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P5_188_219",
+          "type": "other",
+          "start": 188,
+          "end": 219,
+          "text": "psychotherapeutic interventions"
+        },
+        "tail": {
+          "id": "P1_56_69",
+          "type": "disease",
+          "start": 56,
+          "end": 69,
+          "text": "schizophrenia"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "14613865",
+    "sent_id": "14613865_s7",
+    "text": "When Ca(2+) entry through Ca(2+) channels or Na(+)/Ca(2+) exchange transport was blocked using nicardipine (1 microM, n=3) or dichlorobenzamil (30 microM, n=5), respectively, cells showed lower [Ca(2+)](i) and accentuated negative inotropic action in response to peroxynitrite.",
+    "entities": [
+      {
+        "id": "P1_95_106",
+        "type": "drug",
+        "start": 95,
+        "end": 106,
+        "text": "nicardipine"
+      },
+      {
+        "id": "P2_126_142",
+        "type": "drug",
+        "start": 126,
+        "end": 142,
+        "text": "dichlorobenzamil"
+      },
+      {
+        "id": "P3_26_41",
+        "type": "other",
+        "start": 26,
+        "end": 41,
+        "text": "Ca(2+) channels"
+      },
+      {
+        "id": "P4_45_76",
+        "type": "other",
+        "start": 45,
+        "end": 76,
+        "text": "Na(+)/Ca(2+) exchange transport"
+      },
+      {
+        "id": "P5_263_276",
+        "type": "other",
+        "start": 263,
+        "end": 276,
+        "text": "peroxynitrite"
+      },
+      {
+        "id": "P6_222_247",
+        "type": "other",
+        "start": 222,
+        "end": 247,
+        "text": "negative inotropic action"
+      }
+    ],
+    "relations": [
+      {
+        "type": "treatment_target_for",
+        "head": {
+          "id": "P1_95_106",
+          "type": "drug",
+          "start": 95,
+          "end": 106,
+          "text": "nicardipine"
+        },
+        "tail": {
+          "id": "P3_26_41",
+          "type": "other",
+          "start": 26,
+          "end": 41,
+          "text": "Ca(2+) channels"
+        }
+      },
+      {
+        "type": "treatment_target_for",
+        "head": {
+          "id": "P2_126_142",
+          "type": "drug",
+          "start": 126,
+          "end": 142,
+          "text": "dichlorobenzamil"
+        },
+        "tail": {
+          "id": "P4_45_76",
+          "type": "other",
+          "start": 45,
+          "end": 76,
+          "text": "Na(+)/Ca(2+) exchange transport"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P5_263_276",
+          "type": "other",
+          "start": 263,
+          "end": 276,
+          "text": "peroxynitrite"
+        },
+        "tail": {
+          "id": "P6_222_247",
+          "type": "other",
+          "start": 222,
+          "end": 247,
+          "text": "negative inotropic action"
         }
       }
     ]
@@ -481,1146 +716,939 @@
     ]
   },
   {
-    "doc_id": "18639239",
-    "sent_id": "18639239_s12",
-    "text": "In addition, it is still possible that the patients may be unable to match their internal representation to the changing sensory information.",
+    "doc_id": "33181098",
+    "sent_id": "33181098_s15",
+    "text": "This risk was independent of known physical health risk factors for COVID-19, but we cannot exclude possible residual confounding by socioeconomic factors.",
+    "entities": [
+      {
+        "id": "P1_68_76",
+        "type": "disease",
+        "start": 68,
+        "end": 76,
+        "text": "COVID-19"
+      },
+      {
+        "id": "P2_35_63",
+        "type": "other",
+        "start": 35,
+        "end": 63,
+        "text": "physical health risk factors"
+      },
+      {
+        "id": "P3_133_154",
+        "type": "other",
+        "start": 133,
+        "end": 154,
+        "text": "socioeconomic factors"
+      }
+    ],
+    "relations": [
+      {
+        "type": "risk_factor_of",
+        "head": {
+          "id": "P2_35_63",
+          "type": "other",
+          "start": 35,
+          "end": 63,
+          "text": "physical health risk factors"
+        },
+        "tail": {
+          "id": "P1_68_76",
+          "type": "disease",
+          "start": 68,
+          "end": 76,
+          "text": "COVID-19"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "20221103_153",
+    "sent_id": "20221103_153_s0",
+    "text": "Electrical stimulation of low-threshold afferent fibers induces a prolonged synaptic depression in lamina II dorsal horn neurons to high-threshold afferent inputs in mice.",
+    "entities": [
+      {
+        "id": "P1_0_22",
+        "type": "method",
+        "start": 0,
+        "end": 22,
+        "text": "Electrical stimulation"
+      },
+      {
+        "id": "P2_26_55",
+        "type": "other",
+        "start": 26,
+        "end": 55,
+        "text": "low-threshold afferent fibers"
+      },
+      {
+        "id": "P3_66_95",
+        "type": "other",
+        "start": 66,
+        "end": 95,
+        "text": "prolonged synaptic depression"
+      },
+      {
+        "id": "P4_99_128",
+        "type": "other",
+        "start": 99,
+        "end": 128,
+        "text": "lamina II dorsal horn neurons"
+      },
+      {
+        "id": "P5_132_162",
+        "type": "other",
+        "start": 132,
+        "end": 162,
+        "text": "high-threshold afferent inputs"
+      },
+      {
+        "id": "P6_166_170",
+        "type": "other",
+        "start": 166,
+        "end": 170,
+        "text": "mice"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_0_22",
+          "type": "method",
+          "start": 0,
+          "end": 22,
+          "text": "Electrical stimulation"
+        },
+        "tail": {
+          "id": "P3_66_95",
+          "type": "other",
+          "start": 66,
+          "end": 95,
+          "text": "prolonged synaptic depression"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P3_66_95",
+          "type": "other",
+          "start": 66,
+          "end": 95,
+          "text": "prolonged synaptic depression"
+        },
+        "tail": {
+          "id": "P4_99_128",
+          "type": "other",
+          "start": 99,
+          "end": 128,
+          "text": "lamina II dorsal horn neurons"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_66_95",
+          "type": "other",
+          "start": 66,
+          "end": 95,
+          "text": "prolonged synaptic depression"
+        },
+        "tail": {
+          "id": "P5_132_162",
+          "type": "other",
+          "start": 132,
+          "end": 162,
+          "text": "high-threshold afferent inputs"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "26873185",
+    "sent_id": "26873185_s0",
+    "text": "Childhood maltreatment and unfavourable clinical outcomes in bipolar disorder: a systematic review and meta-analysis.",
+    "entities": [
+      {
+        "id": "P1_0_22",
+        "type": "other",
+        "start": 0,
+        "end": 22,
+        "text": "Childhood maltreatment"
+      },
+      {
+        "id": "P2_27_57",
+        "type": "other",
+        "start": 27,
+        "end": 57,
+        "text": "unfavourable clinical outcomes"
+      },
+      {
+        "id": "P3_61_77",
+        "type": "disease",
+        "start": 61,
+        "end": 77,
+        "text": "bipolar disorder"
+      },
+      {
+        "id": "P4_81_98",
+        "type": "method",
+        "start": 81,
+        "end": 98,
+        "text": "systematic review"
+      },
+      {
+        "id": "P5_103_116",
+        "type": "method",
+        "start": 103,
+        "end": 116,
+        "text": "meta-analysis"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_0_22",
+          "type": "other",
+          "start": 0,
+          "end": 22,
+          "text": "Childhood maltreatment"
+        },
+        "tail": {
+          "id": "P2_27_57",
+          "type": "other",
+          "start": 27,
+          "end": 57,
+          "text": "unfavourable clinical outcomes"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "24840803",
+    "sent_id": "24840803_s0",
+    "text": "Obsessive-compulsive disorder: an integrative genetic and neurobiological perspective.",
+    "entities": [
+      {
+        "id": "P1_0_29",
+        "type": "disease",
+        "start": 0,
+        "end": 29,
+        "text": "Obsessive-compulsive disorder"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "26939910",
+    "sent_id": "26939910_s4",
+    "text": "Indeed, studies performed in both individuals at risk of developing schizophrenia and rodent models for schizophrenia suggest that pre-diagnostic pharmacotherapy and psychosocial or cognitive-behavioural interventions can delay or moderate the emergence of psychosis.",
     "entities": [],
     "relations": []
   },
   {
-    "doc_id": "11752484",
-    "sent_id": "11752484_s4",
-    "text": "Some contributory factors appear to be necessary for the appearance of eating disorders, but none is sufficient.",
+    "doc_id": "27706475",
+    "sent_id": "27706475_s2",
+    "text": "Previous reports were based on small, retrospective, specialist clinic-based studies that were unable to rigorously control for unmeasured environmental and genetic confounding.",
     "entities": [
       {
-        "id": "P1_5_25",
-        "type": "other",
-        "start": 5,
-        "end": 25,
-        "text": "contributory factors"
-      },
-      {
-        "id": "P2_71_87",
-        "type": "disease",
-        "start": 71,
-        "end": 87,
-        "text": "eating disorders"
-      }
-    ],
-    "relations": [
-      {
-        "type": "risk_factor_of",
-        "head": {
-          "id": "P1_5_25",
-          "type": "other",
-          "start": 5,
-          "end": 25,
-          "text": "contributory factors"
-        },
-        "tail": {
-          "id": "P2_71_87",
-          "type": "disease",
-          "start": 71,
-          "end": 87,
-          "text": "eating disorders"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "34364406",
-    "sent_id": "34364406_s5",
-    "text": "The study used the databases of Clalit Health Services, the largest health-care organisation in Israel.",
-    "entities": [
-      {
-        "id": "P1_32_54",
-        "type": "other",
-        "start": 32,
-        "end": 54,
-        "text": "Clalit Health Services"
-      }
-    ],
-    "relations": []
-  },
-  {
-    "doc_id": "26360286",
-    "sent_id": "26360286_s3",
-    "text": "We aimed to investigate the association between psychiatric disorders and mortality in people released from prison in Sweden.",
-    "entities": [
-      {
-        "id": "P1_48_69",
-        "type": "disease",
-        "start": 48,
-        "end": 69,
-        "text": "psychiatric disorders"
-      },
-      {
-        "id": "P2_74_83",
-        "type": "other",
-        "start": 74,
-        "end": 83,
-        "text": "mortality"
-      }
-    ],
-    "relations": [
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P1_48_69",
-          "type": "disease",
-          "start": 48,
-          "end": 69,
-          "text": "psychiatric disorders"
-        },
-        "tail": {
-          "id": "P2_74_83",
-          "type": "other",
-          "start": 74,
-          "end": 83,
-          "text": "mortality"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "20221103_162",
-    "sent_id": "20221103_162_s0",
-    "text": "Interventions that reduce inflammation may improve cognitive functioning in depression.",
-    "entities": [
-      {
-        "id": "P1_0_13",
+        "id": "P1_53_84",
         "type": "method",
-        "start": 0,
-        "end": 13,
-        "text": "Interventions"
-      },
-      {
-        "id": "P2_26_38",
-        "type": "disease",
-        "start": 26,
-        "end": 38,
-        "text": "inflammation"
-      },
-      {
-        "id": "P3_51_72",
-        "type": "other",
-        "start": 51,
-        "end": 72,
-        "text": "cognitive functioning"
-      },
-      {
-        "id": "P4_76_86",
-        "type": "disease",
-        "start": 76,
-        "end": 86,
-        "text": "depression"
-      }
-    ],
-    "relations": [
-      {
-        "type": "treatment_for",
-        "head": {
-          "id": "P1_0_13",
-          "type": "method",
-          "start": 0,
-          "end": 13,
-          "text": "Interventions"
-        },
-        "tail": {
-          "id": "P2_26_38",
-          "type": "disease",
-          "start": 26,
-          "end": 38,
-          "text": "inflammation"
-        }
-      },
-      {
-        "type": "treatment_for",
-        "head": {
-          "id": "P1_0_13",
-          "type": "method",
-          "start": 0,
-          "end": 13,
-          "text": "Interventions"
-        },
-        "tail": {
-          "id": "P4_76_86",
-          "type": "disease",
-          "start": 76,
-          "end": 86,
-          "text": "depression"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P2_26_38",
-          "type": "disease",
-          "start": 26,
-          "end": 38,
-          "text": "inflammation"
-        },
-        "tail": {
-          "id": "P4_76_86",
-          "type": "disease",
-          "start": 76,
-          "end": 86,
-          "text": "depression"
-        }
-      },
-      {
-        "type": "characteristic_of",
-        "head": {
-          "id": "P3_51_72",
-          "type": "other",
-          "start": 51,
-          "end": 72,
-          "text": "cognitive functioning"
-        },
-        "tail": {
-          "id": "P4_76_86",
-          "type": "disease",
-          "start": 76,
-          "end": 86,
-          "text": "depression"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "25157724",
-    "sent_id": "25157724_s12",
-    "text": "At 12 months, intervention youth were more likely than control youth to achieve depression response (67.6% vs 38.6%, OR = 3.3, 95% CI, 1.4-8.2; P = .009) and remission (50.4% vs 20.7%, OR = 3.9, 95% CI, 1.5-10.6; P = .007).",
-    "entities": [
-      {
-        "id": "P1_14_26",
-        "type": "other",
-        "start": 14,
-        "end": 26,
-        "text": "intervention"
-      },
-      {
-        "id": "P2_80_99",
-        "type": "other",
-        "start": 80,
-        "end": 99,
-        "text": "depression response"
-      },
-      {
-        "id": "P3_158_167",
-        "type": "disease",
-        "start": 158,
-        "end": 167,
-        "text": "remission"
-      }
-    ],
-    "relations": [
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P1_14_26",
-          "type": "other",
-          "start": 14,
-          "end": 26,
-          "text": "intervention"
-        },
-        "tail": {
-          "id": "P2_80_99",
-          "type": "other",
-          "start": 80,
-          "end": 99,
-          "text": "depression response"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P1_14_26",
-          "type": "other",
-          "start": 14,
-          "end": 26,
-          "text": "intervention"
-        },
-        "tail": {
-          "id": "P3_158_167",
-          "type": "disease",
-          "start": 158,
-          "end": 167,
-          "text": "remission"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "31958990",
-    "sent_id": "31958990_s10",
-    "text": "CONCLUSIONS: These observations indicate that antidepressant medications alter the gut microbiota of patients with MDD, with disparate effects in responders versus non responders.",
-    "entities": [
-      {
-        "id": "P1_46_72",
-        "type": "drug",
-        "start": 46,
-        "end": 72,
-        "text": "antidepressant medications"
-      },
-      {
-        "id": "P2_83_97",
-        "type": "other",
-        "start": 83,
-        "end": 97,
-        "text": "gut microbiota"
-      },
-      {
-        "id": "P3_115_118",
-        "type": "disease",
-        "start": 115,
-        "end": 118,
-        "text": "MDD"
-      }
-    ],
-    "relations": [
-      {
-        "type": "treatment_for",
-        "head": {
-          "id": "P1_46_72",
-          "type": "drug",
-          "start": 46,
-          "end": 72,
-          "text": "antidepressant medications"
-        },
-        "tail": {
-          "id": "P3_115_118",
-          "type": "disease",
-          "start": 115,
-          "end": 118,
-          "text": "MDD"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P2_83_97",
-          "type": "other",
-          "start": 83,
-          "end": 97,
-          "text": "gut microbiota"
-        },
-        "tail": {
-          "id": "P3_115_118",
-          "type": "disease",
-          "start": 115,
-          "end": 118,
-          "text": "MDD"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "27650773",
-    "sent_id": "27650773_s2",
-    "text": "Maternal depression (antepartum or post partum) has been linked to negative health-related behaviours and adverse outcomes, including psychological and developmental disturbances in infants, children, and adolescents.",
-    "entities": [
-      {
-        "id": "P1_0_19",
-        "type": "disease",
-        "start": 0,
-        "end": 19,
-        "text": "Maternal depression"
-      },
-      {
-        "id": "P2_67_101",
-        "type": "other",
-        "start": 67,
-        "end": 101,
-        "text": "negative health-related behaviours"
-      },
-      {
-        "id": "P3_106_122",
-        "type": "other",
-        "start": 106,
-        "end": 122,
-        "text": "adverse outcomes"
-      },
-      {
-        "id": "P5_152_178",
-        "type": "disease",
-        "start": 152,
-        "end": 178,
-        "text": "developmental disturbances"
-      }
-    ],
-    "relations": [
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P1_0_19",
-          "type": "disease",
-          "start": 0,
-          "end": 19,
-          "text": "Maternal depression"
-        },
-        "tail": {
-          "id": "P2_67_101",
-          "type": "other",
-          "start": 67,
-          "end": 101,
-          "text": "negative health-related behaviours"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P1_0_19",
-          "type": "disease",
-          "start": 0,
-          "end": 19,
-          "text": "Maternal depression"
-        },
-        "tail": {
-          "id": "P3_106_122",
-          "type": "other",
-          "start": 106,
-          "end": 122,
-          "text": "adverse outcomes"
-        }
-      },
-      {
-        "type": "hyponym_of",
-        "head": {
-          "id": "P5_152_178",
-          "type": "disease",
-          "start": 152,
-          "end": 178,
-          "text": "developmental disturbances"
-        },
-        "tail": {
-          "id": "P3_106_122",
-          "type": "other",
-          "start": 106,
-          "end": 122,
-          "text": "adverse outcomes"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "31958990",
-    "sent_id": "31958990_s11",
-    "text": "This supports the concept of a microbiota phenotype associate with treatment response in MDD.",
-    "entities": [
-      {
-        "id": "P1_31_51",
-        "type": "other",
-        "start": 31,
-        "end": 51,
-        "text": "microbiota phenotype"
-      },
-      {
-        "id": "P2_67_85",
-        "type": "other",
-        "start": 67,
-        "end": 85,
-        "text": "treatment response"
-      },
-      {
-        "id": "P3_89_92",
-        "type": "disease",
-        "start": 89,
-        "end": 92,
-        "text": "MDD"
-      }
-    ],
-    "relations": [
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P1_31_51",
-          "type": "other",
-          "start": 31,
-          "end": 51,
-          "text": "microbiota phenotype"
-        },
-        "tail": {
-          "id": "P2_67_85",
-          "type": "other",
-          "start": 67,
-          "end": 85,
-          "text": "treatment response"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P2_67_85",
-          "type": "other",
-          "start": 67,
-          "end": 85,
-          "text": "treatment response"
-        },
-        "tail": {
-          "id": "P3_89_92",
-          "type": "disease",
-          "start": 89,
-          "end": 92,
-          "text": "MDD"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "12461523",
-    "sent_id": "12461523_s5",
-    "text": "Like clinically used anti-anxiety drugs, in rats the inhibitors exhibit benzodiazepine-like properties in the elevated zero-maze test and suppress isolation-induced vocalizations.",
-    "entities": [
-      {
-        "id": "P1_21_39",
-        "type": "drug",
-        "start": 21,
-        "end": 39,
-        "text": "anti-anxiety drugs"
-      },
-      {
-        "id": "P2_44_48",
-        "type": "other",
-        "start": 44,
-        "end": 48,
-        "text": "rats"
-      },
-      {
-        "id": "P3_53_63",
-        "type": "drug",
         "start": 53,
-        "end": 63,
-        "text": "inhibitors"
+        "end": 84,
+        "text": "specialist clinic-based studies"
       },
       {
-        "id": "P4_72_102",
+        "id": "P3_157_176",
         "type": "other",
-        "start": 72,
-        "end": 102,
-        "text": "benzodiazepine-like properties"
-      },
-      {
-        "id": "P5_110_133",
-        "type": "method",
-        "start": 110,
-        "end": 133,
-        "text": "elevated zero-maze test"
-      },
-      {
-        "id": "P6_147_178",
-        "type": "other",
-        "start": 147,
-        "end": 178,
-        "text": "isolation-induced vocalizations"
-      }
-    ],
-    "relations": [
-      {
-        "type": "characteristic_of",
-        "head": {
-          "id": "P4_72_102",
-          "type": "other",
-          "start": 72,
-          "end": 102,
-          "text": "benzodiazepine-like properties"
-        },
-        "tail": {
-          "id": "P3_53_63",
-          "type": "drug",
-          "start": 53,
-          "end": 63,
-          "text": "inhibitors"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P3_53_63",
-          "type": "drug",
-          "start": 53,
-          "end": 63,
-          "text": "inhibitors"
-        },
-        "tail": {
-          "id": "P6_147_178",
-          "type": "other",
-          "start": 147,
-          "end": 178,
-          "text": "isolation-induced vocalizations"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "19700006",
-    "sent_id": "19700006_s8",
-    "text": "Specific vocational and psychological interventions, in combination with antipsychotic medication in a context of community-case management, can improve functional outcome but are not widely available. 100 years after being so named, research is beginning to understand the biological mechanisms underlying the symptoms of schizophrenia and the psychosocial factors that moderate their expression.",
-    "entities": [
-      {
-        "id": "P1_9_51",
-        "type": "method",
-        "start": 9,
-        "end": 51,
-        "text": "vocational and psychological interventions"
-      },
-      {
-        "id": "P2_73_97",
-        "type": "drug",
-        "start": 73,
-        "end": 97,
-        "text": "antipsychotic medication"
-      },
-      {
-        "id": "P3_114_139",
-        "type": "method",
-        "start": 114,
-        "end": 139,
-        "text": "community-case management"
-      },
-      {
-        "id": "P4_153_171",
-        "type": "other",
-        "start": 153,
-        "end": 171,
-        "text": "functional outcome"
-      },
-      {
-        "id": "P5_323_336",
-        "type": "disease",
-        "start": 323,
-        "end": 336,
-        "text": "schizophrenia"
-      },
-      {
-        "id": "P6_311_319",
-        "type": "other",
-        "start": 311,
-        "end": 319,
-        "text": "symptoms"
-      },
-      {
-        "id": "P7_274_295",
-        "type": "other",
-        "start": 274,
-        "end": 295,
-        "text": "biological mechanisms"
-      },
-      {
-        "id": "P8_345_365",
-        "type": "other",
-        "start": 345,
-        "end": 365,
-        "text": "psychosocial factors"
-      }
-    ],
-    "relations": [
-      {
-        "type": "treatment_for",
-        "head": {
-          "id": "P2_73_97",
-          "type": "drug",
-          "start": 73,
-          "end": 97,
-          "text": "antipsychotic medication"
-        },
-        "tail": {
-          "id": "P5_323_336",
-          "type": "disease",
-          "start": 323,
-          "end": 336,
-          "text": "schizophrenia"
-        }
-      },
-      {
-        "type": "treatment_for",
-        "head": {
-          "id": "P1_9_51",
-          "type": "method",
-          "start": 9,
-          "end": 51,
-          "text": "vocational and psychological interventions"
-        },
-        "tail": {
-          "id": "P5_323_336",
-          "type": "disease",
-          "start": 323,
-          "end": 336,
-          "text": "schizophrenia"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P3_114_139",
-          "type": "method",
-          "start": 114,
-          "end": 139,
-          "text": "community-case management"
-        },
-        "tail": {
-          "id": "P5_323_336",
-          "type": "disease",
-          "start": 323,
-          "end": 336,
-          "text": "schizophrenia"
-        }
-      },
-      {
-        "type": "characteristic_of",
-        "head": {
-          "id": "P6_311_319",
-          "type": "other",
-          "start": 311,
-          "end": 319,
-          "text": "symptoms"
-        },
-        "tail": {
-          "id": "P5_323_336",
-          "type": "disease",
-          "start": 323,
-          "end": 336,
-          "text": "schizophrenia"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P7_274_295",
-          "type": "other",
-          "start": 274,
-          "end": 295,
-          "text": "biological mechanisms"
-        },
-        "tail": {
-          "id": "P6_311_319",
-          "type": "other",
-          "start": 311,
-          "end": 319,
-          "text": "symptoms"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P8_345_365",
-          "type": "other",
-          "start": 345,
-          "end": 365,
-          "text": "psychosocial factors"
-        },
-        "tail": {
-          "id": "P6_311_319",
-          "type": "other",
-          "start": 311,
-          "end": 319,
-          "text": "symptoms"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "36790774",
-    "sent_id": "36790774_s17",
-    "text": "Overlooking possible coexisting PD and SUD in ED patients with COVID-19 can underestimate the likelihood of hospitalization.",
-    "entities": [
-      {
-        "id": "P1_32_34",
-        "type": "disease",
-        "start": 32,
-        "end": 34,
-        "text": "PD"
-      },
-      {
-        "id": "P2_39_42",
-        "type": "disease",
-        "start": 39,
-        "end": 42,
-        "text": "SUD"
-      },
-      {
-        "id": "P3_46_48",
-        "type": "method",
-        "start": 46,
-        "end": 48,
-        "text": "ED"
-      },
-      {
-        "id": "P4_63_71",
-        "type": "disease",
-        "start": 63,
-        "end": 71,
-        "text": "COVID-19"
-      },
-      {
-        "id": "P5_108_123",
-        "type": "other",
-        "start": 108,
-        "end": 123,
-        "text": "hospitalization"
-      }
-    ],
-    "relations": [
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P1_32_34",
-          "type": "disease",
-          "start": 32,
-          "end": 34,
-          "text": "PD"
-        },
-        "tail": {
-          "id": "P2_39_42",
-          "type": "disease",
-          "start": 39,
-          "end": 42,
-          "text": "SUD"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P1_32_34",
-          "type": "disease",
-          "start": 32,
-          "end": 34,
-          "text": "PD"
-        },
-        "tail": {
-          "id": "P4_63_71",
-          "type": "disease",
-          "start": 63,
-          "end": 71,
-          "text": "COVID-19"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P2_39_42",
-          "type": "disease",
-          "start": 39,
-          "end": 42,
-          "text": "SUD"
-        },
-        "tail": {
-          "id": "P4_63_71",
-          "type": "disease",
-          "start": 63,
-          "end": 71,
-          "text": "COVID-19"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P4_63_71",
-          "type": "disease",
-          "start": 63,
-          "end": 71,
-          "text": "COVID-19"
-        },
-        "tail": {
-          "id": "P3_46_48",
-          "type": "method",
-          "start": 46,
-          "end": 48,
-          "text": "ED"
-        }
-      },
-      {
-        "type": "risk_factor_of",
-        "head": {
-          "id": "P1_32_34",
-          "type": "disease",
-          "start": 32,
-          "end": 34,
-          "text": "PD"
-        },
-        "tail": {
-          "id": "P5_108_123",
-          "type": "other",
-          "start": 108,
-          "end": 123,
-          "text": "hospitalization"
-        }
-      },
-      {
-        "type": "risk_factor_of",
-        "head": {
-          "id": "P2_39_42",
-          "type": "disease",
-          "start": 39,
-          "end": 42,
-          "text": "SUD"
-        },
-        "tail": {
-          "id": "P5_108_123",
-          "type": "other",
-          "start": 108,
-          "end": 123,
-          "text": "hospitalization"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "33181098",
-    "sent_id": "33181098_s10",
-    "text": "The HR was greatest for anxiety disorders, insomnia, and dementia.",
-    "entities": [
-      {
-        "id": "P1_4_6",
-        "type": "method",
-        "start": 4,
-        "end": 6,
-        "text": "HR"
-      },
-      {
-        "id": "P2_24_41",
-        "type": "disease",
-        "start": 24,
-        "end": 41,
-        "text": "anxiety disorders"
-      },
-      {
-        "id": "P3_43_51",
-        "type": "disease",
-        "start": 43,
-        "end": 51,
-        "text": "insomnia"
-      },
-      {
-        "id": "P4_57_65",
-        "type": "disease",
-        "start": 57,
-        "end": 65,
-        "text": "dementia"
-      }
-    ],
-    "relations": [
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P1_4_6",
-          "type": "method",
-          "start": 4,
-          "end": 6,
-          "text": "HR"
-        },
-        "tail": {
-          "id": "P2_24_41",
-          "type": "disease",
-          "start": 24,
-          "end": 41,
-          "text": "anxiety disorders"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P1_4_6",
-          "type": "method",
-          "start": 4,
-          "end": 6,
-          "text": "HR"
-        },
-        "tail": {
-          "id": "P3_43_51",
-          "type": "disease",
-          "start": 43,
-          "end": 51,
-          "text": "insomnia"
-        }
-      },
-      {
-        "type": "associated_with",
-        "head": {
-          "id": "P1_4_6",
-          "type": "method",
-          "start": 4,
-          "end": 6,
-          "text": "HR"
-        },
-        "tail": {
-          "id": "P4_57_65",
-          "type": "disease",
-          "start": 57,
-          "end": 65,
-          "text": "dementia"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "16960576",
-    "sent_id": "16960576_s0",
-    "text": "Pathophysiologically based treatment interventions in schizophrenia.",
-    "entities": [
-      {
-        "id": "P1_27_50",
-        "type": "method",
-        "start": 27,
-        "end": 50,
-        "text": "treatment interventions"
-      },
-      {
-        "id": "P2_54_67",
-        "type": "disease",
-        "start": 54,
-        "end": 67,
-        "text": "schizophrenia"
-      }
-    ],
-    "relations": [
-      {
-        "type": "treatment_for",
-        "head": {
-          "id": "P1_27_50",
-          "type": "method",
-          "start": 27,
-          "end": 50,
-          "text": "treatment interventions"
-        },
-        "tail": {
-          "id": "P2_54_67",
-          "type": "disease",
-          "start": 54,
-          "end": 67,
-          "text": "schizophrenia"
-        }
-      }
-    ]
-  },
-  {
-    "doc_id": "31133831",
-    "sent_id": "31133831_s5",
-    "text": "In addition, subgroup meta-analysis was conducted to control for the MRI analysis method.",
-    "entities": [
-      {
-        "id": "P1_13_35",
-        "type": "method",
-        "start": 13,
-        "end": 35,
-        "text": "subgroup meta-analysis"
-      },
-      {
-        "id": "P2_69_88",
-        "type": "method",
-        "start": 69,
-        "end": 88,
-        "text": "MRI analysis method"
+        "start": 157,
+        "end": 176,
+        "text": "genetic confounding"
       }
     ],
     "relations": []
   },
   {
-    "doc_id": "2684085",
-    "sent_id": "2684085_s4",
-    "text": "Patients in all treatments showed significant reduction in depressive symptoms and improvement in functioning over the course of treatment.",
+    "doc_id": "17290062",
+    "sent_id": "17290062_s3",
+    "text": "Patients receiving aromatherapy massage also described greater improvement in self-reported anxiety at both 6 and 10 weeks postrandomization (OR, 3.4; 95% CI, 0.2 to 6.7; P = .04 and OR, 3.4; 95% CI, 0.2 to 6.6; P = .04), respectively.",
     "entities": [
       {
-        "id": "P1_59_78",
+        "id": "P1_19_39",
+        "type": "method",
+        "start": 19,
+        "end": 39,
+        "text": "aromatherapy massage"
+      },
+      {
+        "id": "P2_78_99",
+        "type": "disease",
+        "start": 78,
+        "end": 99,
+        "text": "self-reported anxiety"
+      }
+    ],
+    "relations": [
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P1_19_39",
+          "type": "method",
+          "start": 19,
+          "end": 39,
+          "text": "aromatherapy massage"
+        },
+        "tail": {
+          "id": "P2_78_99",
+          "type": "disease",
+          "start": 78,
+          "end": 99,
+          "text": "self-reported anxiety"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "34000240",
+    "sent_id": "34000240_s11",
+    "text": "The non-inferiority margin was set a priori at 2 PHQ-9 points.",
+    "entities": [
+      {
+        "id": "P1_49_54",
+        "type": "method",
+        "start": 49,
+        "end": 54,
+        "text": "PHQ-9"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "17290062",
+    "sent_id": "17290062_s0",
+    "text": "Effectiveness of aromatherapy massage in the management of anxiety and depression in patients with cancer: a multicenter randomized controlled trial. PURPOSE To test the effectiveness of supplementing usual supportive care with aromatherapy massage in the management of anxiety and depression in cancer patients through a pragmatic two-arm randomized controlled trial in four United Kingdom cancer centers and a hospice.",
+    "entities": [
+      {
+        "id": "P1_17_37",
+        "type": "method",
+        "start": 17,
+        "end": 37,
+        "text": "aromatherapy massage"
+      },
+      {
+        "id": "P2_59_66",
         "type": "disease",
         "start": 59,
-        "end": 78,
-        "text": "depressive symptoms"
+        "end": 66,
+        "text": "anxiety"
+      },
+      {
+        "id": "P3_71_81",
+        "type": "disease",
+        "start": 71,
+        "end": 81,
+        "text": "depression"
+      },
+      {
+        "id": "P4_99_105",
+        "type": "disease",
+        "start": 99,
+        "end": 105,
+        "text": "cancer"
+      }
+    ],
+    "relations": [
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P1_17_37",
+          "type": "method",
+          "start": 17,
+          "end": 37,
+          "text": "aromatherapy massage"
+        },
+        "tail": {
+          "id": "P2_59_66",
+          "type": "disease",
+          "start": 59,
+          "end": 66,
+          "text": "anxiety"
+        }
+      },
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P1_17_37",
+          "type": "method",
+          "start": 17,
+          "end": 37,
+          "text": "aromatherapy massage"
+        },
+        "tail": {
+          "id": "P3_71_81",
+          "type": "disease",
+          "start": 71,
+          "end": 81,
+          "text": "depression"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P4_99_105",
+          "type": "disease",
+          "start": 99,
+          "end": 105,
+          "text": "cancer"
+        },
+        "tail": {
+          "id": "P2_59_66",
+          "type": "disease",
+          "start": 59,
+          "end": 66,
+          "text": "anxiety"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P4_99_105",
+          "type": "disease",
+          "start": 99,
+          "end": 105,
+          "text": "cancer"
+        },
+        "tail": {
+          "id": "P3_71_81",
+          "type": "disease",
+          "start": 71,
+          "end": 81,
+          "text": "depression"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "31958990",
+    "sent_id": "31958990_s5",
+    "text": "Symptom severity was measured by the Beck Depression Inventory.",
+    "entities": [
+      {
+        "id": "P1_0_16",
+        "type": "other",
+        "start": 0,
+        "end": 16,
+        "text": "Symptom severity"
+      },
+      {
+        "id": "P2_37_62",
+        "type": "method",
+        "start": 37,
+        "end": 62,
+        "text": "Beck Depression Inventory"
       }
     ],
     "relations": []
   },
   {
-    "doc_id": "21346763",
-    "sent_id": "21346763_s4",
-    "text": "Here we performed a large two-stage genome-wide scan of rare CNVs and report the significant association of copy number gains at chromosome 7q36.3 with schizophrenia.",
+    "doc_id": "26939910",
+    "sent_id": "26939910_s3",
+    "text": "A promising window for course-altering intervention is around the time of the first episode of psychosis, especially in young people at risk of transition to schizophrenia.",
+    "entities": [],
+    "relations": []
+  },
+  {
+    "doc_id": "29320917",
+    "sent_id": "29320917_s4",
+    "text": "The Wartenberg wheel, a medical device for neurological use, was employed to determine the presence of hypoesthesia on both sides of the ankles.",
     "entities": [
       {
-        "id": "P1_36_52",
-        "type": "method",
-        "start": 36,
-        "end": 52,
-        "text": "genome-wide scan"
-      },
-      {
-        "id": "P2_56_65",
-        "type": "mutation",
-        "start": 56,
-        "end": 65,
-        "text": "rare CNVs"
-      },
-      {
-        "id": "P3_108_125",
-        "type": "mutation",
-        "start": 108,
-        "end": 125,
-        "text": "copy number gains"
-      },
-      {
-        "id": "P4_129_146",
+        "id": "P1_4_20",
         "type": "other",
-        "start": 129,
-        "end": 146,
-        "text": "chromosome 7q36.3"
+        "start": 4,
+        "end": 20,
+        "text": "Wartenberg wheel"
       },
       {
-        "id": "P5_152_165",
+        "id": "P2_103_115",
         "type": "disease",
-        "start": 152,
-        "end": 165,
-        "text": "schizophrenia"
+        "start": 103,
+        "end": 115,
+        "text": "hypoesthesia"
+      },
+      {
+        "id": "P3_137_143",
+        "type": "other",
+        "start": 137,
+        "end": 143,
+        "text": "ankles"
+      }
+    ],
+    "relations": [
+      {
+        "type": "help_diagnose",
+        "head": {
+          "id": "P1_4_20",
+          "type": "other",
+          "start": 4,
+          "end": 20,
+          "text": "Wartenberg wheel"
+        },
+        "tail": {
+          "id": "P2_103_115",
+          "type": "disease",
+          "start": 103,
+          "end": 115,
+          "text": "hypoesthesia"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "34416760",
+    "sent_id": "34416760_s7",
+    "text": "The results of the real dataset revealed atypical FC dimensions for major depressive disorder and BD.",
+    "entities": [
+      {
+        "id": "P1_68_93",
+        "type": "disease",
+        "start": 68,
+        "end": 93,
+        "text": "major depressive disorder"
+      },
+      {
+        "id": "P2_98_100",
+        "type": "disease",
+        "start": 98,
+        "end": 100,
+        "text": "BD"
+      },
+      {
+        "id": "P3_50_63",
+        "type": "other",
+        "start": 50,
+        "end": 63,
+        "text": "FC dimensions"
       }
     ],
     "relations": [
       {
         "type": "associated_with",
         "head": {
-          "id": "P3_108_125",
-          "type": "mutation",
-          "start": 108,
-          "end": 125,
-          "text": "copy number gains"
-        },
-        "tail": {
-          "id": "P5_152_165",
-          "type": "disease",
-          "start": 152,
-          "end": 165,
-          "text": "schizophrenia"
-        }
-      },
-      {
-        "type": "hyponym_of",
-        "head": {
-          "id": "P3_108_125",
-          "type": "mutation",
-          "start": 108,
-          "end": 125,
-          "text": "copy number gains"
-        },
-        "tail": {
-          "id": "P2_56_65",
-          "type": "mutation",
-          "start": 56,
-          "end": 65,
-          "text": "rare CNVs"
-        }
-      },
-      {
-        "type": "characteristic_of",
-        "head": {
-          "id": "P3_108_125",
-          "type": "mutation",
-          "start": 108,
-          "end": 125,
-          "text": "copy number gains"
-        },
-        "tail": {
-          "id": "P4_129_146",
+          "id": "P3_50_63",
           "type": "other",
-          "start": 129,
-          "end": 146,
-          "text": "chromosome 7q36.3"
+          "start": 50,
+          "end": 63,
+          "text": "FC dimensions"
+        },
+        "tail": {
+          "id": "P1_68_93",
+          "type": "disease",
+          "start": 68,
+          "end": 93,
+          "text": "major depressive disorder"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_50_63",
+          "type": "other",
+          "start": 50,
+          "end": 63,
+          "text": "FC dimensions"
+        },
+        "tail": {
+          "id": "P2_98_100",
+          "type": "disease",
+          "start": 98,
+          "end": 100,
+          "text": "BD"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "20221122_52",
+    "sent_id": "20221122_52_s0",
+    "text": "In patients with major depression, venlafaxine 75 to 375 mg/day administered for 6 weeks was significantly more effective than placebo, and at least as effective as imipramine, clomipramine, trazodone or fluoxetine.",
+    "entities": [
+      {
+        "id": "P1_17_33",
+        "type": "disease",
+        "start": 17,
+        "end": 33,
+        "text": "major depression"
+      },
+      {
+        "id": "P2_35_46",
+        "type": "drug",
+        "start": 35,
+        "end": 46,
+        "text": "venlafaxine"
+      },
+      {
+        "id": "P3_127_134",
+        "type": "drug",
+        "start": 127,
+        "end": 134,
+        "text": "placebo"
+      },
+      {
+        "id": "P4_165_175",
+        "type": "drug",
+        "start": 165,
+        "end": 175,
+        "text": "imipramine"
+      },
+      {
+        "id": "P5_177_189",
+        "type": "drug",
+        "start": 177,
+        "end": 189,
+        "text": "clomipramine"
+      },
+      {
+        "id": "P6_191_200",
+        "type": "drug",
+        "start": 191,
+        "end": 200,
+        "text": "trazodone"
+      },
+      {
+        "id": "P7_204_214",
+        "type": "drug",
+        "start": 204,
+        "end": 214,
+        "text": "fluoxetine"
+      }
+    ],
+    "relations": [
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P2_35_46",
+          "type": "drug",
+          "start": 35,
+          "end": 46,
+          "text": "venlafaxine"
+        },
+        "tail": {
+          "id": "P1_17_33",
+          "type": "disease",
+          "start": 17,
+          "end": 33,
+          "text": "major depression"
+        }
+      },
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P4_165_175",
+          "type": "drug",
+          "start": 165,
+          "end": 175,
+          "text": "imipramine"
+        },
+        "tail": {
+          "id": "P1_17_33",
+          "type": "disease",
+          "start": 17,
+          "end": 33,
+          "text": "major depression"
+        }
+      },
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P5_177_189",
+          "type": "drug",
+          "start": 177,
+          "end": 189,
+          "text": "clomipramine"
+        },
+        "tail": {
+          "id": "P1_17_33",
+          "type": "disease",
+          "start": 17,
+          "end": 33,
+          "text": "major depression"
+        }
+      },
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P6_191_200",
+          "type": "drug",
+          "start": 191,
+          "end": 200,
+          "text": "trazodone"
+        },
+        "tail": {
+          "id": "P1_17_33",
+          "type": "disease",
+          "start": 17,
+          "end": 33,
+          "text": "major depression"
+        }
+      },
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P7_204_214",
+          "type": "drug",
+          "start": 204,
+          "end": 214,
+          "text": "fluoxetine"
+        },
+        "tail": {
+          "id": "P1_17_33",
+          "type": "disease",
+          "start": 17,
+          "end": 33,
+          "text": "major depression"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "30054261",
+    "sent_id": "30054261_s0",
+    "text": "Association between attention deficit hyperactivity disorder and asthma: a systematic review and meta-analysis and a Swedish population-based study.",
+    "entities": [
+      {
+        "id": "P1_20_60",
+        "type": "disease",
+        "start": 20,
+        "end": 60,
+        "text": "attention deficit hyperactivity disorder"
+      },
+      {
+        "id": "P2_65_71",
+        "type": "disease",
+        "start": 65,
+        "end": 71,
+        "text": "asthma"
+      },
+      {
+        "id": "P3_75_92",
+        "type": "method",
+        "start": 75,
+        "end": 92,
+        "text": "systematic review"
+      },
+      {
+        "id": "P4_97_110",
+        "type": "method",
+        "start": 97,
+        "end": 110,
+        "text": "meta-analysis"
+      },
+      {
+        "id": "P5_117_147",
+        "type": "method",
+        "start": 117,
+        "end": 147,
+        "text": "Swedish population-based study"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_20_60",
+          "type": "disease",
+          "start": 20,
+          "end": 60,
+          "text": "attention deficit hyperactivity disorder"
+        },
+        "tail": {
+          "id": "P2_65_71",
+          "type": "disease",
+          "start": 65,
+          "end": 71,
+          "text": "asthma"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "8622505",
+    "sent_id": "8622505_s8",
+    "text": "Genotypes 1/1, 1/2, and 2/2 were assigned.",
+    "entities": [
+      {
+        "id": "P1_10_13",
+        "type": "mutation",
+        "start": 10,
+        "end": 13,
+        "text": "1/1"
+      },
+      {
+        "id": "P2_15_18",
+        "type": "mutation",
+        "start": 15,
+        "end": 18,
+        "text": "1/2"
+      },
+      {
+        "id": "P3_24_27",
+        "type": "mutation",
+        "start": 24,
+        "end": 27,
+        "text": "2/2"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "16145540",
+    "sent_id": "16145540_s6",
+    "text": "The patient was proposed for surgery for MDD.",
+    "entities": [
+      {
+        "id": "P1_4_11",
+        "type": "other",
+        "start": 4,
+        "end": 11,
+        "text": "patient"
+      },
+      {
+        "id": "P2_29_36",
+        "type": "method",
+        "start": 29,
+        "end": 36,
+        "text": "surgery"
+      },
+      {
+        "id": "P3_41_44",
+        "type": "disease",
+        "start": 41,
+        "end": 44,
+        "text": "MDD"
+      }
+    ],
+    "relations": [
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P2_29_36",
+          "type": "method",
+          "start": 29,
+          "end": 36,
+          "text": "surgery"
+        },
+        "tail": {
+          "id": "P3_41_44",
+          "type": "disease",
+          "start": 41,
+          "end": 44,
+          "text": "MDD"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "32090785",
+    "sent_id": "32090785_s2",
+    "text": "However, pinpointing the causal variants which are responsible for the association signal at a risk locus remains a major challenge.",
+    "entities": [
+      {
+        "id": "P1_25_40",
+        "type": "mutation",
+        "start": 25,
+        "end": 40,
+        "text": "causal variants"
+      },
+      {
+        "id": "P2_71_89",
+        "type": "other",
+        "start": 71,
+        "end": 89,
+        "text": "association signal"
+      },
+      {
+        "id": "P3_95_105",
+        "type": "other",
+        "start": 95,
+        "end": 105,
+        "text": "risk locus"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_25_40",
+          "type": "mutation",
+          "start": 25,
+          "end": 40,
+          "text": "causal variants"
+        },
+        "tail": {
+          "id": "P2_71_89",
+          "type": "other",
+          "start": 71,
+          "end": 89,
+          "text": "association signal"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_71_89",
+          "type": "other",
+          "start": 71,
+          "end": 89,
+          "text": "association signal"
+        },
+        "tail": {
+          "id": "P3_95_105",
+          "type": "other",
+          "start": 95,
+          "end": 105,
+          "text": "risk locus"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "27918562",
+    "sent_id": "27918562_s7",
+    "text": "Our results define novel subtypes of depression that transcend current diagnostic boundaries and may be useful for identifying the individuals who are most likely to benefit from targeted neurostimulation therapies.",
+    "entities": [
+      {
+        "id": "P1_37_47",
+        "type": "disease",
+        "start": 37,
+        "end": 47,
+        "text": "depression"
+      },
+      {
+        "id": "P2_188_214",
+        "type": "method",
+        "start": 188,
+        "end": 214,
+        "text": "neurostimulation therapies"
+      }
+    ],
+    "relations": [
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P2_188_214",
+          "type": "method",
+          "start": 188,
+          "end": 214,
+          "text": "neurostimulation therapies"
+        },
+        "tail": {
+          "id": "P1_37_47",
+          "type": "disease",
+          "start": 37,
+          "end": 47,
+          "text": "depression"
         }
       }
     ]

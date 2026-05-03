@@ -84,3 +84,45 @@ def test_files_endpoint_lists_run_dir_files(tmp_path, monkeypatch):
     response = client.get("/api/files", params={"run_dir_name": "_pytest_run2"})
     assert response.status_code == 200
     assert response.json()["files"] == ["outputs/llm_runs/_pytest_run2/metrics.json"]
+
+
+def test_run_endpoint_uses_unique_directory_when_target_exists(monkeypatch):
+    output_root = demo_api.APP_ROOT / "outputs" / "llm_runs" / "_pytest_unique"
+    run_dir = output_root / "mdkg_dev10_deepseek"
+    run_dir.mkdir(parents=True, exist_ok=True)
+    (run_dir / "metrics.json").write_text(json.dumps({"existing": True}), encoding="utf-8")
+    captured = {}
+
+    class FakeRegistry:
+        def create(self, name, cmd, workdir, metadata=None):
+            captured["cmd"] = cmd
+            captured["metadata"] = metadata
+
+            class Record:
+                id = "job-1"
+
+            return Record()
+
+        def run_async(self, record):
+            captured["started"] = record.id
+
+    monkeypatch.setattr(demo_api, "OUTPUT_ROOT", output_root)
+    monkeypatch.setattr(demo_api, "registry", FakeRegistry())
+    client = TestClient(demo_api.app)
+
+    response = client.post(
+        "/api/run",
+        json={
+            "sample_path": "outputs/llm_runs/mdkg_dev10_sample.json",
+            "output_dir_name": "mdkg_dev10_deepseek",
+            "mode": "both",
+            "provider": "mock",
+            "env_file": ".env.llm",
+        },
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["run_dir"].startswith("outputs/llm_runs/_pytest_unique/mdkg_dev10_deepseek_")
+    assert captured["cmd"][captured["cmd"].index("--output-dir") + 1].endswith(body["run_dir"])
+    assert captured["metadata"]["requested_run_dir"] == "mdkg_dev10_deepseek"

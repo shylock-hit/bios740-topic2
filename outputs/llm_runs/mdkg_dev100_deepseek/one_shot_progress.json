@@ -2,9 +2,9 @@
   "mode": "one_shot",
   "processed": 100,
   "total": 100,
-  "avg_latency_seconds": 16.697079762069915,
+  "avg_latency_seconds": 11.490840522325163,
   "validation_error_count": 0,
-  "parse_success_count": 100,
-  "failure_count": 0,
-  "last_sent_id": "28323826_s9"
+  "parse_success_count": 99,
+  "failure_count": 1,
+  "last_sent_id": "34000240_s25"
 }

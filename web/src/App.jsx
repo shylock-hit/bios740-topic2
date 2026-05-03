@@ -27,6 +27,17 @@ const datasetTemplates = {
   },
 }
 
+const trainingTemplates = {
+  ADKG: {
+    smoke: { epochs: 1, batchSize: 1, label: 'smoke_adkg' },
+    full: { epochs: 20, batchSize: 2, label: 'adkg_pubmedbert_e20_bs2' },
+  },
+  MDKG: {
+    smoke: { epochs: 1, batchSize: 1, label: 'smoke_mdkg' },
+    full: { epochs: 20, batchSize: 2, label: 'mdkg_pubmedbert_e20_bs2' },
+  },
+}
+
 const api = async (path, options = {}) => {
   const response = await fetch(path, {
     headers: { 'Content-Type': 'application/json' },
@@ -310,12 +321,13 @@ function LatencyTrace({ data, t }) {
 function ProgressPanel({ title, progress, eta, t }) {
   const pct = progress?.total ? Math.round((progress.processed / progress.total) * 100) : 0
   const completed = progress?.total && progress?.processed >= progress?.total
+  const failed = progress?.phase === 'failed'
   return (
     <div className="progress-panel refined">
       <div className="progress-head">
         <span>{title}</span>
-        <span className={`status-badge ${completed ? 'done' : 'running'}`}>
-          {completed ? t.ui.completed : t.ui.running}
+        <span className={`status-badge ${failed ? 'failed' : completed ? 'done' : 'running'}`}>
+          {failed ? t.labels.failed : completed ? t.ui.completed : progress?.phase || t.ui.running}
         </span>
         <strong>{progress ? `${progress.processed}/${progress.total}` : t.ui.idle}</strong>
       </div>
@@ -388,6 +400,134 @@ function ProbeSummary({ probe, t }) {
   )
 }
 
+function KnowledgeGraph({ graph, t }) {
+  const [hovered, setHovered] = useState(null)
+  if (!graph) return <div className="empty-state">{t.labels.noGraphLoaded}</div>
+  if (!graph.nodes.length) return <div className="empty-state">{t.ui.noMetricsYet}</div>
+
+  const width = 900
+  const height = 420
+  const cx = width / 2
+  const cy = height / 2
+  const radius = 140
+  const typeColors = {
+    disease: '#ff8f7b',
+    drug: '#71d7ab',
+    gene: '#6fa8ff',
+    method: '#f4c95d',
+    mutation: '#c08cff',
+    other: '#94a6bb',
+    symptom: '#ffb86b',
+    region: '#7ad4ff',
+    physiology: '#8dd694',
+    signs: '#f28fad',
+    Health_factors: '#a8e6cf',
+  }
+
+  const nodes = graph.nodes.map((node, index) => {
+    const angle = (index / graph.nodes.length) * Math.PI * 2
+    return {
+      ...node,
+      x: cx + Math.cos(angle) * radius,
+      y: cy + Math.sin(angle) * radius,
+      color: typeColors[node.type] || '#94a6bb',
+    }
+  })
+  const nodeMap = Object.fromEntries(nodes.map((node) => [node.id, node]))
+
+  return (
+    <div className="kg-wrap">
+      <svg viewBox={`0 0 ${width} ${height}`} className="kg-svg" role="img" aria-label="Knowledge graph">
+        <rect x="0" y="0" width={width} height={height} fill="rgba(255,255,255,0.02)" rx="8" />
+        {graph.edges.map((edge, index) => {
+          const source = nodeMap[edge.source]
+          const target = nodeMap[edge.target]
+          if (!source || !target) return null
+          const midX = (source.x + target.x) / 2
+          const midY = (source.y + target.y) / 2
+          return (
+            <g key={`${edge.source}-${edge.target}-${index}`}>
+              <line
+                x1={source.x}
+                y1={source.y}
+                x2={target.x}
+                y2={target.y}
+                className="kg-edge"
+                strokeWidth={1 + edge.count}
+                onMouseEnter={() => setHovered({ kind: 'edge', x: midX, y: midY, edge })}
+                onMouseLeave={() => setHovered(null)}
+              />
+              <text
+                x={midX}
+                y={midY}
+                className="kg-edge-label"
+                textAnchor="middle"
+              >
+                {edge.relation}
+              </text>
+            </g>
+          )
+        })}
+        {nodes.map((node) => (
+          <g key={node.id}>
+            <circle
+              cx={node.x}
+              cy={node.y}
+              r={10 + Math.min(node.count * 1.5, 10)}
+              fill={node.color}
+              className="kg-node"
+              onMouseEnter={() => setHovered({ kind: 'node', x: node.x, y: node.y, node })}
+              onMouseLeave={() => setHovered(null)}
+            />
+            <text x={node.x} y={node.y - 16} textAnchor="middle" className="kg-node-label">
+              {node.label}
+            </text>
+          </g>
+        ))}
+        {hovered ? (
+          <g className="kg-tooltip">
+            <rect
+              x={Math.min(hovered.x + 12, width - 180)}
+              y={Math.max(hovered.y - 56, 8)}
+              width="170"
+              height="48"
+              rx="6"
+              className="trace-tooltip-box"
+            />
+            {hovered.kind === 'node' ? (
+              <>
+                <text x={Math.min(hovered.x + 20, width - 172)} y={Math.max(hovered.y - 38, 24)} className="trace-tooltip-text">
+                  {hovered.node.label}
+                </text>
+                <text x={Math.min(hovered.x + 20, width - 172)} y={Math.max(hovered.y - 22, 40)} className="trace-tooltip-text">
+                  {t.labels.nodeType}: {hovered.node.type}
+                </text>
+                <text x={Math.min(hovered.x + 20, width - 172)} y={Math.max(hovered.y - 6, 56)} className="trace-tooltip-text">
+                  {t.labels.occurrences}: {hovered.node.count}
+                </text>
+              </>
+            ) : (
+              <>
+                <text x={Math.min(hovered.x + 20, width - 172)} y={Math.max(hovered.y - 30, 24)} className="trace-tooltip-text">
+                  {hovered.edge.relation}
+                </text>
+                <text x={Math.min(hovered.x + 20, width - 172)} y={Math.max(hovered.y - 14, 40)} className="trace-tooltip-text">
+                  {t.labels.occurrences}: {hovered.edge.count}
+                </text>
+              </>
+            )}
+          </g>
+        ) : null}
+      </svg>
+      <div className="trace-legend">
+        {[...new Set(nodes.map((node) => node.type))].map((type) => (
+          <span key={type}><i style={{ background: typeColors[type] || '#94a6bb' }} />{type}</span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function FileGroups({ groups, handleFilePreview, runDir, t }) {
   return (
     <div className="file-groups">
@@ -438,13 +578,20 @@ function App() {
   const [trainingConfig, setTrainingConfig] = useState({
     dataset: 'ADKG',
     preset: 'smoke',
-    epochs: 1,
-    batchSize: 1,
-    label: 'smoke_ui',
+    epochs: trainingTemplates.ADKG.smoke.epochs,
+    batchSize: trainingTemplates.ADKG.smoke.batchSize,
+    label: trainingTemplates.ADKG.smoke.label,
   })
   const [trainingJobId, setTrainingJobId] = useState('')
   const [trainingStatus, setTrainingStatus] = useState(null)
   const [gpuStatus, setGpuStatus] = useState(null)
+  const [graphConfig, setGraphConfig] = useState({
+    mode: 'one_shot',
+    topKEdges: 30,
+    relationType: '',
+  })
+  const [graphData, setGraphData] = useState(null)
+  const [graphRelations, setGraphRelations] = useState([])
   const runDirRef = useRef(config.runDir)
 
   useEffect(() => {
@@ -483,6 +630,20 @@ function App() {
 
   const updateConfig = (key, value) => setConfig((prev) => ({ ...prev, [key]: value }))
   const updateTrainingConfig = (key, value) => setTrainingConfig((prev) => ({ ...prev, [key]: value }))
+  const updateGraphConfig = (key, value) => setGraphConfig((prev) => ({ ...prev, [key]: value }))
+
+  const applyTrainingTemplate = (nextDataset, nextPreset) => {
+    const template = trainingTemplates[nextDataset]?.[nextPreset]
+    if (!template) return
+    setTrainingConfig((prev) => ({
+      ...prev,
+      dataset: nextDataset,
+      preset: nextPreset,
+      epochs: template.epochs,
+      batchSize: template.batchSize,
+      label: template.label,
+    }))
+  }
 
   const applyDatasetTemplate = (dataset) => {
     if (!datasetTemplates[dataset]) {
@@ -607,6 +768,11 @@ function App() {
         updateConfig('samplePath', payload.output)
         updateConfig('goldPath', payload.output)
       }
+      if (payload.run_dir) {
+        const nextRunDir = payload.run_dir.replace(/^outputs\/llm_runs\//, '')
+        runDirRef.current = nextRunDir
+        updateConfig('runDir', nextRunDir)
+      }
       await refreshStatus(runDirRef.current)
     } catch (error) {
       setPreview({ type: 'text', title: `${label} ${t.ui.error}`, content: String(error.message || error) })
@@ -646,6 +812,55 @@ function App() {
       setBusyAction('')
     }
   }
+
+  const stopTraining = async () => {
+    if (!trainingJobId) return
+    setBusyAction(t.actions.stopTraining)
+    try {
+      await api('/api/train/stop', {
+        method: 'POST',
+        body: JSON.stringify({ job_id: trainingJobId }),
+      })
+      await refreshTrainingStatus(trainingJobId)
+    } catch (error) {
+      setPreview({ type: 'text', title: `${t.actions.stopTraining} ${t.ui.error}`, content: String(error.message || error) })
+    } finally {
+      setBusyAction('')
+    }
+  }
+
+  const loadGraph = async () => {
+    setBusyAction(t.labels.knowledgeGraph)
+    try {
+      const query = new URLSearchParams({
+        run_dir_name: config.runDir,
+        mode: graphConfig.mode,
+        top_k_edges: String(graphConfig.topKEdges),
+      })
+      if (graphConfig.relationType) query.set('relation_type', graphConfig.relationType)
+      const payload = await api(`/api/kg/graph?${query.toString()}`)
+      setGraphData(payload)
+    } catch (error) {
+      setPreview({ type: 'text', title: `${t.labels.knowledgeGraph} ${t.ui.error}`, content: String(error.message || error) })
+    } finally {
+      setBusyAction('')
+    }
+  }
+
+  const loadGraphRelations = async () => {
+    try {
+      const payload = await api(
+        `/api/kg/relations?run_dir_name=${encodeURIComponent(config.runDir)}&mode=${encodeURIComponent(graphConfig.mode)}`,
+      )
+      setGraphRelations(payload.relation_types || [])
+    } catch {
+      setGraphRelations([])
+    }
+  }
+
+  useEffect(() => {
+    loadGraphRelations()
+  }, [config.runDir, graphConfig.mode])
 
   const latestJob = jobs[jobs.length - 1]
   const oneShotEta = estimateEta(oneShotProgress, progressRows.one_shot)
@@ -842,14 +1057,14 @@ function App() {
             <div className="field-grid">
               <label>
                 <span>{t.labels.dataset}</span>
-                <select value={trainingConfig.dataset} onChange={(e) => updateTrainingConfig('dataset', e.target.value)}>
+                <select value={trainingConfig.dataset} onChange={(e) => applyTrainingTemplate(e.target.value, trainingConfig.preset)}>
                   <option value="ADKG">{t.dataset.adkg}</option>
                   <option value="MDKG">{t.dataset.mdkg}</option>
                 </select>
               </label>
               <label>
                 <span>{t.labels.preset}</span>
-                <select value={trainingConfig.preset} onChange={(e) => updateTrainingConfig('preset', e.target.value)}>
+                <select value={trainingConfig.preset} onChange={(e) => applyTrainingTemplate(trainingConfig.dataset, e.target.value)}>
                   <option value="smoke">{t.training.smoke}</option>
                   <option value="full">{t.training.full}</option>
                 </select>
@@ -868,8 +1083,11 @@ function App() {
               </label>
             </div>
             <div className="busy-row">{t.labels.trainDatasetHint}</div>
-            <div className="button-grid single-action">
+            <div className="button-grid training-actions">
               <button className="accent" onClick={startTraining}>{t.actions.startTraining}</button>
+              <button onClick={stopTraining} disabled={!trainingJobId || trainingStatus?.job?.status !== 'running'}>
+                {t.actions.stopTraining}
+              </button>
             </div>
           </div>
 
@@ -933,6 +1151,59 @@ function App() {
           ) : (
             <div className="empty-state">{t.ui.pending}</div>
           )}
+        </section>
+
+        <section className="grid two">
+          <div className="card">
+            <div className="section-title">{t.labels.knowledgeGraph}</div>
+            <div className="field-grid">
+              <label>
+                <span>{t.labels.graphMode}</span>
+                <select value={graphConfig.mode} onChange={(e) => updateGraphConfig('mode', e.target.value)}>
+                  <option value="one_shot">{t.labels.oneShot}</option>
+                  <option value="workflow">{t.labels.workflow}</option>
+                </select>
+              </label>
+              <label>
+                <span>{t.labels.topKEdges}</span>
+                <input type="number" value={graphConfig.topKEdges} onChange={(e) => updateGraphConfig('topKEdges', Number(e.target.value))} />
+              </label>
+              <label className="wide">
+                <span>{t.labels.relationFilter}</span>
+                <select value={graphConfig.relationType} onChange={(e) => updateGraphConfig('relationType', e.target.value)}>
+                  <option value="">{t.ui.all}</option>
+                  {!graphRelations.length ? <option value="" disabled>{t.ui.noOptions}</option> : null}
+                  {graphRelations.map((relation) => (
+                    <option key={relation} value={relation}>{relation}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            <div className="button-grid single-action">
+              <button className="accent" onClick={loadGraph}>{t.labels.loadGraph}</button>
+            </div>
+            {graphData ? (
+              <div className="status-metric-grid">
+                <div className="status-metric">
+                  <span>{t.labels.nodeCount}</span>
+                  <strong>{graphData.summary.node_count}</strong>
+                </div>
+                <div className="status-metric">
+                  <span>{t.labels.edgeCount}</span>
+                  <strong>{graphData.summary.edge_count}</strong>
+                </div>
+                <div className="status-metric">
+                  <span>{t.labels.topRelation}</span>
+                  <strong>{graphData.summary.top_relation || '-'}</strong>
+                </div>
+              </div>
+            ) : null}
+          </div>
+
+          <div className="card">
+            <div className="section-title">{t.labels.graphSummary}</div>
+            <KnowledgeGraph graph={graphData} t={t} />
+          </div>
         </section>
       </main>
     </div>

@@ -89,9 +89,12 @@ def build_training_command(dataset: str, preset: str, epochs: int, batch_size: i
 def parse_training_progress(log_text: str, total_epochs: int) -> dict:
     train_epochs = [int(match) for match in re.findall(r"Train epoch (\d+)", log_text)]
     eval_epochs = [int(match) for match in re.findall(r"Evaluate epoch (\d+)", log_text)]
+    has_final_eval = "Evaluation" in log_text
     current_epoch = max(train_epochs) if train_epochs else max(eval_epochs, default=0)
     completed_epochs = max(eval_epochs, default=0)
     phase = "train" if train_epochs else "eval" if eval_epochs else "idle"
+    if has_final_eval and completed_epochs >= total_epochs:
+        phase = "completed"
     progress_percent = int(((current_epoch + (1 if phase != "idle" else 0)) / total_epochs) * 100) if total_epochs else 0
     return {
         "current_epoch": current_epoch,

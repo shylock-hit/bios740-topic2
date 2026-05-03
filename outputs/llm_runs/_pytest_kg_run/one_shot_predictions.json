@@ -1,0 +1,1 @@
+[{"sent_id": "s1", "entities": [{"id": "e1", "type": "drug", "text": "Donepezil"}, {"id": "e2", "type": "disease", "text": "Alzheimer's disease"}], "relations": [{"type": "treatment_for", "head": {"id": "e1", "type": "drug", "text": "Donepezil"}, "tail": {"id": "e2", "type": "disease", "text": "Alzheimer's disease"}}]}]

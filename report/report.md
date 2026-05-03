@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This project builds a reproducible pipeline for biomedical named entity recognition (NER) and relation extraction (RE) on two PubMed-derived datasets: ADKG for Alzheimer's disease knowledge graph extraction and MDKG for mental disorder knowledge graph extraction. The code package provides data validation, exploratory data analysis (EDA), conversion to SpERT-style input, strict micro-averaged evaluation, type-level analysis, and scripts for SpERT training. We use SpERT with PubMedBERT as the backbone encoder. On the ADKG dev split, the model achieves entity F1 of 65.30 and relation F1 (with NEC) of 40.27. On the MDKG dev split, the model achieves entity F1 of 79.45 and relation F1 (with NEC) of 49.67. The extension component designs an agentic LLM annotation workflow on ADKG dev samples, comparing one-shot extraction against a 3-step pipeline (entity extraction → relation extraction → review/fix), evaluated with both strict and relaxed matching metrics. The workflow includes incremental progress tracking, system-level metrics (latency percentiles, parse success rate, validation error count), and automated error analysis with boundary overlap detection.
+This project builds a reproducible pipeline for biomedical named entity recognition (NER) and relation extraction (RE) on two PubMed-derived datasets: ADKG for Alzheimer's disease knowledge graph extraction and MDKG for mental disorder knowledge graph extraction. The code package provides data validation, exploratory data analysis (EDA), conversion to SpERT-style input, strict micro-averaged evaluation, type-level analysis, and scripts for SpERT training. We use SpERT with PubMedBERT as the backbone encoder. On the ADKG dev split, the model achieves entity F1 of 65.30 and relation F1 (with NEC) of 40.27; on the ADKG test split, it achieves entity F1 of 67.92 and relation F1 of 42.06. On the MDKG dev split, the model achieves entity F1 of 79.45 and relation F1 (with NEC) of 49.67; on the MDKG test split, it achieves entity F1 of 77.68 and relation F1 of 49.74. The extension component designs an agentic LLM annotation workflow on ADKG dev samples, comparing one-shot extraction against a 3-step pipeline (entity extraction → relation extraction → review/fix), evaluated with both strict and relaxed matching metrics. The workflow includes incremental progress tracking, system-level metrics (latency percentiles, parse success rate, validation error count), and automated error analysis with boundary overlap detection.
 
 ## 1. Dataset
 
@@ -230,33 +230,35 @@ We report both entity `micro` and relation `With NEC micro` (named entity classi
 
 | Run | Entity P | Entity R | Entity F1 | Relation P (NEC) | Relation R (NEC) | Relation F1 (NEC) |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| ADKG, PubMedBERT | 65.41 | 65.20 | 65.30 | 41.91 | 38.75 | 40.27 |
-| MDKG, PubMedBERT | 78.26 | 80.69 | 79.45 | 48.54 | 50.86 | 49.67 |
+| ADKG dev, PubMedBERT | 65.41 | 65.20 | 65.30 | 41.91 | 38.75 | 40.27 |
+| ADKG test, PubMedBERT | 70.20 | 65.78 | 67.92 | 44.94 | 39.53 | 42.06 |
+| MDKG dev, PubMedBERT | 78.26 | 80.69 | 79.45 | 48.54 | 50.86 | 49.67 |
+| MDKG test, PubMedBERT | 77.02 | 78.36 | 77.68 | 49.08 | 50.42 | 49.74 |
 | ADKG dev100, DeepSeek one-shot (strict) | 35.58 | 63.43 | 45.59 | 0.00 | 0.00 | 0.00 |
 | ADKG dev100, DeepSeek one-shot (relaxed) | 38.70 | 68.98 | 49.58 | 24.12 | 84.21 | 37.50 |
 | ADKG dev100, DeepSeek workflow (strict) | 32.65 | 58.80 | 41.98 | 0.00 | 0.00 | 0.00 |
 | ADKG dev100, DeepSeek workflow (relaxed) | 36.50 | 65.74 | 46.94 | 16.95 | 70.18 | 27.30 |
 
-ADKG final dev result uses entity `micro` and relation `With named entity classification (NEC) micro` from the 20-epoch SpERT + PubMedBERT run. The checkpoint was saved at `outputs/checkpoints/adkg/adkg_pubmedbert_e20_bs2/2026-05-02_18:50:44.982426`.
+ADKG final dev and test results use entity `micro` and relation `With named entity classification (NEC) micro` from the 20-epoch SpERT + PubMedBERT run. The checkpoint was saved at `outputs/checkpoints/adkg/adkg_pubmedbert_e20_bs2/2026-05-02_18:50:44.982426/final_model`. Test inference was run on the full ADKG test split (`outputs/spert/adkg/test.json`, 1,220 sentences).
 
-MDKG final dev result uses the same strict metrics from the 20-epoch SpERT + PubMedBERT run. The checkpoint was saved at `outputs/checkpoints/mdkg/mdkg_pubmedbert_e20_bs2/2026-05-02_19:49:36.134736`.
+MDKG final dev and test results use the same strict metrics from the 20-epoch SpERT + PubMedBERT run. The checkpoint was saved at `outputs/checkpoints/mdkg/mdkg_pubmedbert_e20_bs2/2026-05-02_19:49:36.134736/final_model`. Test inference was run on the full MDKG test split (`outputs/spert/mdkg/test.json`, 912 sentences).
 
-The DeepSeek rows are evaluated on the fixed 100-sentence ADKG dev sample used by the LLM extension (`outputs/llm_runs/adkg_dev100_sample.json`). Strict LLM relation F1 is 0 because exact span and endpoint matching is brittle for generative outputs; relaxed relation F1 shows that one-shot extraction recovers many relation endpoints with partial boundary overlap. In this run, one-shot extraction outperforms the 3-step workflow while also being faster.
+The DeepSeek rows are evaluated on the fixed 100-sentence ADKG dev sample used by the LLM extension (`outputs/llm_runs/adkg_dev100_sample.json`). Strict LLM relation F1 is 0 because exact span and endpoint matching is brittle for generative outputs; relaxed relation F1 shows that one-shot extraction recovers many relation endpoints with partial boundary overlap. In this ADKG run, one-shot extraction outperforms the 3-step workflow while also being faster. This should be interpreted as an ADKG-specific result, not as a universal claim that one-shot prompting is always better than decomposition.
 
 ### 5.2 Comparison with SpERT Paper Benchmarks
 
-The original SpERT paper (Eberts & Kluge, 2020) reports on SciERC, CoNLL04, and ADE datasets with similar configurations. On SciERC (a scientific NER/RE dataset with 6 entity types and 7 relation types), SpERT with BERT-base achieves entity F1 of 69.7 and relation F1 of 43.1. On ADE (adverse drug events, a biomedical domain), SpERT achieves entity F1 of 88.7 and relation F1 of 76.2. Our ADKG results (entity F1 65.30, relation F1 40.27) are comparable to the SciERC range, suggesting that the ADKG task difficulty is similar to general scientific RE. MDKG (entity F1 79.45, relation F1 49.67) falls between SciERC and ADE in difficulty, which is reasonable given its higher entity density but more diverse relation types.
+The original SpERT paper (Eberts & Kluge, 2020) reports on SciERC, CoNLL04, and ADE datasets with similar configurations. On SciERC (a scientific NER/RE dataset with 6 entity types and 7 relation types), SpERT with BERT-base achieves entity F1 of 69.7 and relation F1 of 43.1. On ADE (adverse drug events, a biomedical domain), SpERT achieves entity F1 of 88.7 and relation F1 of 76.2. Our ADKG test results (entity F1 67.92, relation F1 42.06) are comparable to the SciERC range, suggesting that the ADKG task difficulty is similar to general scientific RE. MDKG test performance (entity F1 77.68, relation F1 49.74) is substantially stronger than ADKG despite higher sentence-level entity/relation density. This indicates that density alone is not a reliable proxy for difficulty: MDKG appears denser, but its entity boundaries and relation labels provide cleaner supervised signal than ADKG's more heterogeneous schema.
 
 ### 5.3 Smoke Test Result
 
-The one-epoch ADKG smoke test completed successfully on an RTX 4080 32GB GPU. It produced entity micro F1 of 64.57 and strict relation-with-NEC micro F1 of 38.30 on the ADKG development split. This confirms that the data format, PubMedBERT loading, GPU training, and evaluation pipeline are working. The full 20-epoch ADKG run produced entity micro F1 of 65.30 and strict relation-with-NEC micro F1 of 40.27 on the ADKG development split. The full 20-epoch MDKG run produced entity micro F1 of 79.45 and strict relation-with-NEC micro F1 of 49.67 on the MDKG development split.
+The one-epoch ADKG smoke test completed successfully on an RTX 4080 32GB GPU. It produced entity micro F1 of 64.57 and strict relation-with-NEC micro F1 of 38.30 on the ADKG development split. This confirms that the data format, PubMedBERT loading, GPU training, and evaluation pipeline are working. The full 20-epoch ADKG run produced entity micro F1 of 65.30 and strict relation-with-NEC micro F1 of 40.27 on the ADKG development split, and 67.92 / 42.06 on the ADKG test split. The full 20-epoch MDKG run produced entity micro F1 of 79.45 and strict relation-with-NEC micro F1 of 49.67 on the MDKG development split, and 77.68 / 49.74 on the MDKG test split.
 
 ### 5.4 Why MDKG Outperforms ADKG
 
-The substantial performance gap (entity F1: 79.45 vs 65.30, relation F1: 49.67 vs 40.27) can be attributed to several factors:
+The substantial dev performance gap (entity F1: 79.45 vs 65.30, relation F1: 49.67 vs 40.27) and the similar test gap (entity F1: 77.68 vs 67.92, relation F1: 49.74 vs 42.06) initially look counterintuitive because MDKG is denser and has more entity/relation types. The results suggest that density increases the number of candidate pairs, but it is outweighed by cleaner label semantics and more training signal:
 
 1. **Entity type clarity:** MDKG's entity types (e.g., `disease`, `drug`, `method`, `region`) have clearer boundaries, while ADKG's `other` category (7.4% of entities) is semantically ambiguous and likely introduces noise.
-2. **Training signal density:** MDKG has 1.57 relations per training sentence vs 0.70 for ADKG, providing more supervision per sentence for the relation classifier.
+2. **Training signal density:** MDKG has 1.57 relations per training sentence vs 0.70 for ADKG. Although this creates more candidate pairs, it also provides much more positive supervision per sentence for the relation classifier.
 3. **Relation label clarity:** MDKG's `associated_with` (F1 38.81) is much better than ADKG's `associated_with` (F1 9.55), possibly because MDKG's association relations are more specific to clinical co-occurrence patterns, while ADKG's are more heterogeneous.
 4. **Abbreviation dominance in ADKG:** ADKG has 34.0% abbreviation relations, which while individually learnable (F1 69.69), may bias the model toward abbreviation patterns at the expense of other relation types.
 
@@ -335,7 +337,7 @@ Key ADKG patterns:
 Key MDKG patterns:
 - `disease`, `drug`, `method`, and `region` all exceed 80 F1 for NER, reflecting clear biomedical terminology.
 - `symptom` is weakest (F1 39.18 over 43 dev examples), similar to ADKG's rare type problem.
-- `abbreviation_for` is again strong (F1 74.47), confirming that abbreviation patterns are universally easier.
+- `abbreviation_for` is again strong (F1 74.47), confirming that abbreviation patterns are consistently easier in these two datasets.
 - `characteristic_of` is the lowest strict relation among common MDKG relations (F1 32.92), suggesting semantic ambiguity.
 - Notably, MDKG's `associated_with` (F1 38.81) is substantially better than ADKG's (F1 9.55), possibly because mental disorder associations have more consistent patterns.
 
@@ -578,7 +580,7 @@ The primary hypothesis is that the 3-step workflow will outperform one-shot extr
 
 ### 8.11 DeepSeek Live Results
 
-The live DeepSeek-compatible API run completed on the ADKG dev100 sample for both modes. The final artifacts are stored in `outputs/llm_runs/adkg_dev100_deepseek/`; report-ready charts are copied under `report/figures/`.
+The live DeepSeek-compatible API run completed on the ADKG dev100 sample for both modes. The original run artifacts were written under `outputs/llm_runs/adkg_dev100_deepseek/`, and report-ready charts were copied under `report/figures/`. Because later reruns can mutate the run directory, the report treats the copied figures and generated summaries as the stable reference.
 
 **Quality metrics:**
 
@@ -600,9 +602,11 @@ The live DeepSeek-compatible API run completed on the ADKG dev100 sample for bot
 
 ![LLM Workflow Latency Trace](./figures/llm_workflow_latency_trace.png)
 
-The result rejects the initial workflow-quality hypothesis for this model and prompt design. The 3-step workflow is slower because each sentence requires three sequential API calls (`extract_entities`, `extract_relations`, `review_and_fix`), and it does not improve quality. The most likely explanation is error propagation: relation extraction is constrained by the entity list from step 1, and the review step does not reliably recover omitted or over-specific mentions.
+The ADKG result rejects the initial workflow-quality hypothesis for this model, prompt design, and dataset. The 3-step workflow is slower because each sentence requires three sequential API calls (`extract_entities`, `extract_relations`, `review_and_fix`), and it does not improve ADKG quality. The most likely ADKG-specific explanation is error propagation: relation extraction is constrained by the entity list from step 1, and the review step does not reliably recover omitted or over-specific mentions.
 
 Strict relation F1 is 0.0 for both modes, while relaxed relation F1 is non-zero, indicating that many generated relations use plausible endpoint mentions but fail exact span matching. Boundary error analysis supports this: one-shot has 17 boundary-overlap errors and workflow has 19, with examples such as gold `mitochondrial genome-derived mRNA` versus predicted `mitochondrial genome-derived mRNA molecules`.
+
+As a sensitivity check for dataset dependence, we also ran MDKG dev subsets after isolating output directories to avoid overwrite contamination. The available clean MDKG dev100 run completed 100/100 samples, but it should not be treated as a final cross-dataset benchmark because the LLM schema and prompts were originally designed around ADKG and still show schema-mismatch artifacts in the output labels. Its direction is nevertheless informative: one-shot remained slightly higher than workflow on relaxed relation F1 (0.4476 vs 0.4013), while the workflow was slower (19.83s vs 10.98s average latency) and had more failures (4 vs 1). Together with the earlier small MDKG sanity check, this supports a narrow conclusion: the current 3-step design is not consistently better than one-shot, and any stronger cross-dataset claim would require a clean MDKG-specific schema/prompt rerun.
 
 **Provider configuration:**
 The experiment supports any OpenAI-compatible API endpoint, configured via `.env.llm`:
@@ -633,7 +637,7 @@ A `MockLLMClient` with heuristic extraction is available for testing without API
 - Incremental progress files are created and updated during execution
 - Predictions are written incrementally, preserving intermediate results on interruption
 
-**Live API execution:** The DeepSeek-compatible live API run completed successfully on the fixed ADKG dev100 sample. Both one-shot and workflow modes produced 100/100 parseable predictions with zero validation errors. The final run directory is `outputs/llm_runs/adkg_dev100_deepseek/`, containing predictions, progress logs, `metrics.json`, `summary.md`, error summaries, and generated charts.
+**Live API execution:** The DeepSeek-compatible live API run completed successfully on the fixed ADKG dev100 sample. Both one-shot and workflow modes produced 100/100 parseable predictions with zero validation errors. The final reported ADKG metrics are taken from the generated report artifacts rather than the current mutable run directory, because later frontend/API reruns can overwrite or partially refresh `outputs/llm_runs/adkg_dev100_deepseek/`. A clean MDKG dev100 run is available as a sensitivity check only; it is not used as a final cross-dataset benchmark because the current LLM schema/prompt stack was not fully MDKG-specific.
 
 **What the design deliberately does not do yet:**
 - No LangGraph dependency — the workflow is implemented as simple sequential function calls
@@ -679,6 +683,9 @@ chmod +x scripts/train_*.sh
 bash scripts/train_adkg_smoke.sh
 nohup bash scripts/train_adkg_full.sh > outputs/logs/adkg_train_console.log 2>&1 &
 nohup bash scripts/train_mdkg_full.sh > outputs/logs/mdkg_train_console.log 2>&1 &
+
+# Evaluate saved checkpoints on the full test splits
+bash scripts/eval_spert_test_autodl.sh
 ```
 
 Agentic annotation (extension):
@@ -705,11 +712,11 @@ python scripts/analyze_llm_errors.py --gold outputs/llm_runs/adkg_dev100_sample.
 
 ## 10. Limitations
 
-1. **LLM evaluation scope:** The live DeepSeek experiment is complete, but it is limited to a 100-sentence ADKG dev sample. The result is useful for workflow comparison, not a full-dataset benchmark.
+1. **LLM evaluation scope:** The live DeepSeek experiment is complete, but the final reported LLM result is limited to a 100-sentence ADKG dev sample. The result is useful for ADKG workflow comparison, not a full-dataset or cross-dataset benchmark.
 2. **Single discriminative model:** Only SpERT with PubMedBERT was evaluated. Comparison with PURE or other architectures would strengthen the benchmarking component.
 3. **No generative SFT comparison:** Extension A (generative vs. discriminative RE via supervised fine-tuning of open LLMs) was not implemented. This would provide valuable insight into whether fine-tuned LLMs can match discriminative models.
-4. **Extension limited to ADKG dev sample:** The LLM annotation experiment is scoped to 100 ADKG dev sentences. Scaling to the full dev/test splits and to MDKG would provide a more complete evaluation.
-5. **Dev-only reporting:** All baseline results are reported on the dev split. Final test results would require running inference with the saved checkpoints on the test split.
+4. **Extension limited to ADKG dev sample:** The final LLM annotation experiment is scoped to 100 ADKG dev sentences. MDKG subset runs are useful as sensitivity checks, but a final MDKG LLM conclusion would require a fully MDKG-specific schema/prompt and immutable output directories.
+5. **LLM artifact provenance:** Early frontend-triggered reruns reused output directory names, so some current `outputs/llm_runs/*` directories are mutable or partially overwritten. The report therefore treats generated summaries/figures and explicitly named clean run directories as the source of truth, and future runs should use unique run directories.
 6. **Error analysis depth:** The automated error analysis (`analyze_llm_errors.py`) covers boundary overlaps and failure histograms but does not yet quantify relation direction errors, long-range misses, or hallucinated entities systematically.
 7. **No cost accounting:** The agentic workflow tracks per-sentence latency and parse success but does not record token usage or API costs, which are important for practical deployment decisions.
 8. **No async batching:** The current implementation processes sentences sequentially. Parallel execution would be needed for large-scale annotation.
@@ -719,6 +726,6 @@ python scripts/analyze_llm_errors.py --gold outputs/llm_runs/adkg_dev100_sample.
 
 This project implements a biomedical triplet extraction pipeline for ADKG and MDKG using SpERT with PubMedBERT. The pipeline covers the core assignment requirements: EDA, model training, benchmarking, strict F1 evaluation, type-level analysis, and edge-case inspection.
 
-The ADKG and MDKG single-domain runs are complete, demonstrating that SpERT with PubMedBERT achieves reasonable performance on both datasets (ADKG entity F1 65.30 / relation F1 40.27; MDKG entity F1 79.45 / relation F1 49.67). Type-level analysis reveals consistent patterns: abbreviation relations are easiest, broad association relations are hardest, and rare entity types suffer from low recall. MDKG's higher density and clearer entity boundaries contribute to its superior performance.
+The ADKG and MDKG single-domain runs are complete on both dev and test splits. On test, SpERT with PubMedBERT reaches ADKG entity F1 67.92 / relation F1 42.06 and MDKG entity F1 77.68 / relation F1 49.74. Type-level analysis reveals consistent patterns: abbreviation relations are easiest, broad association relations are hardest, and rare entity types suffer from low recall. MDKG's superior baseline result is not contradicted by its higher density: the additional relation supervision and clearer label semantics appear to outweigh the increased number of candidate entity pairs.
 
-The extension component implements and evaluates an agentic workflow for LLM-based data annotation, comparing DeepSeek one-shot extraction against a 3-step agent pipeline (entity extraction → relation extraction → review/fix). The live ADKG dev100 run completed for both modes with 100% parse success and zero schema validation errors. Contrary to the original hypothesis, one-shot extraction was both more accurate and faster than the decomposed workflow: relaxed relation F1 was 37.50 for one-shot versus 27.30 for workflow, with average latency 15.08s versus 29.07s per sentence. This suggests that, for this prompt/schema and DeepSeek model, decomposition introduces error propagation without enough corrective benefit.
+The extension component implements and evaluates an agentic workflow for LLM-based data annotation, comparing DeepSeek one-shot extraction against a 3-step agent pipeline (entity extraction → relation extraction → review/fix). The live ADKG dev100 run completed for both modes with 100% parse success and zero schema validation errors. On ADKG, one-shot extraction was both more accurate and faster than the decomposed workflow: relaxed relation F1 was 37.50 for one-shot versus 27.30 for workflow, with average latency 15.08s versus 29.07s per sentence. This supports an ADKG-specific interpretation that the current decomposition can introduce error propagation when entity extraction misses or over-specifies mentions. It should not be generalized to all datasets without a clean dataset-specific prompt/schema rerun.

@@ -1,0 +1,283 @@
+{
+  "one_shot": {
+    "strict": {
+      "entities": {
+        "micro": {
+          "precision": 0.432432,
+          "recall": 0.352941,
+          "f1": 0.388664
+        },
+        "by_type": {
+          "Health_factors": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "disease": {
+            "precision": 0.871795,
+            "recall": 0.85,
+            "f1": 0.860759
+          },
+          "drug": {
+            "precision": 0.8,
+            "recall": 1.0,
+            "f1": 0.888889
+          },
+          "gene": {
+            "precision": 1.0,
+            "recall": 0.166667,
+            "f1": 0.285714
+          },
+          "method": {
+            "precision": 0.529412,
+            "recall": 0.321429,
+            "f1": 0.4
+          },
+          "mutation": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "other": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "physiology": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "region": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "signs": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "symptom": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "relations": {
+        "micro": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "by_type": {
+          "abbreviation_for": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "associated_with": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "characteristic_of": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "hyponym_of": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "located_in": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "occurs_in": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "risk_factor_of": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "treatment_for": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "sentence_count": 30,
+      "predicted_sentence_count": 30
+    },
+    "relaxed": {
+      "entities": {
+        "precision": 0.486486,
+        "recall": 0.397059,
+        "f1": 0.437247
+      },
+      "relations": {
+        "precision": 0.272727,
+        "recall": 0.295082,
+        "f1": 0.283465
+      }
+    },
+    "avg_latency_seconds": 14.260596949691434,
+    "p50_latency_seconds": 10.337090083019575,
+    "p90_latency_seconds": 27.616438274801475,
+    "parse_success_count": 29,
+    "parse_success_rate": 0.9666666666666667,
+    "failure_count": 1,
+    "validation_error_count": 0
+  },
+  "workflow": {
+    "strict": {
+      "entities": {
+        "micro": {
+          "precision": 0.5,
+          "recall": 0.294118,
+          "f1": 0.37037
+        },
+        "by_type": {
+          "Health_factors": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "disease": {
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.857143
+          },
+          "drug": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.666667
+          },
+          "gene": {
+            "precision": 1.0,
+            "recall": 0.166667,
+            "f1": 0.285714
+          },
+          "method": {
+            "precision": 0.583333,
+            "recall": 0.25,
+            "f1": 0.35
+          },
+          "mutation": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "other": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "physiology": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "region": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "signs": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "symptom": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "relations": {
+        "micro": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "by_type": {
+          "abbreviation_for": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "associated_with": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "characteristic_of": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "hyponym_of": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "located_in": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "occurs_in": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "risk_factor_of": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "treatment_for": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "treatment_target_for": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "sentence_count": 30,
+      "predicted_sentence_count": 30
+    },
+    "relaxed": {
+      "entities": {
+        "precision": 0.525,
+        "recall": 0.308824,
+        "f1": 0.388889
+      },
+      "relations": {
+        "precision": 0.290323,
+        "recall": 0.295082,
+        "f1": 0.292683
+      }
+    },
+    "avg_latency_seconds": 22.917774293711688,
+    "p50_latency_seconds": 16.495630291989073,
+    "p90_latency_seconds": 32.50372970799799,
+    "parse_success_count": 21,
+    "parse_success_rate": 0.7,
+    "failure_count": 9,
+    "validation_error_count": 0
+  }
+}

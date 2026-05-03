@@ -1,0 +1,729 @@
+[
+  {
+    "doc_id": "26085274",
+    "sent_id": "26085274_s3",
+    "text": "The hippocampus is thought to negatively regulate the stress response and to mediate various cognitive and mnemonic aspects of stress-induced impairments, although the neuronal underpinnings sufficient to support behavioural improvements are largely unknown.",
+    "entities": [
+      {
+        "id": "P1_4_15",
+        "type": "other",
+        "start": 4,
+        "end": 15,
+        "text": "hippocampus"
+      },
+      {
+        "id": "P2_54_69",
+        "type": "other",
+        "start": 54,
+        "end": 69,
+        "text": "stress response"
+      },
+      {
+        "id": "P3_127_153",
+        "type": "disease",
+        "start": 127,
+        "end": 153,
+        "text": "stress-induced impairments"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_4_15",
+          "type": "other",
+          "start": 4,
+          "end": 15,
+          "text": "hippocampus"
+        },
+        "tail": {
+          "id": "P2_54_69",
+          "type": "other",
+          "start": 54,
+          "end": 69,
+          "text": "stress response"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_4_15",
+          "type": "other",
+          "start": 4,
+          "end": 15,
+          "text": "hippocampus"
+        },
+        "tail": {
+          "id": "P3_127_153",
+          "type": "disease",
+          "start": 127,
+          "end": 153,
+          "text": "stress-induced impairments"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "20037593",
+    "sent_id": "20037593_s3",
+    "text": "In a rat model of panic disorder, chronic inhibition of GABA synthesis in the dorsomedial-perifornical hypothalamus of rats produces anxiety-like states and a similar vulnerability to sodium lactate-induced cardioexcitatory responses.",
+    "entities": [
+      {
+        "id": "P1_18_32",
+        "type": "disease",
+        "start": 18,
+        "end": 32,
+        "text": "panic disorder"
+      },
+      {
+        "id": "P2_56_60",
+        "type": "gene",
+        "start": 56,
+        "end": 60,
+        "text": "GABA"
+      },
+      {
+        "id": "P3_78_115",
+        "type": "other",
+        "start": 78,
+        "end": 115,
+        "text": "dorsomedial-perifornical hypothalamus"
+      },
+      {
+        "id": "P4_133_152",
+        "type": "disease",
+        "start": 133,
+        "end": 152,
+        "text": "anxiety-like states"
+      },
+      {
+        "id": "P5_184_198",
+        "type": "drug",
+        "start": 184,
+        "end": 198,
+        "text": "sodium lactate"
+      },
+      {
+        "id": "P6_207_233",
+        "type": "other",
+        "start": 207,
+        "end": 233,
+        "text": "cardioexcitatory responses"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_56_60",
+          "type": "gene",
+          "start": 56,
+          "end": 60,
+          "text": "GABA"
+        },
+        "tail": {
+          "id": "P4_133_152",
+          "type": "disease",
+          "start": 133,
+          "end": 152,
+          "text": "anxiety-like states"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P5_184_198",
+          "type": "drug",
+          "start": 184,
+          "end": 198,
+          "text": "sodium lactate"
+        },
+        "tail": {
+          "id": "P6_207_233",
+          "type": "other",
+          "start": 207,
+          "end": 233,
+          "text": "cardioexcitatory responses"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P4_133_152",
+          "type": "disease",
+          "start": 133,
+          "end": 152,
+          "text": "anxiety-like states"
+        },
+        "tail": {
+          "id": "P1_18_32",
+          "type": "disease",
+          "start": 18,
+          "end": 32,
+          "text": "panic disorder"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "32171414",
+    "sent_id": "32171414_s2",
+    "text": "Disturbed attitudes towards weight, body shape, and eating play a key role in the origin and maintenance of eating disorders.",
+    "entities": [
+      {
+        "id": "P1_28_34",
+        "type": "other",
+        "start": 28,
+        "end": 34,
+        "text": "weight"
+      },
+      {
+        "id": "P2_36_46",
+        "type": "other",
+        "start": 36,
+        "end": 46,
+        "text": "body shape"
+      },
+      {
+        "id": "P3_52_58",
+        "type": "other",
+        "start": 52,
+        "end": 58,
+        "text": "eating"
+      },
+      {
+        "id": "P4_108_124",
+        "type": "disease",
+        "start": 108,
+        "end": 124,
+        "text": "eating disorders"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_28_34",
+          "type": "other",
+          "start": 28,
+          "end": 34,
+          "text": "weight"
+        },
+        "tail": {
+          "id": "P4_108_124",
+          "type": "disease",
+          "start": 108,
+          "end": 124,
+          "text": "eating disorders"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_36_46",
+          "type": "other",
+          "start": 36,
+          "end": 46,
+          "text": "body shape"
+        },
+        "tail": {
+          "id": "P4_108_124",
+          "type": "disease",
+          "start": 108,
+          "end": 124,
+          "text": "eating disorders"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_52_58",
+          "type": "other",
+          "start": 52,
+          "end": 58,
+          "text": "eating"
+        },
+        "tail": {
+          "id": "P4_108_124",
+          "type": "disease",
+          "start": 108,
+          "end": 124,
+          "text": "eating disorders"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "30522980",
+    "sent_id": "30522980_s3",
+    "text": "These approaches included social interaction, engagement with nature, relaxation, distraction, sensory stimulation, physical activity, altering perceptions, engaging in hobbies, self-expression, and exploration.",
+    "entities": [
+      {
+        "id": "P1_26_44",
+        "type": "other",
+        "start": 26,
+        "end": 44,
+        "text": "social interaction"
+      },
+      {
+        "id": "P2_46_68",
+        "type": "other",
+        "start": 46,
+        "end": 68,
+        "text": "engagement with nature"
+      },
+      {
+        "id": "P3_70_80",
+        "type": "other",
+        "start": 70,
+        "end": 80,
+        "text": "relaxation"
+      },
+      {
+        "id": "P4_82_93",
+        "type": "other",
+        "start": 82,
+        "end": 93,
+        "text": "distraction"
+      },
+      {
+        "id": "P5_95_114",
+        "type": "other",
+        "start": 95,
+        "end": 114,
+        "text": "sensory stimulation"
+      },
+      {
+        "id": "P6_116_133",
+        "type": "other",
+        "start": 116,
+        "end": 133,
+        "text": "physical activity"
+      },
+      {
+        "id": "P7_135_155",
+        "type": "other",
+        "start": 135,
+        "end": 155,
+        "text": "altering perceptions"
+      },
+      {
+        "id": "P8_157_176",
+        "type": "other",
+        "start": 157,
+        "end": 176,
+        "text": "engaging in hobbies"
+      },
+      {
+        "id": "P9_178_193",
+        "type": "other",
+        "start": 178,
+        "end": 193,
+        "text": "self-expression"
+      },
+      {
+        "id": "P10_199_210",
+        "type": "other",
+        "start": 199,
+        "end": 210,
+        "text": "exploration"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "32005059",
+    "sent_id": "32005059_s14",
+    "text": "For the selection of sham acupuncture, both methods performed similarly in a clinical setting.",
+    "entities": [
+      {
+        "id": "P1_21_37",
+        "type": "method",
+        "start": 21,
+        "end": 37,
+        "text": "sham acupuncture"
+      },
+      {
+        "id": "P2_77_93",
+        "type": "other",
+        "start": 77,
+        "end": 93,
+        "text": "clinical setting"
+      }
+    ],
+    "relations": []
+  },
+  {
+    "doc_id": "31569326",
+    "sent_id": "31569326_s7",
+    "text": "The GP plays a crucial part in initiating and supporting patients with these measures.",
+    "entities": [],
+    "relations": []
+  },
+  {
+    "doc_id": "18635808",
+    "sent_id": "18635808_s1",
+    "text": "Obsessive-compulsive disorder (OCD) is characterized by repetitive thoughts and behaviors associated with underlying dysregulation of frontostriatal circuitry.",
+    "entities": [
+      {
+        "id": "P1_0_29",
+        "type": "disease",
+        "start": 0,
+        "end": 29,
+        "text": "Obsessive-compulsive disorder"
+      },
+      {
+        "id": "P2_31_34",
+        "type": "disease",
+        "start": 31,
+        "end": 34,
+        "text": "OCD"
+      },
+      {
+        "id": "P3_56_89",
+        "type": "other",
+        "start": 56,
+        "end": 89,
+        "text": "repetitive thoughts and behaviors"
+      },
+      {
+        "id": "P4_117_130",
+        "type": "other",
+        "start": 117,
+        "end": 130,
+        "text": "dysregulation"
+      },
+      {
+        "id": "P5_134_158",
+        "type": "other",
+        "start": 134,
+        "end": 158,
+        "text": "frontostriatal circuitry"
+      }
+    ],
+    "relations": [
+      {
+        "type": "abbreviation_for",
+        "head": {
+          "id": "P2_31_34",
+          "type": "disease",
+          "start": 31,
+          "end": 34,
+          "text": "OCD"
+        },
+        "tail": {
+          "id": "P1_0_29",
+          "type": "disease",
+          "start": 0,
+          "end": 29,
+          "text": "Obsessive-compulsive disorder"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P3_56_89",
+          "type": "other",
+          "start": 56,
+          "end": 89,
+          "text": "repetitive thoughts and behaviors"
+        },
+        "tail": {
+          "id": "P1_0_29",
+          "type": "disease",
+          "start": 0,
+          "end": 29,
+          "text": "Obsessive-compulsive disorder"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_56_89",
+          "type": "other",
+          "start": 56,
+          "end": 89,
+          "text": "repetitive thoughts and behaviors"
+        },
+        "tail": {
+          "id": "P4_117_130",
+          "type": "other",
+          "start": 117,
+          "end": 130,
+          "text": "dysregulation"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P4_117_130",
+          "type": "other",
+          "start": 117,
+          "end": 130,
+          "text": "dysregulation"
+        },
+        "tail": {
+          "id": "P5_134_158",
+          "type": "other",
+          "start": 134,
+          "end": 158,
+          "text": "frontostriatal circuitry"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "26544749",
+    "sent_id": "26544749_s13",
+    "text": "Egger's linear regression test revealed a potential publication bias for interleukin 1.",
+    "entities": [
+      {
+        "id": "P1_0_30",
+        "type": "method",
+        "start": 0,
+        "end": 30,
+        "text": "Egger's linear regression test"
+      },
+      {
+        "id": "P2_52_68",
+        "type": "other",
+        "start": 52,
+        "end": 68,
+        "text": "publication bias"
+      },
+      {
+        "id": "P3_73_86",
+        "type": "gene",
+        "start": 73,
+        "end": 86,
+        "text": "interleukin 1"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P2_52_68",
+          "type": "other",
+          "start": 52,
+          "end": 68,
+          "text": "publication bias"
+        },
+        "tail": {
+          "id": "P3_73_86",
+          "type": "gene",
+          "start": 73,
+          "end": 86,
+          "text": "interleukin 1"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "18064038",
+    "sent_id": "18064038_s2",
+    "text": "As the underlying genetic and neuronal abnormalities in schizophrenia are largely unknown, it is challenging to measure the severity of its symptoms objectively, or to design and evaluate psychotherapeutic interventions.",
+    "entities": [
+      {
+        "id": "P1_56_69",
+        "type": "disease",
+        "start": 56,
+        "end": 69,
+        "text": "schizophrenia"
+      },
+      {
+        "id": "P3_30_52",
+        "type": "other",
+        "start": 30,
+        "end": 52,
+        "text": "neuronal abnormalities"
+      },
+      {
+        "id": "P4_140_148",
+        "type": "other",
+        "start": 140,
+        "end": 148,
+        "text": "symptoms"
+      },
+      {
+        "id": "P5_188_219",
+        "type": "method",
+        "start": 188,
+        "end": 219,
+        "text": "psychotherapeutic interventions"
+      }
+    ],
+    "relations": [
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P3_30_52",
+          "type": "other",
+          "start": 30,
+          "end": 52,
+          "text": "neuronal abnormalities"
+        },
+        "tail": {
+          "id": "P1_56_69",
+          "type": "disease",
+          "start": 56,
+          "end": 69,
+          "text": "schizophrenia"
+        }
+      },
+      {
+        "type": "characteristic_of",
+        "head": {
+          "id": "P4_140_148",
+          "type": "other",
+          "start": 140,
+          "end": 148,
+          "text": "symptoms"
+        },
+        "tail": {
+          "id": "P1_56_69",
+          "type": "disease",
+          "start": 56,
+          "end": 69,
+          "text": "schizophrenia"
+        }
+      },
+      {
+        "type": "treatment_for",
+        "head": {
+          "id": "P5_188_219",
+          "type": "method",
+          "start": 188,
+          "end": 219,
+          "text": "psychotherapeutic interventions"
+        },
+        "tail": {
+          "id": "P1_56_69",
+          "type": "disease",
+          "start": 56,
+          "end": 69,
+          "text": "schizophrenia"
+        }
+      }
+    ]
+  },
+  {
+    "doc_id": "14613865",
+    "sent_id": "14613865_s7",
+    "text": "When Ca(2+) entry through Ca(2+) channels or Na(+)/Ca(2+) exchange transport was blocked using nicardipine (1 microM, n=3) or dichlorobenzamil (30 microM, n=5), respectively, cells showed lower [Ca(2+)](i) and accentuated negative inotropic action in response to peroxynitrite.",
+    "entities": [
+      {
+        "id": "P1_5_11",
+        "type": "other",
+        "start": 5,
+        "end": 11,
+        "text": "Ca(2+)"
+      },
+      {
+        "id": "P2_26_41",
+        "type": "gene",
+        "start": 26,
+        "end": 41,
+        "text": "Ca(2+) channels"
+      },
+      {
+        "id": "P3_45_76",
+        "type": "gene",
+        "start": 45,
+        "end": 76,
+        "text": "Na(+)/Ca(2+) exchange transport"
+      },
+      {
+        "id": "P4_95_106",
+        "type": "drug",
+        "start": 95,
+        "end": 106,
+        "text": "nicardipine"
+      },
+      {
+        "id": "P5_126_142",
+        "type": "drug",
+        "start": 126,
+        "end": 142,
+        "text": "dichlorobenzamil"
+      },
+      {
+        "id": "P6_263_276",
+        "type": "other",
+        "start": 263,
+        "end": 276,
+        "text": "peroxynitrite"
+      }
+    ],
+    "relations": [
+      {
+        "type": "treatment_target_for",
+        "head": {
+          "id": "P4_95_106",
+          "type": "drug",
+          "start": 95,
+          "end": 106,
+          "text": "nicardipine"
+        },
+        "tail": {
+          "id": "P2_26_41",
+          "type": "gene",
+          "start": 26,
+          "end": 41,
+          "text": "Ca(2+) channels"
+        }
+      },
+      {
+        "type": "treatment_target_for",
+        "head": {
+          "id": "P5_126_142",
+          "type": "drug",
+          "start": 126,
+          "end": 142,
+          "text": "dichlorobenzamil"
+        },
+        "tail": {
+          "id": "P3_45_76",
+          "type": "gene",
+          "start": 45,
+          "end": 76,
+          "text": "Na(+)/Ca(2+) exchange transport"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_5_11",
+          "type": "other",
+          "start": 5,
+          "end": 11,
+          "text": "Ca(2+)"
+        },
+        "tail": {
+          "id": "P2_26_41",
+          "type": "gene",
+          "start": 26,
+          "end": 41,
+          "text": "Ca(2+) channels"
+        }
+      },
+      {
+        "type": "associated_with",
+        "head": {
+          "id": "P1_5_11",
+          "type": "other",
+          "start": 5,
+          "end": 11,
+          "text": "Ca(2+)"
+        },
+        "tail": {
+          "id": "P3_45_76",
+          "type": "gene",
+          "start": 45,
+          "end": 76,
+          "text": "Na(+)/Ca(2+) exchange transport"
+        }
+      }
+    ]
+  }
+]

@@ -36,3 +36,12 @@ def test_parse_nvidia_smi_extracts_gpu_summary():
     assert parsed["memory_used_mib"] == 0
     assert parsed["memory_total_mib"] == 32760
     assert parsed["gpu_util_percent"] == 0
+
+
+def test_parse_training_progress_marks_completed_phase():
+    log_text = """
+Evaluate epoch 20: 100%|████| 236/236 [00:10<00:00, 21.77it/s]
+Evaluation
+"""
+    parsed = parse_training_progress(log_text, total_epochs=20)
+    assert parsed["phase"] == "completed"
