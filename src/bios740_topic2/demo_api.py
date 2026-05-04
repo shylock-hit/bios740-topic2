@@ -37,6 +37,7 @@ class SampleRequest(BaseModel):
 
 class ProbeRequest(BaseModel):
     env_file: str = ".env.llm"
+    dataset: str = "ADKG"
 
 
 class RunRequest(BaseModel):
@@ -45,6 +46,7 @@ class RunRequest(BaseModel):
     mode: str = "both"
     provider: str = "openai_compat"
     env_file: str = ".env.llm"
+    dataset: str = "ADKG"
 
 
 class ArtifactRequest(BaseModel):
@@ -109,7 +111,16 @@ def sample_data(request: SampleRequest) -> dict[str, str]:
 
 @app.post("/api/probe")
 def probe_provider(request: ProbeRequest) -> JSONResponse:
-    result = _run_python(["python", "scripts/probe_llm_provider.py", "--env-file", request.env_file])
+    result = _run_python(
+        [
+            "python",
+            "scripts/probe_llm_provider.py",
+            "--env-file",
+            request.env_file,
+            "--dataset",
+            request.dataset,
+        ]
+    )
     if result.returncode != 0:
         raise HTTPException(status_code=500, detail=result.stderr or result.stdout)
     return JSONResponse(content=json.loads(result.stdout))
@@ -133,6 +144,8 @@ def run_experiment(request: RunRequest) -> dict[str, str]:
             request.provider,
             "--env-file",
             request.env_file,
+            "--dataset",
+            request.dataset,
         ],
         str(APP_ROOT),
         metadata={

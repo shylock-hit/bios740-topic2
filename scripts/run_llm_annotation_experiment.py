@@ -69,18 +69,20 @@ def _percentile(values: list[float], percentile: float) -> float:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run LLM annotation experiment on sampled ADKG data.")
+    parser = argparse.ArgumentParser(description="Run LLM annotation experiment on sampled KG data.")
     parser.add_argument("--sample", required=True, help="Sample JSON produced by sample_dev_for_llm.py")
     parser.add_argument("--output-dir", default="outputs/llm_runs/mock_run")
     parser.add_argument("--mode", choices=("one_shot", "workflow", "both"), default="both")
     parser.add_argument("--provider", choices=("mock", "openai_compat"), default="mock")
     parser.add_argument("--env-file", default=".env.llm")
+    parser.add_argument("--dataset", choices=("ADKG", "MDKG"), help="Override dataset schema/prompt.")
     args = parser.parse_args()
 
     sample_payload = json.loads(Path(args.sample).read_text(encoding="utf-8"))
     gold_samples = sample_payload["samples"]
     if not gold_samples:
         raise ValueError(f"No samples found in {args.sample}")
+    dataset = (args.dataset or sample_payload.get("dataset") or "ADKG").upper()
     client = (
         MockLLMClient()
         if args.provider == "mock"
@@ -105,7 +107,11 @@ def main() -> None:
 
         for index, sample in enumerate(gold_samples, start=1):
             try:
-                result = run_one_shot(client, sample["text"]) if mode == "one_shot" else run_entities_then_relations(client, sample["text"])
+                result = (
+                    run_one_shot(client, sample["text"], dataset=dataset)
+                    if mode == "one_shot"
+                    else run_entities_then_relations(client, sample["text"], dataset=dataset)
+                )
                 prediction = build_prediction_sample(sample, result.payload)
                 predictions.append(prediction)
                 latencies.append(result.latency_seconds)

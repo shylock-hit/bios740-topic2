@@ -7,6 +7,8 @@ from pathlib import Path
 from typing import Any
 from urllib import error, request
 
+from bios740_topic2.llm_schema import DATASET_SCHEMAS
+
 
 def load_env_file(path: str | Path) -> dict[str, str]:
     values: dict[str, str] = {}
@@ -30,6 +32,7 @@ class OpenAICompatConfig:
     api_key: str
     model: str
     wire_api: str = "chat_completions"
+    user_agent: str = ""
 
     @classmethod
     def from_env(cls, env_file: str | Path | None = None) -> "OpenAICompatConfig":
@@ -42,6 +45,7 @@ class OpenAICompatConfig:
         api_key = get("LLM_API_KEY")
         model = get("LLM_MODEL", "gpt-5.2")
         wire_api = get("LLM_WIRE_API", "chat_completions")
+        user_agent = get("LLM_USER_AGENT", "")
         if not api_key:
             raise ValueError("Missing LLM_API_KEY in environment or env file")
         return cls(
@@ -49,10 +53,18 @@ class OpenAICompatConfig:
             api_key=api_key,
             model=model,
             wire_api=wire_api,
+            user_agent=user_agent,
         )
 
 
-def _build_messages(prompt_name: str, payload: dict[str, Any]) -> list[dict[str, Any]]:
+def build_messages(prompt_name: str, payload: dict[str, Any], dataset: str = "ADKG") -> list[dict[str, Any]]:
+    dataset_key = dataset.upper()
+    if dataset_key not in DATASET_SCHEMAS:
+        raise ValueError(f"Unsupported dataset: {dataset}")
+    schema = DATASET_SCHEMAS[dataset_key]
+    entity_types = ", ".join(schema["entities"])
+    relation_types = ", ".join(schema["relations"])
+
     if prompt_name == "one_shot":
         user_prompt = (
             "Extract biomedical entities and relations from the sentence. "
@@ -84,10 +96,9 @@ def _build_messages(prompt_name: str, payload: dict[str, Any]) -> list[dict[str,
         raise ValueError(f"Unknown prompt {prompt_name}")
 
     system_prompt = (
-        "You are annotating ADKG biomedical sentences. "
-        "Allowed entity types: disease, gene, drug, method, mutation, other. "
-        "Allowed relation types: abbreviation_for, associated_with, characteristic_of, "
-        "help_diagnose, hyponym_of, risk_factor_of, treatment_for, treatment_target_for. "
+        f"You are annotating {dataset_key} biomedical sentences. "
+        f"Allowed entity types: {entity_types}. "
+        f"Allowed relation types: {relation_types}. "
         "Return strict JSON only with shape "
         "{\"entities\": [{\"text\": \"...\", \"type\": \"...\"}], "
         "\"relations\": [{\"head\": \"...\", \"type\": \"...\", \"tail\": \"...\"}]}. "
@@ -99,25 +110,32 @@ def _build_messages(prompt_name: str, payload: dict[str, Any]) -> list[dict[str,
     ]
 
 
+def _build_messages(prompt_name: str, payload: dict[str, Any]) -> list[dict[str, Any]]:
+    return build_messages(prompt_name, payload, dataset=str(payload.get("dataset", "ADKG")))
+
+
 class OpenAICompatibleClient:
     def __init__(self, config: OpenAICompatConfig):
         self.config = config
 
     def _request_json(self, url: str, body: dict[str, Any]) -> dict[str, Any]:
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {self.config.api_key}",
+        }
+        if self.config.user_agent:
+            headers["User-Agent"] = self.config.user_agent
         req = request.Request(
             url,
             data=json.dumps(body).encode("utf-8"),
-            headers={
-                "Content-Type": "application/json",
-                "Authorization": f"Bearer {self.config.api_key}",
-            },
+            headers=headers,
             method="POST",
         )
         with request.urlopen(req, timeout=120) as response:
             return json.loads(response.read().decode("utf-8"))
 
     def complete_json(self, prompt_name: str, payload: dict[str, Any]) -> dict[str, Any]:
-        messages = _build_messages(prompt_name, payload)
+        messages = build_messages(prompt_name, payload, dataset=str(payload.get("dataset", "ADKG")))
         if self.config.wire_api == "responses":
             body = {
                 "model": self.config.model,
@@ -127,6 +145,21 @@ class OpenAICompatibleClient:
             data = self._request_json(f"{self.config.base_url}/responses", body)
             content = data["output"][0]["content"][0]["text"]
             return json.loads(content)
+        if self.config.wire_api == "messages":
+            body = {
+                "model": self.config.model,
+                "system": messages[0]["content"],
+                "messages": [{"role": "user", "content": messages[1]["content"]}],
+                "max_tokens": 512,
+            }
+            data = self._request_json(f"{self.config.base_url}/messages", body)
+            content_blocks = data.get("content", [])
+            text = "".join(
+                block.get("text", "")
+                for block in content_blocks
+                if isinstance(block, dict) and block.get("type") == "text"
+            )
+            return json.loads(text)
 
         body = {
             "model": self.config.model,
@@ -138,8 +171,12 @@ class OpenAICompatibleClient:
         return json.loads(content)
 
 
-def probe_provider(config: OpenAICompatConfig) -> dict[str, Any]:
-    messages = _build_messages("extract_entities", {"text": "APOE is associated with dementia."})
+def probe_provider(config: OpenAICompatConfig, dataset: str = "ADKG") -> dict[str, Any]:
+    messages = build_messages(
+        "extract_entities",
+        {"text": "APOE is associated with dementia."},
+        dataset=dataset,
+    )
     targets = []
     if config.wire_api == "responses":
         targets.append(
@@ -151,6 +188,19 @@ def probe_provider(config: OpenAICompatConfig) -> dict[str, Any]:
                     "input": messages,
                     "max_output_tokens": 64,
                     "text": {"format": {"type": "json_object"}},
+                },
+            )
+        )
+    elif config.wire_api == "messages":
+        targets.append(
+            (
+                "messages",
+                f"{config.base_url}/messages",
+                {
+                    "model": config.model,
+                    "system": messages[0]["content"],
+                    "messages": [{"role": "user", "content": messages[1]["content"]}],
+                    "max_tokens": 128,
                 },
             )
         )
@@ -203,5 +253,7 @@ def probe_provider(config: OpenAICompatConfig) -> dict[str, Any]:
         "base_url": config.base_url,
         "model": config.model,
         "wire_api": config.wire_api,
+        "user_agent": config.user_agent,
+        "dataset": dataset.upper(),
         "results": results,
     }

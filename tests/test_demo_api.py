@@ -118,6 +118,7 @@ def test_run_endpoint_uses_unique_directory_when_target_exists(monkeypatch):
             "mode": "both",
             "provider": "mock",
             "env_file": ".env.llm",
+            "dataset": "MDKG",
         },
     )
 
@@ -125,4 +126,28 @@ def test_run_endpoint_uses_unique_directory_when_target_exists(monkeypatch):
     body = response.json()
     assert body["run_dir"].startswith("outputs/llm_runs/_pytest_unique/mdkg_dev10_deepseek_")
     assert captured["cmd"][captured["cmd"].index("--output-dir") + 1].endswith(body["run_dir"])
+    assert captured["cmd"][captured["cmd"].index("--dataset") + 1] == "MDKG"
     assert captured["metadata"]["requested_run_dir"] == "mdkg_dev10_deepseek"
+
+
+def test_probe_endpoint_passes_dataset(monkeypatch):
+    captured = {}
+
+    def fake_run_python(cmd):
+        captured["cmd"] = cmd
+
+        class Result:
+            returncode = 0
+            stdout = json.dumps({"ok": True})
+            stderr = ""
+
+        return Result()
+
+    monkeypatch.setattr(demo_api, "_run_python", fake_run_python)
+    client = TestClient(demo_api.app)
+
+    response = client.post("/api/probe", json={"env_file": ".env.gpt", "dataset": "MDKG"})
+
+    assert response.status_code == 200
+    assert captured["cmd"][captured["cmd"].index("--env-file") + 1] == ".env.gpt"
+    assert captured["cmd"][captured["cmd"].index("--dataset") + 1] == "MDKG"

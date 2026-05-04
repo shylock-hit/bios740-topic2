@@ -345,6 +345,14 @@ Key MDKG patterns:
 
 The error analysis helper extracts boundary mismatches where a predicted entity overlaps a gold entity with the same type but has different offsets. We identify several categories of edge cases:
 
+To make the categories concrete, the table below shows real examples from the ADKG dev100 DeepSeek one-shot run. These examples are useful because they show why strict span/entity matching can fail even when the model captures much of the biomedical meaning.
+
+| Sentence ID | Sentence Snippet | Gold Entity/Relation | Predicted Entity/Relation | Error Type | Interpretation |
+| --- | --- | --- | --- | --- | --- |
+| `26663182_s13` | "...miRNAs are imported into mitochondria where they interact with some mitochondrial genome-derived mRNA molecules." | Entity: `mitochondrial genome-derived mRNA` (`gene`); relation: `miRNAs` `associated_with` `mitochondrial genome-derived mRNA` | Entity: `mitochondrial genome-derived mRNA molecules` (`gene`); relation: `miRNAs` `associated_with` `mitochondrial genome-derived mRNA molecules`; extra relation to `mitochondria` | Boundary over-extension and extra relation | The model finds the correct biological phrase but includes the head noun `molecules`, so strict span matching fails. It also adds a plausible but unannotated relation to `mitochondria`. |
+| `30804341_s4` | "Recent advances have shown that increased plasma Hcy is also a fundamental cause of neurodegenerative diseases..." | Entity: `increased plasma Hcy` (`other`); relation: `increased plasma Hcy` `risk_factor_of` `neurodegenerative diseases` | Entity: `Hcy` (`other`); relation: `Hcy` `risk_factor_of` `neurodegenerative diseases` | Boundary under-specification with relation cascade | The relation is semantically close, but the endpoint span is too narrow. Under strict relation scoring, the relation becomes wrong because endpoint spans must match exactly. |
+| `28235679_s1` | "...Alzheimer's disease (AD)... cerebrospinal fluid (CSF)..." | Entity/relation: `AD` (`disease`) `abbreviation_for` `Alzheimer's disease` | Entity/relation: `AD` (`other`) `abbreviation_for` `Alzheimer's disease` | Entity type error causing NEC relation failure | The abbreviation relation is structurally correct, but the predicted entity type for `AD` is wrong. This is counted as incorrect under relation-with-NEC because endpoint entity types must also match. |
+
 ### 7.1 Entity Boundary Errors
 
 - **Missing one modifier:** Predicting `dementia` instead of `Focal-Onset Dementias`. The model captures the core term but misses the modifier that changes the specificity.

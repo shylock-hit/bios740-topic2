@@ -1,10 +1,130 @@
 {
   "ADKG": {
-    "log": "outputs/logs/adkg_train_console.log",
-    "error": "missing log"
+    "split": "dev",
+    "model": "SpERT + PubMedBERT",
+    "entity_micro": {
+      "precision": 65.41,
+      "recall": 65.20,
+      "f1": 65.30,
+      "support": 3060
+    },
+    "relation_without_nec_micro": {
+      "precision": 48.55,
+      "recall": 44.88,
+      "f1": 46.64,
+      "support": 782
+    },
+    "relation_with_nec_micro": {
+      "precision": 41.91,
+      "recall": 38.75,
+      "f1": 40.27,
+      "support": 782
+    },
+    "saved_in": "outputs/checkpoints/adkg/adkg_pubmedbert_e20_bs2/2026-05-02_18:50:44.982426",
+    "logged_in": "outputs/logs/adkg_pubmedbert_e20_bs2/2026-05-02_18:50:44.982426",
+    "test_entity_micro": {
+      "precision": 70.2,
+      "recall": 65.78,
+      "f1": 67.92,
+      "support": 3115
+    },
+    "test_relation_without_nec_micro": {
+      "precision": 49.26,
+      "recall": 43.32,
+      "f1": 46.1,
+      "support": 764
+    },
+    "test_relation_with_nec_micro": {
+      "precision": 44.94,
+      "recall": 39.53,
+      "f1": 42.06,
+      "support": 764
+    },
+    "test_logged_in": "outputs/logs/adkg_test_eval/2026-05-04_11:34:46.004573",
+    "test_log": "outputs/logs/adkg_test_eval.log",
+    "dev100_entity_micro": {
+      "precision": 64.19,
+      "recall": 65.71,
+      "f1": 64.94,
+      "support": 210
+    },
+    "dev100_relation_without_nec_micro": {
+      "precision": 49.12,
+      "recall": 50.0,
+      "f1": 49.56,
+      "support": 56
+    },
+    "dev100_relation_with_nec_micro": {
+      "precision": 43.86,
+      "recall": 44.64,
+      "f1": 44.25,
+      "support": 56
+    },
+    "dev100_logged_in": "outputs/logs/adkg_dev100_eval/2026-05-04_11:59:11.331131",
+    "dev100_log": "outputs/logs/adkg_dev100_eval.log"
   },
   "MDKG": {
-    "log": "outputs/logs/mdkg_train_console.log",
-    "error": "missing log"
+    "split": "dev",
+    "model": "SpERT + PubMedBERT",
+    "entity_micro": {
+      "precision": 78.26,
+      "recall": 80.69,
+      "f1": 79.45,
+      "support": 3961
+    },
+    "relation_without_nec_micro": {
+      "precision": 56.02,
+      "recall": 58.70,
+      "f1": 57.33,
+      "support": 1569
+    },
+    "relation_with_nec_micro": {
+      "precision": 48.54,
+      "recall": 50.86,
+      "f1": 49.67,
+      "support": 1569
+    },
+    "saved_in": "outputs/checkpoints/mdkg/mdkg_pubmedbert_e20_bs2/2026-05-02_19:49:36.134736",
+    "logged_in": "outputs/logs/mdkg_pubmedbert_e20_bs2/2026-05-02_19:49:36.134736",
+    "test_entity_micro": {
+      "precision": 77.02,
+      "recall": 78.36,
+      "f1": 77.68,
+      "support": 3960
+    },
+    "test_relation_without_nec_micro": {
+      "precision": 55.96,
+      "recall": 57.48,
+      "f1": 56.71,
+      "support": 1430
+    },
+    "test_relation_with_nec_micro": {
+      "precision": 49.08,
+      "recall": 50.42,
+      "f1": 49.74,
+      "support": 1430
+    },
+    "test_logged_in": "outputs/logs/mdkg_test_eval/2026-05-04_11:35:09.989893",
+    "test_log": "outputs/logs/mdkg_test_eval.log",
+    "dev100_entity_micro": {
+      "precision": 83.46,
+      "recall": 83.04,
+      "f1": 83.25,
+      "support": 401
+    },
+    "dev100_relation_without_nec_micro": {
+      "precision": 47.53,
+      "recall": 57.46,
+      "f1": 52.03,
+      "support": 134
+    },
+    "dev100_relation_with_nec_micro": {
+      "precision": 41.36,
+      "recall": 50.0,
+      "f1": 45.27,
+      "support": 134
+    },
+    "dev100_logged_in": "outputs/logs/mdkg_dev100_eval/2026-05-04_12:01:02.930123",
+    "dev100_log": "outputs/logs/mdkg_dev100_eval.log"
   }
 }

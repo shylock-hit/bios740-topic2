@@ -284,6 +284,14 @@ MDKG entity recognition was strongest for `disease` (F1 86.91), `drug` (82.74), 
 
 We identify four systematic error categories through qualitative inspection of prediction-gold mismatches:
 
+Table 8 gives concrete examples from the ADKG dev100 DeepSeek one-shot run. These cases show that many errors are not random hallucinations; they are span-boundary, endpoint, or entity-type mismatches that become strict F1 errors.
+
+| Sentence ID | Gold Entity/Relation | Predicted Entity/Relation | Error Type | Interpretation |
+| --- | --- | --- | --- | --- |
+| `26663182_s13` | Entity: `mitochondrial genome-derived mRNA` (`gene`); relation: `miRNAs` `associated_with` `mitochondrial genome-derived mRNA` | Entity: `mitochondrial genome-derived mRNA molecules` (`gene`); relation uses the longer endpoint; extra relation to `mitochondria` | Boundary over-extension and extra relation | The model finds the correct biological phrase but includes the head noun `molecules`, so strict span matching fails. It also adds a plausible but unannotated relation. |
+| `30804341_s4` | Entity: `increased plasma Hcy` (`other`); relation: `increased plasma Hcy` `risk_factor_of` `neurodegenerative diseases` | Entity: `Hcy` (`other`); relation: `Hcy` `risk_factor_of` `neurodegenerative diseases` | Boundary under-specification with relation cascade | The relation is semantically close, but the endpoint span is too narrow. Strict relation scoring marks it wrong because endpoint spans must match exactly. |
+| `28235679_s1` | `AD` (`disease`) `abbreviation_for` `Alzheimer's disease` | `AD` (`other`) `abbreviation_for` `Alzheimer's disease` | Entity type error causing NEC relation failure | The abbreviation link is structurally correct, but relation-with-NEC counts it wrong because the endpoint entity type is incorrect. |
+
 ### 5.1 Entity Boundary Errors
 
 - **Missing modifiers:** Predicting `dementia` instead of `Focal-Onset Dementias`. The model captures the core term but misses modifiers that change disease specificity.
