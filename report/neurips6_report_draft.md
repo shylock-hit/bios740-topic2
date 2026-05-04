@@ -2,7 +2,7 @@
 
 ## Abstract
 
-We study biomedical triplet extraction on two PubMed-derived corpora: ADKG, focused on Alzheimer's disease and related neurodegenerative disorders, and MDKG, focused on mental disorders. The task requires identifying entity mentions and directed biomedical relations from sentence-level text. We implement a reproducible SpERT-based pipeline using PubMedBERT, including data validation, exploratory analysis, conversion to model input, training, evaluation, and error analysis. On the ADKG dev/test splits, the model achieves entity F1 of 65.30/67.92 and relation F1 (with NEC) of 40.27/42.06. On the MDKG dev/test splits, the model achieves entity F1 of 79.45/77.68 and relation F1 (with NEC) of 49.67/49.74. The extension component designs an agentic LLM annotation workflow on ADKG dev samples, comparing DeepSeek one-shot extraction against a 3-step pipeline (entity extraction → relation extraction → review/fix), evaluated with both strict and relaxed matching metrics. The workflow includes incremental progress tracking, system-level metrics (latency percentiles, parse success rate, validation error count), and automated error analysis with boundary overlap detection. The ADKG and MDKG full single-domain runs are complete, and the DeepSeek live API annotation experiment completed on a fixed 100-sentence ADKG dev sample with 100% parse success.
+We study biomedical triplet extraction on two PubMed-derived corpora: ADKG, focused on Alzheimer's disease and related neurodegenerative disorders, and MDKG, focused on mental disorders. The task requires identifying entity mentions and directed biomedical relations from sentence-level text. We implement a reproducible SpERT-based pipeline using PubMedBERT, including data validation, exploratory analysis, conversion to model input, training, evaluation, and error analysis. On the ADKG dev/test splits, the model achieves entity F1 of 65.30/67.92 and relation F1 (with NEC) of 40.27/42.06. On the MDKG dev/test splits, the model achieves entity F1 of 79.45/77.68 and relation F1 (with NEC) of 49.67/49.74. On matched 100-sentence dev subsets aligned with the LLM experiments, SpERT reaches ADKG dev100 entity/relation F1 of 64.94/44.25 and MDKG dev100 entity/relation F1 of 83.25/45.27. The extension component designs an agentic LLM annotation workflow on ADKG and MDKG dev100 samples, comparing DeepSeek, GPT, and Gemini one-shot extraction against a 3-step pipeline (entity extraction → relation extraction → review/fix), evaluated with both strict and relaxed matching metrics. The workflow includes incremental progress tracking, system-level metrics (latency percentiles, parse success rate, validation error count), and automated error analysis with boundary overlap detection.
 
 ## 1 Introduction
 
@@ -186,12 +186,18 @@ This table uses entity `micro` and relation `With NEC micro` from the final SpER
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | ADKG dev, PubMedBERT | 65.41 | 65.20 | 65.30 | 41.91 | 38.75 | 40.27 |
 | ADKG test, PubMedBERT | 70.20 | 65.78 | 67.92 | 44.94 | 39.53 | 42.06 |
+| ADKG dev100, PubMedBERT | 64.19 | 65.71 | 64.94 | 43.86 | 44.64 | 44.25 |
 | MDKG dev, PubMedBERT | 78.26 | 80.69 | 79.45 | 48.54 | 50.86 | 49.67 |
 | MDKG test, PubMedBERT | 77.02 | 78.36 | 77.68 | 49.08 | 50.42 | 49.74 |
+| MDKG dev100, PubMedBERT | 83.46 | 83.04 | 83.25 | 41.36 | 50.00 | 45.27 |
 | ADKG dev100, DeepSeek one-shot (strict) | 35.58 | 63.43 | 45.59 | 0.00 | 0.00 | 0.00 |
 | ADKG dev100, DeepSeek one-shot (relaxed) | 38.70 | 68.98 | 49.58 | 24.12 | 84.21 | 37.50 |
 | ADKG dev100, DeepSeek workflow (strict) | 32.65 | 58.80 | 41.98 | 0.00 | 0.00 | 0.00 |
 | ADKG dev100, DeepSeek workflow (relaxed) | 36.50 | 65.74 | 46.94 | 16.95 | 70.18 | 27.30 |
+| MDKG dev100, GPT one-shot (relaxed) | 57.55 | 60.85 | 59.15 | 29.73 | 57.46 | 39.19 |
+| MDKG dev100, GPT workflow (relaxed) | 57.53 | 58.10 | 57.82 | 30.28 | 56.72 | 39.48 |
+| MDKG dev100, Gemini one-shot (relaxed) | 50.12 | 79.05 | 61.83 | 40.00 | 66.67 | 50.00 |
+| MDKG dev100, Gemini workflow (relaxed) | 52.17 | 80.55 | 63.17 | 38.17 | 67.16 | 48.37 |
 
 ### 4.2 Comparison with SpERT Paper Benchmarks
 
@@ -516,7 +522,7 @@ The DeepSeek-compatible live API run completed on the fixed ADKG dev100 sample. 
 
 On ADKG, one-shot extraction outperforms the decomposed workflow and is substantially faster. The workflow requires three sequential API calls per sentence (`extract_entities`, `extract_relations`, `review_and_fix`), so the latency increase is expected. The ADKG quality drop suggests error propagation: relation extraction depends on step-1 entity mentions, and the review stage does not consistently recover missed or over-specific boundaries. Strict relation F1 is 0.0 for both modes, while relaxed relation F1 is non-zero, showing that many generated relations are semantically close but fail exact span/endpoint matching.
 
-This is not a universal conclusion about decomposition. As a sensitivity check for dataset dependence, we also ran MDKG dev subsets after isolating output directories to avoid overwrite contamination. The available clean MDKG dev100 run completed 100/100 samples, but it should not be treated as a final cross-dataset benchmark because the LLM schema and prompts were originally designed around ADKG and still show schema-mismatch artifacts in the output labels. Its direction is nevertheless informative: one-shot remained slightly higher than workflow on relaxed relation F1 (0.4476 vs 0.4013), while the workflow was slower (19.83s vs 10.98s average latency) and had more failures (4 vs 1). Any stronger cross-dataset claim would require a clean MDKG-specific schema/prompt rerun.
+This is not a universal conclusion about decomposition. We later ran MDKG-specific prompt experiments on the fixed MDKG dev100 sample for both GPT and Gemini. Those results sharpen the conclusion: GPT one-shot and workflow are almost tied on relaxed relation F1 (0.3919 vs 0.3948), but workflow is about 2.34x slower and has one failure. Gemini is clearly stronger on relaxed relation F1 (0.5000 one-shot and 0.4837 workflow), but Gemini workflow is also slower by about 2.61x and does not improve quality over Gemini one-shot. The most defensible conclusion is therefore that prompt/schema alignment matters more than decomposition, and that one-shot remains the stronger efficiency-quality tradeoff on this benchmark.
 
 **Provider configuration:** The experiment supports any OpenAI-compatible API endpoint, configured via `.env.llm`. A `MockLLMClient` with heuristic extraction is available for testing without API access.
 
@@ -526,7 +532,7 @@ This is not a universal conclusion about decomposition. As a sensitivity check f
 
 **Verified locally:** Sample generation, mock workflow run, live DeepSeek run, metrics summary generation, error analysis generation, figure generation, and incremental progress tracking all work correctly.
 
-**Live API execution:** The DeepSeek-compatible run completed for both one-shot and workflow modes on ADKG dev100. Both modes produced 100/100 parseable predictions with zero schema validation errors. The final reported ADKG metrics are taken from the generated report artifacts rather than the current mutable run directory, because later frontend/API reruns can overwrite or partially refresh `outputs/llm_runs/adkg_dev100_deepseek/`. A clean MDKG dev100 run is available as a sensitivity check only; it is not used as a final cross-dataset benchmark because the current LLM schema/prompt stack was not fully MDKG-specific.
+**Live API execution:** The DeepSeek-compatible run completed for both one-shot and workflow modes on ADKG dev100. Both modes produced 100/100 parseable predictions with zero schema validation errors. The final reported ADKG metrics are taken from the generated report artifacts rather than the current mutable run directory, because later frontend/API reruns can overwrite or partially refresh `outputs/llm_runs/adkg_dev100_deepseek/`. In addition, MDKG-specific GPT and Gemini runs completed on the fixed MDKG dev100 sample. GPT reached relaxed relation F1 0.3919/0.3948 for one-shot/workflow with average latency 9.03s/21.09s and one workflow failure; Gemini reached 0.5000/0.4837 with average latency 10.84s/28.33s and zero failures. These completed MDKG-specific runs replace the earlier limited sensitivity-check framing.
 
 **Deliberately deferred:** No LangGraph dependency, no async batching, no token/cost accounting, no retry/backoff logic, and no provider-specific parsing adapters beyond OpenAI-compatible chat completions. These remain future engineering improvements for scaling beyond the current sequential 100-sentence experiment.
 
