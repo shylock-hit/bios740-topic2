@@ -662,9 +662,18 @@ A `MockLLMClient` with heuristic extraction is available for testing without API
 
 These remain future engineering improvements for scaling beyond the current sequential 100-sentence experiment.
 
-### 8.13 Alternative Extension: Transfer Learning (Not Implemented)
+### 8.13 Extension B: Low-Resource Shared-Schema Transfer
 
-An alternative extension would study cross-domain transfer between ADKG and MDKG using a shared-schema subset (entities: `disease`, `drug`, `gene`, `method`; relations: `abbreviation_for`, `associated_with`, `characteristic_of`, `help_diagnose`, `hyponym_of`, `risk_factor_of`, `treatment_for`). The protocol would pretrain SpERT on the source shared-schema data, then fine-tune on the target shared-schema data. Shared-schema training scripts are already prepared in `scripts/train_transfer_*.sh`. This extension remains a planned future direction.
+We also ran a compact transfer-learning extension to test whether one dataset can help the other under a low-resource target setting. To avoid label-space mismatch, both datasets were filtered to the shared schema: entities `disease`, `drug`, `gene`, and `method`; relations `abbreviation_for`, `associated_with`, `characteristic_of`, `help_diagnose`, `hyponym_of`, `risk_factor_of`, and `treatment_for`. The target training split was reduced to 25% using a fixed seed (`740`), while the source model was trained on the full shared-schema source train split.
+
+| Run | Target | Setting | Dev Ent F1 | Dev Rel F1 (NEC) | Test Ent F1 | Test Rel F1 (NEC) |
+| --- | --- | --- | ---: | ---: | ---: | ---: |
+| MDKG 25% baseline | MDKG | PubMedBERT -> MDKG_shared train_25 | 77.07 | 47.61 | 75.36 | 43.34 |
+| ADKG -> MDKG 25% transfer | MDKG | ADKG_shared full source -> MDKG_shared train_25 | 78.15 | 50.25 | 76.45 | 47.21 |
+| ADKG 25% baseline | ADKG | PubMedBERT -> ADKG_shared train_25 | 65.05 | 42.36 | 66.81 | 44.87 |
+| MDKG -> ADKG 25% transfer | ADKG | MDKG_shared full source -> ADKG_shared train_25 | 65.78 | 39.70 | 68.46 | 44.87 |
+
+The transfer effect is asymmetric. ADKG -> MDKG improves both entity and relation extraction on dev and test, with the largest gain on MDKG test relation F1 (+3.87). MDKG -> ADKG improves entity F1 (+0.73 dev, +1.65 test), but does not improve relation F1: dev relation F1 drops by 2.66 and test relation F1 is unchanged. This suggests that cross-domain transfer can help, but only when the source-domain supervision aligns with the target relation distribution. The frozen summary is saved at `outputs/final_summary/extension_b_low_resource_transfer_summary.md`.
 
 ## 9. Reproducibility
 
@@ -700,6 +709,9 @@ nohup bash scripts/train_mdkg_full.sh > outputs/logs/mdkg_train_console.log 2>&1
 
 # Evaluate saved checkpoints on the full test splits
 bash scripts/eval_spert_test_autodl.sh
+
+# Extension B low-resource shared-schema transfer
+bash scripts/run_extension_b_low_resource_transfer_autodl.sh
 ```
 
 Agentic annotation (extension):
@@ -727,9 +739,9 @@ python scripts/analyze_llm_errors.py --gold outputs/llm_runs/adkg_dev100_sample.
 ## 10. Limitations
 
 1. **LLM evaluation scope:** The live DeepSeek experiment is complete, but the final reported LLM result is limited to a 100-sentence ADKG dev sample. The result is useful for ADKG workflow comparison, not a full-dataset or cross-dataset benchmark.
-2. **Single discriminative model:** Only SpERT with PubMedBERT was evaluated. Comparison with PURE or other architectures would strengthen the benchmarking component.
+2. **Single discriminative architecture:** The discriminative experiments use SpERT with PubMedBERT. Comparison with PURE or other architectures would strengthen the benchmarking component.
 3. **No generative SFT comparison:** Extension A (generative vs. discriminative RE via supervised fine-tuning of open LLMs) was not implemented. This would provide valuable insight into whether fine-tuned LLMs can match discriminative models.
-4. **Extension limited to ADKG dev sample:** The final LLM annotation experiment is scoped to 100 ADKG dev sentences. MDKG subset runs are useful as sensitivity checks, but a final MDKG LLM conclusion would require a fully MDKG-specific schema/prompt and immutable output directories.
+4. **LLM extension sample scope:** The LLM annotation experiments use fixed 100-sentence dev samples rather than full dev/test splits. This is appropriate for workflow/provider comparison but not a replacement for full discriminative evaluation.
 5. **LLM artifact provenance:** Early frontend-triggered reruns reused output directory names, so some current `outputs/llm_runs/*` directories are mutable or partially overwritten. The report therefore treats generated summaries/figures and explicitly named clean run directories as the source of truth, and future runs should use unique run directories.
 6. **Error analysis depth:** The automated error analysis (`analyze_llm_errors.py`) covers boundary overlaps and failure histograms but does not yet quantify relation direction errors, long-range misses, or hallucinated entities systematically.
 7. **No cost accounting:** The agentic workflow tracks per-sentence latency and parse success but does not record token usage or API costs, which are important for practical deployment decisions.
@@ -743,3 +755,5 @@ This project implements a biomedical triplet extraction pipeline for ADKG and MD
 The ADKG and MDKG single-domain runs are complete on both dev and test splits. On test, SpERT with PubMedBERT reaches ADKG entity F1 67.92 / relation F1 42.06 and MDKG entity F1 77.68 / relation F1 49.74. Type-level analysis reveals consistent patterns: abbreviation relations are easiest, broad association relations are hardest, and rare entity types suffer from low recall. MDKG's superior baseline result is not contradicted by its higher density: the additional relation supervision and clearer label semantics appear to outweigh the increased number of candidate entity pairs.
 
 The extension component implements and evaluates an agentic workflow for LLM-based data annotation, comparing DeepSeek one-shot extraction against a 3-step agent pipeline (entity extraction → relation extraction → review/fix). The live ADKG dev100 run completed for both modes with 100% parse success and zero schema validation errors. On ADKG, one-shot extraction was both more accurate and faster than the decomposed workflow: relaxed relation F1 was 37.50 for one-shot versus 27.30 for workflow, with average latency 15.08s versus 29.07s per sentence. This supports an ADKG-specific interpretation that the current decomposition can introduce error propagation when entity extraction misses or over-specifies mentions. It should not be generalized to all datasets without a clean dataset-specific prompt/schema rerun.
+
+The compact Extension B transfer experiment shows that low-resource shared-schema transfer is possible but asymmetric: ADKG -> MDKG improves MDKG relation F1, while MDKG -> ADKG mainly improves entity F1 and does not improve relation F1. This makes the result useful as evidence that auxiliary data can help, but only when source and target supervision align.

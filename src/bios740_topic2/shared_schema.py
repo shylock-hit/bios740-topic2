@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import random
 from typing import Any
 
 
@@ -52,6 +53,22 @@ def filter_dataset_to_schema(
         split: [filter_sample_to_schema(sample, entity_types, relation_types) for sample in samples]
         for split, samples in dataset.items()
     }
+
+
+def sample_train_split(
+    dataset: dict[str, list[dict[str, Any]]], ratio: float, seed: int = 740
+) -> dict[str, list[dict[str, Any]]]:
+    if ratio <= 0 or ratio > 1:
+        raise ValueError("ratio must be in (0, 1]")
+    rng = random.Random(seed)
+    train = list(dataset.get("train", []))
+    sample_count = max(1, round(len(train) * ratio)) if train else 0
+    sampled_train = rng.sample(train, sample_count) if sample_count else []
+    return {
+        split: deepcopy(samples)
+        for split, samples in dataset.items()
+        if split != "train"
+    } | {"train": sampled_train}
 
 
 def build_shared_types(entity_types: set[str], relation_types: set[str]) -> dict[str, Any]:

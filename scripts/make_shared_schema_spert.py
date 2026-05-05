@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from bios740_topic2.shared_schema import (
     build_shared_types,
     filter_dataset_to_schema,
+    sample_train_split,
     shared_schema,
 )
 
@@ -33,6 +34,20 @@ def write_split_dir(path: Path, dataset: dict[str, list[dict]], types: dict) -> 
     )
 
 
+def write_low_resource_train(path: Path, dataset: dict[str, list[dict]], ratio: float, seed: int) -> dict:
+    sampled = sample_train_split(dataset, ratio=ratio, seed=seed)
+    low_path = path / f"train_{int(ratio * 100)}.json"
+    low_path.write_text(
+        json.dumps(sampled["train"], indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    return count_items({"train": sampled["train"]})["train"] | {
+        "ratio": ratio,
+        "seed": seed,
+        "path": str(low_path),
+    }
+
+
 def count_items(dataset: dict[str, list[dict]]) -> dict[str, dict[str, int]]:
     return {
         split: {
@@ -49,6 +64,8 @@ def main() -> None:
     parser.add_argument("--adkg-dir", default="outputs/spert/adkg")
     parser.add_argument("--mdkg-dir", default="outputs/spert/mdkg")
     parser.add_argument("--output-dir", default="outputs/spert_shared")
+    parser.add_argument("--target-ratio", type=float, default=0.25)
+    parser.add_argument("--seed", type=int, default=740)
     args = parser.parse_args()
 
     adkg_dir = Path(args.adkg_dir)
@@ -65,12 +82,20 @@ def main() -> None:
 
     write_split_dir(output_dir / "adkg", adkg, shared_types)
     write_split_dir(output_dir / "mdkg", mdkg, shared_types)
+    adkg_low = write_low_resource_train(output_dir / "adkg", adkg, args.target_ratio, args.seed)
+    mdkg_low = write_low_resource_train(output_dir / "mdkg", mdkg, args.target_ratio, args.seed)
 
     summary = {
         "shared_entities": sorted(schema["entities"]),
         "shared_relations": sorted(schema["relations"]),
+        "target_ratio": args.target_ratio,
+        "seed": args.seed,
         "adkg": count_items(adkg),
         "mdkg": count_items(mdkg),
+        "low_resource_train": {
+            "adkg": adkg_low,
+            "mdkg": mdkg_low,
+        },
     }
     (output_dir / "summary.json").write_text(
         json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8"
